@@ -2,12 +2,8 @@ import { styled } from "styled-components";
 
 import homeIconPng from "src/app/assets/home_icon.png";
 import homeIconWebp from "src/app/assets/home_icon.webp";
+import { Container } from "src/app/components/Layout";
 
-const Container = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-`;
 const Image = styled.img`
   border-radius: 50%;
   max-width: 10rem;
