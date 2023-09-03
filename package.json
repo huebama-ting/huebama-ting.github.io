@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "license": "MIT",
+  "homepage": "https://huebama-ting.github.io/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
