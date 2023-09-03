@@ -13,14 +13,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fontsource-variable/overpass": "^5.0.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "styled-components": "^6.0.7"
+    "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
-    "@swc/plugin-styled-components": "^1.5.75",
+    "@swc/plugin-emotion": "^2.5.75",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.5.0",

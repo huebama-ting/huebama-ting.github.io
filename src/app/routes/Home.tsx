@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "@emotion/styled";
 
 import homeIconPng from "src/app/assets/home_icon.png";
 import homeIconWebp from "src/app/assets/home_icon.webp";

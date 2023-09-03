@@ -7,7 +7,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [
     react({
-      plugins: [["@swc/plugin-styled-components", { displayName: true }]],
+      plugins: [["@swc/plugin-emotion", {}]],
     }),
     tsconfigPaths(),
     VitePWA({
