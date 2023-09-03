@@ -56,7 +56,9 @@ export default defineConfig({
       },
       registerType: "autoUpdate",
       workbox: {
-        globPatterns: ["**/*.{js,json,css,html,txt,ico,png,svg,webp}"],
+        globPatterns: [
+          "**/*.{js,json,css,html,txt,ico,png,svg,webp,woff2,woff2}",
+        ],
       },
     }),
   ],

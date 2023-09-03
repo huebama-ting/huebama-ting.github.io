@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource-variable/overpass':
+    specifier: ^5.0.9
+    version: 5.0.9
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -1611,6 +1614,10 @@ packages:
     resolution: {integrity: sha512-ZSjtmelB7IJfWD2Fvb7+Z+ChTIKWq6kjda95fLcQKNS5aheVHn4IkfgRQE3sIIzTcSLwLcLZUD9UBt+V7+h+Pw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fontsource-variable/overpass@5.0.9:
+    resolution: {integrity: sha512-eg0XtlUvDR96SLBTznCMImlAxb5q20BGMrPEcUCSx5a+Ajw00U08RD92RLdtz3CDRB0cC7r3NWRh4EAaRWfQig==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.11:
     resolution: {integrity: sha512-N2brEuAadi0CcdeMXUkhbZB84eskAc8MEX1By6qEchoVywSgXPIjou4rYsl0V3Hj0ZnuGycGCjdNgockbzeWNA==}
