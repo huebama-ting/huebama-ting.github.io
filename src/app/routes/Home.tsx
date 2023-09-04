@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import Sheet from "@mui/joy/Sheet";
+import Typography from "@mui/joy/Typography";
 
 import homeIconPng from "src/app/assets/home_icon.png";
 import homeIconWebp from "src/app/assets/home_icon.webp";
@@ -9,25 +11,24 @@ const Image = styled.img`
   max-width: 10rem;
   max-height: 10rem;
 `;
-const Title = styled.h1`
-  text-align: center;
-`;
 
 function Home() {
   return (
-    <Container>
-      <picture>
-        <source type="image/webp" srcSet={homeIconWebp} />
-        <source type="image/png" srcSet={homeIconPng} />
-        <Image
-          src={homeIconPng}
-          width="1000"
-          height="1000"
-          alt="Icon showing a lazy egg"
-        />
-      </picture>
-      <Title>Hello world!</Title>
-    </Container>
+    <Sheet>
+      <Container>
+        <picture>
+          <source type="image/webp" srcSet={homeIconWebp} />
+          <source type="image/png" srcSet={homeIconPng} />
+          <Image
+            src={homeIconPng}
+            width="1000"
+            height="1000"
+            alt="Icon showing a lazy egg"
+          />
+        </picture>
+        <Typography level="h1">Hello world!</Typography>
+      </Container>
+    </Sheet>
   );
 }
 
