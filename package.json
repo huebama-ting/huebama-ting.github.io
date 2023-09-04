@@ -21,6 +21,7 @@
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
+    "@emotion/eslint-plugin": "^11.11.0",
     "@swc/plugin-emotion": "^2.5.75",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",

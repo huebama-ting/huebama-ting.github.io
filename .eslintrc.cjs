@@ -15,12 +15,12 @@ module.exports = {
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: "latest",
+    ecmaVersion: "ES2022",
     sourceType: "module",
     project: true,
     tsconfigRootDir: __dirname,
   },
-  plugins: ["react-refresh"],
+  plugins: ["@emotion", "react-refresh"],
   rules: {
     "@typescript-eslint/no-non-null-assertion": "off",
     "import/default": "off",
