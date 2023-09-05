@@ -8,6 +8,10 @@ import "src/index.css";
 import ErrorElement from "src/app/routes/ErrorElement";
 import Home from "src/app/routes/Home";
 
+if (typeof window !== "undefined") {
+  import("src/pwa");
+}
+
 const theme = extendTheme({
   fontFamily: {
     display:
