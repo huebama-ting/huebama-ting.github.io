@@ -10,9 +10,5 @@ const updateSW = registerSW({
       updateSW(true);
     }
   },
-  onOfflineReady() {
-    if (process.env.NODE_ENV !== "'production'") {
-      console.log("Offline ready");
-    }
-  },
+  onOfflineReady() {},
 });
