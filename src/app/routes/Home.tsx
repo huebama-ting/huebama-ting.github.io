@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
 
-import homeIconPng from "src/app/assets/home_icon.png";
-import homeIconWebp from "src/app/assets/home_icon.webp";
+import homeIconPng from "src/app/assets/images/home_icon.png";
+import homeIconWebp from "src/app/assets/images/home_icon.webp";
 import { Container } from "src/app/components/Layout";
 
 const Image = styled.img`
