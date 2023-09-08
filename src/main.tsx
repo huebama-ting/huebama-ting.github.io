@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "src/index.css";
+import { Routes } from "src/app/common/constants";
 import ErrorElement from "src/app/routes/ErrorElement";
 import Home from "src/app/routes/Home";
 
@@ -21,7 +22,7 @@ const theme = extendTheme({
 });
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: Routes.ROOT,
     element: <Home />,
     errorElement: <ErrorElement />,
   },
