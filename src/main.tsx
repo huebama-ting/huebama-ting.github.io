@@ -7,7 +7,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "src/index.css";
 import { Routes } from "src/app/common/constants";
 import ErrorElement from "src/app/routes/ErrorElement";
-import Home from "src/app/routes/Home";
 
 if (typeof window !== "undefined") {
   import("src/pwa");
@@ -23,7 +22,11 @@ const theme = extendTheme({
 const router = createBrowserRouter([
   {
     path: Routes.ROOT,
-    element: <Home />,
+    lazy: async () => {
+      const { Home } = await import("src/app/routes/Home");
+
+      return { Component: Home };
+    },
     errorElement: <ErrorElement />,
   },
 ]);
