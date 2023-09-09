@@ -9,7 +9,9 @@ const ErrorContainer = styled.div`
 export function ErrorElement() {
   const error = useRouteError();
 
-  console.error(error);
+  if (import.meta.env.DEV) {
+    console.error(error);
+  }
 
   if (isRouteErrorResponse(error)) {
     return (
