@@ -6,7 +6,7 @@ const ErrorContainer = styled.div`
   font-family: "Overpass Variable";
 `;
 
-export function ErrorElement() {
+export function ErrorElement(): React.ReactNode {
   const error = useRouteError();
 
   console.error(error);
