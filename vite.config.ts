@@ -21,7 +21,7 @@ export default defineConfig({
         name: "Huebama",
         short_name: "Huebama",
         description: "Huebama's personal website",
-        theme_color: "#121416",
+        theme_color: "#051423",
         icons: [
           {
             src: "pwa-64x64.png",
