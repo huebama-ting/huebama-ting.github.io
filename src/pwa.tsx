@@ -6,7 +6,7 @@ const updateSW = registerSW({
   onNeedRefresh() {
     if (confirm("New content available. Reload?")) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-floating-promises
-      updateSW(true);
+      updateSW();
     }
   },
   onOfflineReady() {},
