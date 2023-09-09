@@ -1,6 +1,10 @@
+import styled from "@emotion/styled";
+import Typography from "@mui/joy/Typography";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
-import { Container } from "src/app/components/Layout";
+const ErrorContainer = styled.div`
+  font-family: "Overpass Variable";
+`;
 
 function ErrorElement() {
   const error = useRouteError();
@@ -9,22 +13,29 @@ function ErrorElement() {
 
   if (isRouteErrorResponse(error)) {
     return (
-      <Container>
-        <h1>Oops!</h1>
-        <p>Sorry, an unexpected error has occurred.</p>
-        <p>
+      <ErrorContainer>
+        <Typography level="h1">Oops!</Typography>
+        <br />
+        <Typography level="body-lg">
+          Sorry, an unexpected error has occurred.
+        </Typography>
+        <br />
+        <Typography level="body-md">
           <i>
             {error.status} {error.statusText}
           </i>
-        </p>
-      </Container>
+        </Typography>
+      </ErrorContainer>
     );
   } else {
     return (
-      <Container>
-        <h1>Oops!</h1>
-        <p>Sorry, an unexpected error has occurred.</p>
-      </Container>
+      <ErrorContainer>
+        <Typography level="h1">Oops!</Typography>
+        <br />
+        <Typography level="body-lg">
+          Sorry, an unexpected error has occurred.
+        </Typography>
+      </ErrorContainer>
     );
   }
 }
