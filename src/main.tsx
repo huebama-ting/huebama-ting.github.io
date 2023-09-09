@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "src/index.css";
 import { Routes } from "src/app/common/constants";
-import ErrorElement from "src/app/routes/ErrorElement";
+import { ErrorElement } from "src/app/routes/ErrorElement";
 
 if (typeof window !== "undefined") {
   import("src/pwa");

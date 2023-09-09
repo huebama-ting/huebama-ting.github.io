@@ -6,7 +6,7 @@ const ErrorContainer = styled.div`
   font-family: "Overpass Variable";
 `;
 
-function ErrorElement() {
+export function ErrorElement() {
   const error = useRouteError();
 
   console.error(error);
@@ -39,5 +39,3 @@ function ErrorElement() {
     );
   }
 }
-
-export default ErrorElement;
