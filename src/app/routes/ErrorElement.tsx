@@ -6,6 +6,18 @@ const ErrorContainer = styled.div`
   font-family: "Overpass Variable";
 `;
 
+function ErrorText() {
+  return (
+    <>
+      <Typography level="h1">Oops!</Typography>
+      <br />
+      <Typography level="body-lg">
+        Sorry, an unexpected error has occurred.
+      </Typography>
+    </>
+  );
+}
+
 export function ErrorElement(): React.ReactNode {
   const error = useRouteError();
 
@@ -16,11 +28,7 @@ export function ErrorElement(): React.ReactNode {
   if (isRouteErrorResponse(error)) {
     return (
       <ErrorContainer>
-        <Typography level="h1">Oops!</Typography>
-        <br />
-        <Typography level="body-lg">
-          Sorry, an unexpected error has occurred.
-        </Typography>
+        <ErrorText />
         <br />
         <Typography level="body-md">
           <i>
@@ -30,14 +38,25 @@ export function ErrorElement(): React.ReactNode {
       </ErrorContainer>
     );
   } else {
-    return (
-      <ErrorContainer>
-        <Typography level="h1">Oops!</Typography>
-        <br />
-        <Typography level="body-lg">
-          Sorry, an unexpected error has occurred.
-        </Typography>
-      </ErrorContainer>
-    );
+    if (!navigator.onLine) {
+      return (
+        <ErrorContainer>
+          <ErrorText />
+          <br />
+          <Typography level="body-md">
+            <i>
+              You seem to be offline. Try reloading this page again once you are
+              online.
+            </i>
+          </Typography>
+        </ErrorContainer>
+      );
+    } else {
+      return (
+        <ErrorContainer>
+          <ErrorText />
+        </ErrorContainer>
+      );
+    }
   }
 }
