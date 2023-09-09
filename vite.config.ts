@@ -11,7 +11,7 @@ export default defineConfig({
     }),
     tsconfigPaths(),
     VitePWA({
-      devOptions: { enabled: true },
+      devOptions: { enabled: true, type: "module" },
       includeAssets: [
         "favicon.ico",
         "favicon.svg",
