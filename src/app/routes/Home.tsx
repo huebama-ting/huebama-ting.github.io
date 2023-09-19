@@ -3,9 +3,9 @@ import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
 import { Link } from "react-router-dom";
 
-import homeIconPng from "src/app/assets/images/home_icon.png";
-import homeIconWebp from "src/app/assets/images/home_icon.webp";
 import { Container } from "src/app/components/Layout";
+import homeIconPng from "src/assets/images/home_icon.png";
+import homeIconWebp from "src/assets/images/home_icon.webp";
 
 const Image = styled.img`
   border-radius: 50%;
