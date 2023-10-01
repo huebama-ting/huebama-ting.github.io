@@ -13,6 +13,7 @@ export default defineConfig({
   },
   plugins: [
     react({
+      devTarget: "es2022",
       plugins: [["@swc/plugin-emotion", {}]],
     }),
     tsconfigPaths(),
