@@ -18,7 +18,6 @@ export default defineConfig({
     }),
     tsconfigPaths(),
     VitePWA({
-      devOptions: { enabled: true, type: "module" },
       includeAssets: [
         "favicon.ico",
         "favicon.svg",
@@ -60,9 +59,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: [
-          "**/*.{js,json,css,html,txt,ico,png,svg,webp,woff2,woff2}",
-        ],
+        globPatterns: ["**/*.{js,json,css,html,txt,ico,png,svg,webp,woff2}"],
       },
     }),
   ],
