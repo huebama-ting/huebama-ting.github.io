@@ -23,6 +23,18 @@ module.exports = {
   plugins: ["@emotion", "react-refresh"],
   rules: {
     "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        args: "all",
+        argsIgnorePattern: "^_",
+        caughtErrors: "all",
+        caughtErrorsIgnorePattern: "^_",
+        destructuredArrayIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        ignoreRestSiblings: true,
+      },
+    ],
     "import/default": "off",
     "import/no-named-as-default-member": "off",
     "import/no-unresolved": "error",
