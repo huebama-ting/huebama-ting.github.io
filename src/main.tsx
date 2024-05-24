@@ -29,6 +29,15 @@ const router = createBrowserRouter([
     },
     errorElement: <ErrorElement />,
   },
+  {
+    path: Routes.COOP_REPORT,
+    lazy: async () => {
+      const { CoopReport } = await import("src/app/routes/CoopReport");
+
+      return { Component: CoopReport };
+    },
+    errorElement: <ErrorElement />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -36,5 +45,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <CssVarsProvider defaultMode="dark" theme={theme}>
       <RouterProvider router={router} />
     </CssVarsProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

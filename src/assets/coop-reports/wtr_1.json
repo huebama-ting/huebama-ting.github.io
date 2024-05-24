@@ -1,8 +1,84 @@
 {
   "title": "Co-op Work Term Report 1",
+  "term": "Summer 2020",
   "company": {
     "name": "Camis",
-    "description": "Camis is a company based out of Guelph, Ontario that develops web and desktop solutions for all things camping related, from reservations online to reservations via a call center to point of sale in park. Founded in 1979, they're a key player in the end to end camping services niche. Major clients include Ontario Parks (provincal parks), Parks Canada (national parks) and Michigan Parks (state parks).",
-    "imageName": "camis"
+    "description": "Camis is a company based out of Guelph, Ontario that develops web and desktop solutions for all things camping related, from reservations online to reservations via a call center to point of sale in park. Founded in 1979, they're a key player in the end to end camping services niche. Major clients include Ontario Parks (provincal parks), Parks Canada (national parks) and Michigan Parks (state parks)."
+  },
+  "job": {
+    "position": "Quality Assurance Co-op",
+    "tasks": [
+      "Regression testing for multiple clients whenever a new version is scheduled to be released.",
+      "Testing tickets related to client reported issues to see if they are legitimate issues and responding to them as appropriate.",
+      "Retesting fixed tickets to confirm the issues have been resolved according to the client’s needs."
+    ],
+    "uniqueAspect": "The interesting juxtaposition of the QA team with respect to the developers and the client made the job very unique: nearly all issues that clients report come by the QA team and we try our best to pass along the client’s concerns while adding on with our own technical knowledge of the product to create the most straightforward product feedback that the devs can then build upon to improve the product, while satisfying the client's needs."
+  },
+  "workTermSkills": [
+    {
+      "skill": "Interteam Communication",
+      "use": "Oftentimes, communication to and from other teams was needed due to the multifaceted nature of the product to make sure issues were escalated to the right people or to confirm whether an issue was a feature or a bug.",
+      "knowledgeSource": "The communication aspect was learned from class during collaborative projects, with tweaks coming from experience on the job to better adjust to company environment."
+    },
+    {
+      "skill": "Knowledge of the Testing Workflow",
+      "use": "A large portion of the job focussed on testing a product; therefore knowledge of how to conduct tests properly by covering edge cases, making a note of input and output, etc. was essential.",
+      "knowledgeSource": "The theoretical portion of the skill came from learning about testing in class, with experience on the job in the form of detailed Jira test cases and feedback for teammates allowing the task to be streamlined."
+    },
+    {
+      "skill": "Written Communication",
+      "use": "The primary way to report an issue that comes up in testing is via a bug ticket in Jira: the devs rely on this ticket to solve the issue, so being concise and to the point in as much detail as possible when describing the issue and giving issue reproduction steps is important to make the job easier for everyone. Additionally, direct communication is often required with the client to clarify issues or to report testing results, making a professional tone a necessity on the job.",
+      "knowledgeSource": "As I had never written a bug report before starting this job, the bug report portion was definitely learned on the job, while the professional communication aspect came from life experience through interacting with other people."
+    }
+  ],
+  "goal": {
+    "mainGoals": [
+      {
+        "name": "Improve inter-team communication skills",
+        "outcome": "I have been able to seek out the correct squad to escalate issues to far more consistently now that I have a good understanding of which component of the product is being maintained by which squad internally."
+      },
+      {
+        "name": "Write concise, detailed bug reports",
+        "outcome": "I have been able to significantly shorten my bug report tickets, mainly by cutting out a lot of redundant language and moving important notes to their own sections in the ticket when needed."
+      },
+      {
+        "name": "Notice issues independently",
+        "outcome": "Most of the time, I still need to double check with teammates on whether something is an issue before going ahead with the ticket, especially if the issue at play is not a major component breaking bug. With larger issues however, I can now use proper judgement and make the ticket without guidance. I think I couldn;t complete this goal due to an unconscious habit in not wanting to make tickets over nothing and wasting other people’s time. I think that as I move forward, this should become less of an issue as I’ve realized that non issues can simply be closed without issue with a few clicks, which is faster than waiting for a response from teammates, since they can be busy with their own work, making for a better work experience for everyone."
+      }
+    ],
+    "miscGoals": [
+      {
+        "name": "Technologies I wanted to work with",
+        "outcome": "I wanted to get a good grasp on a ticket management system such as Jira, seeing as they are ubiquitous in the software development field, meaning in depth knowledge of such systems are a valuable asset for hitting the ground running at any job. I can now confidently say I know Jira in and out from a QA perspective very well!"
+      },
+      {
+        "name": "Learning new skills and their impact in the future",
+        "outcome": "As this was my first technical job in the software field, I wanted to achieve an understanding of how a software company operates on a day to day basis. Experiencing the agile methodology at work on a large scale was a really rewarding experience and will definitely help me in my next work term as a software developer co-op (also at Camis!) seeing as I can hit the ground running with 4 months of daily standups and general knowledge of short work sprints, making the adjustment from a QA type sprint to a dev oriented sprint that much easier."
+      },
+      {
+        "name": "Relating goals to job tasks",
+        "outcome": "While two of my goals are broad in scope and can be applied to many different jobs, my goal that deals with bug reports chiefly relates to QA as a job, since that is out primary job as part of quality assurance testing, so I feel that all my goals have been very cohesive with the tasks I am given at work."
+      }
+    ]
+  },
+  "bonus": {
+    "quotes": [
+      "IT/QA jobs are lower tier than dev jobs lol",
+      "IT/QA jobs are only for people who don't have what it takes for dev jobs"
+    ],
+    "explanations": [
+      "These are opinions that I see going around a lot, especially during the job search period for students approaching their first work term.",
+      "This isn't really true, since it's good to get ANY job experience on the first work term. Additionally, QA and dev go hand in hand; not having developers means no product, just as not having QA in the mix means no deliverable product. Both roles are essential!",
+      "While a QA job may be less than ideal for many people due the percieved lack of coding involved, it was anything but that for me. I had tons of fun on the job, and I definitely wouldn't mind doing it some more.",
+      "At the end of the day, both QA and developer jobs are technical jobs in the field, each with their pros and cons, but ultimately the line that separates them is quite blurred; there is bug testing a component when writing code, and there is writing code bug testing a component. There are definitely no ranks involved, and everyone should give QA a shot to see if they like it before making their judgement."
+    ]
+  },
+  "conclusion": {
+    "endingNote": "And that's it, we've reached the end of the work term, and the end of the work term report as well. I hope you had as much fun reading this as I did designing and coding this website! Despite the pecuilar circumstances with COVID-19 forcing the work term to be entirely remote, it was honestly an eye opener to see how a tech based company operates on a day to day basis. There's definitely more than what meets the eye when it comes to operating the machine that is a company 😉. I definitely picked up many new skills for the future, and I achieved the goals I set out for myself. After it's all said and done, I'm very glad Camis gave me the opportunity to have an extremely rewarding first (and second, too, coming up this fall!) work experience in the field.",
+    "specialThanks": [
+      "To everyone at Camis for allowing me to have a wonderful experience as part of my first work term and enduring all my noob questions at work 😀",
+      "To all the people behind the scenes at the University of Guelph who make the co-op program possible for students even amid the unprecedented circumstances we find ourselves in currently 💪",
+      "To my longtime buddy who forced me to write up the report and design the website before coding it 😜"
+    ]
   }
 }
