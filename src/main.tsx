@@ -7,10 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "src/index.css";
 import { Routes } from "src/app/common/constants";
 import { ErrorElement } from "src/app/routes/ErrorElement";
-
-if (typeof window !== "undefined") {
-  import("src/pwa");
-}
+import { PwaReloadPrompt } from "src/pwa";
 
 const theme = extendTheme({
   fontFamily: {
@@ -44,6 +41,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <CssVarsProvider defaultMode="dark" theme={theme}>
       <RouterProvider router={router} />
+      <PwaReloadPrompt />
     </CssVarsProvider>
   </React.StrictMode>,
 );
