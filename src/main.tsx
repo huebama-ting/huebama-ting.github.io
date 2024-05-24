@@ -7,7 +7,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "src/index.css";
 import { Routes } from "src/app/common/constants";
 import { ErrorElement } from "src/app/routes/ErrorElement";
-import { PwaReloadPrompt } from "src/pwa";
+import { PwaReloadPrompt } from "src/PwaReloadPrompt";
 
 const theme = extendTheme({
   fontFamily: {
