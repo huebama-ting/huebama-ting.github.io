@@ -18,6 +18,10 @@ export default defineConfig({
     }),
     tsconfigPaths(),
     VitePWA({
+      devOptions: {
+        enabled: true,
+        suppressWarnings: true,
+      },
       includeAssets: [
         "favicon.ico",
         "favicon.svg",
