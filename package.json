@@ -6,7 +6,7 @@
   "license": "MIT",
   "homepage": "https://huebama-ting.github.io/",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --report-unused-disable-directives --max-warnings 0",
     "lint:css": "stylelint ./src/**/*.tsx",
