@@ -25,8 +25,8 @@ interface CoopReportContentViewProps {
 }
 
 const Quote = styled.blockquote`
-  background-color: #444444;
   padding: 1rem;
+  background-color: #444;
 `;
 
 const cardTextStyles: SxProps = {

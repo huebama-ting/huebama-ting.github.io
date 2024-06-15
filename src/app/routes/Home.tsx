@@ -8,9 +8,9 @@ import homeIconPng from "src/assets/images/home_icon.png";
 import homeIconWebp from "src/assets/images/home_icon.webp";
 
 const Image = styled.img`
-  border-radius: 50%;
   max-width: 10rem;
   max-height: 10rem;
+  border-radius: 50%;
 `;
 
 export function Home() {
