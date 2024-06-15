@@ -1,13 +1,13 @@
 import "@fontsource-variable/overpass";
 import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "src/index.css";
 import { Routes } from "src/app/common/constants";
+import { PwaReloadPrompt } from "src/app/common/PwaReloadPrompt";
 import { ErrorElement } from "src/app/routes/ErrorElement";
-import { PwaReloadPrompt } from "src/PwaReloadPrompt";
 
 const theme = extendTheme({
   fontFamily: {
@@ -38,10 +38,10 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  <StrictMode>
     <CssVarsProvider defaultMode="dark" theme={theme}>
       <RouterProvider router={router} />
       <PwaReloadPrompt />
     </CssVarsProvider>
-  </React.StrictMode>,
+  </StrictMode>,
 );

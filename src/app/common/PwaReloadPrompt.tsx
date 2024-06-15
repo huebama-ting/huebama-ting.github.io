@@ -4,7 +4,6 @@ import DialogContent from "@mui/joy/DialogContent";
 import Modal from "@mui/joy/Modal";
 import ModalDialog from "@mui/joy/ModalDialog";
 import { useState } from "react";
-// eslint-disable-next-line import/no-unresolved
 import { useRegisterSW } from "virtual:pwa-register/react";
 
 export function PwaReloadPrompt() {
