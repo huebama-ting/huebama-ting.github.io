@@ -9,8 +9,8 @@
     "start": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --report-unused-disable-directives --max-warnings 0",
-    "lint:css": "stylelint ./src/**/*.tsx",
-    "lint:css:fix": "stylelint ./src/**/*.tsx --fix",
+    "lint:css": "stylelint ./src/**/*.{css,scss,sass,tsx}",
+    "lint:css:fix": "stylelint ./src/**/*.{css,scss,sass,tsx} --fix",
     "preview": "vite preview"
   },
   "dependencies": {
