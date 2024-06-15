@@ -1,8 +1,11 @@
-/* eslint-env node */
-
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: {
+    browser: true,
+    es2022: true,
+    node: true,
+    "shared-node-browser": true,
+  },
   extends: [
     "eslint:recommended",
 
@@ -10,13 +13,18 @@ module.exports = {
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
 
     "prettier",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: "ES2022",
+    ecmaVersion: "2022",
+    ecmaFeatures: {
+      jsx: true,
+    },
     sourceType: "module",
     project: true,
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -86,4 +94,5 @@ module.exports = {
       },
     },
   },
+  reportUnusedDisableDirectives: true,
 };
