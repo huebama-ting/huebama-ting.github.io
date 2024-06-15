@@ -5,6 +5,7 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     "eslint:recommended",
+
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:import/recommended",
@@ -18,6 +19,7 @@ module.exports = {
     ecmaVersion: "ES2022",
     sourceType: "module",
     project: true,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     tsconfigRootDir: __dirname,
   },
   plugins: ["@emotion", "react-refresh"],
@@ -37,7 +39,12 @@ module.exports = {
     ],
     "import/default": "off",
     "import/no-named-as-default-member": "off",
-    "import/no-unresolved": "error",
+    "import/no-unresolved": [
+      "error",
+      {
+        ignore: ["^virtual:"],
+      },
+    ],
     "import/order": [
       "error",
       {
