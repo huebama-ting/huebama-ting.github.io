@@ -3,6 +3,9 @@ import Typography from "@mui/joy/Typography";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
 const ErrorContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: "Overpass Variable";
 `;
 
