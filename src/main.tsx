@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "src/index.css";
 import { Routes } from "src/app/common/constants";
+import { NavWrapper } from "src/app/common/NavWrapper";
 import { PwaReloadPrompt } from "src/app/common/PwaReloadPrompt";
 import { ErrorElement } from "src/app/routes/ErrorElement";
 
@@ -18,22 +19,28 @@ const theme = extendTheme({
 });
 const router = createBrowserRouter([
   {
-    path: Routes.ROOT,
-    lazy: async () => {
-      const { Home } = await import("src/app/routes/Home");
+    path: "/",
+    element: <NavWrapper />,
+    children: [
+      {
+        path: Routes.ROOT,
+        lazy: async () => {
+          const { Home } = await import("src/app/routes/Home");
 
-      return { Component: Home };
-    },
-    errorElement: <ErrorElement />,
-  },
-  {
-    path: Routes.COOP_REPORT,
-    lazy: async () => {
-      const { CoopReport } = await import("src/app/routes/CoopReport");
+          return { Component: Home };
+        },
+        errorElement: <ErrorElement />,
+      },
+      {
+        path: Routes.COOP_REPORT,
+        lazy: async () => {
+          const { CoopReport } = await import("src/app/routes/CoopReport");
 
-      return { Component: CoopReport };
-    },
-    errorElement: <ErrorElement />,
+          return { Component: CoopReport };
+        },
+        errorElement: <ErrorElement />,
+      },
+    ],
   },
 ]);
 
