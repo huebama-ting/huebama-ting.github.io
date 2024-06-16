@@ -1,6 +1,7 @@
 import Box from "@mui/joy/Box";
 import Link from "@mui/joy/Link";
 import Stack from "@mui/joy/Stack";
+import { IoClipboard, IoHome } from "react-icons/io5";
 import { Link as RouterLink } from "react-router-dom";
 
 import { ColourModeToggle } from "src/app/common/ColourModeToggle";
@@ -24,10 +25,18 @@ export function NavigationBar() {
         spacing={1}
         sx={{ display: "flex" }}
       >
-        <Link component={RouterLink} to={Routes.ROOT}>
+        <Link
+          startDecorator={<IoHome />}
+          component={RouterLink}
+          to={Routes.ROOT}
+        >
           Home
         </Link>
-        <Link component={RouterLink} to={Routes.COOP_REPORT}>
+        <Link
+          startDecorator={<IoClipboard />}
+          component={RouterLink}
+          to={Routes.COOP_REPORT}
+        >
           Co-op Reports
         </Link>
       </Stack>

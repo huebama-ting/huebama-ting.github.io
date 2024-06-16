@@ -4,6 +4,7 @@ import DialogContent from "@mui/joy/DialogContent";
 import Modal from "@mui/joy/Modal";
 import ModalDialog from "@mui/joy/ModalDialog";
 import { useState } from "react";
+import { IoClose, IoReload } from "react-icons/io5";
 import { useRegisterSW } from "virtual:pwa-register/react";
 
 export function PwaReloadPrompt() {
@@ -50,6 +51,7 @@ export function PwaReloadPrompt() {
             <DialogActions>
               {needRefresh && (
                 <Button
+                  startDecorator={<IoReload className="react-icon" />}
                   // eslint-disable-next-line @typescript-eslint/no-misused-promises
                   onClick={() => updateServiceWorker()}
                 >
@@ -57,6 +59,7 @@ export function PwaReloadPrompt() {
                 </Button>
               )}
               <Button
+                startDecorator={<IoClose className="react-icon" />}
                 onClick={() => {
                   close({}, "closeClick");
                 }}
