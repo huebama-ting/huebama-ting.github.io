@@ -16,7 +16,7 @@ import TabPanel from "@mui/joy/TabPanel";
 import Tabs from "@mui/joy/Tabs";
 import Typography from "@mui/joy/Typography";
 
-import { Container } from "src/app/components/Layout";
+import { Container } from "src/app/shared/Layout";
 import { CoopReportContent } from "src/app/types/coop-report";
 import { generateKey } from "src/app/utils/react-key-generator";
 

@@ -1,13 +1,13 @@
 import Sheet from "@mui/joy/Sheet";
 import { Suspense, lazy, useState } from "react";
 
-import { REPORT_COUNT } from "src/app/common/constants";
-import { Container } from "src/app/components/Layout";
-import { Loading } from "src/app/components/Loading";
+import { REPORT_COUNT } from "src/app/shared/constants";
+import { Container } from "src/app/shared/Layout";
+import { Loading } from "src/app/shared/Loading";
 import { CoopReportContent } from "src/app/types/coop-report";
 
 const CoopReportContentView = lazy(
-  () => import("src/app/components/CoopReportContentView")
+  () => import("src/app/components/CoopReportContentView"),
 );
 const ReportSelect = lazy(() => import("src/app/components/ReportSelect"));
 
@@ -27,7 +27,7 @@ export function CoopReport() {
 
   const handleChange = async (
     _: React.SyntheticEvent | null,
-    reportFileName: string | null
+    reportFileName: string | null,
   ) => {
     const reportContent: CoopReportContent = (await import(
       `../../assets/coop-reports/${reportFileName}.json`

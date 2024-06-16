@@ -5,10 +5,10 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "src/index.css";
-import { Routes } from "src/app/common/constants";
 import { NavWrapper } from "src/app/common/NavWrapper";
 import { PwaReloadPrompt } from "src/app/common/PwaReloadPrompt";
 import { ErrorElement } from "src/app/routes/ErrorElement";
+import { Routes } from "src/app/shared/constants";
 
 const theme = extendTheme({
   fontFamily: {

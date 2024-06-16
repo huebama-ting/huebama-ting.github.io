@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
 
-import { Container } from "src/app/components/Layout";
+import { Container } from "src/app/shared/Layout";
 import homeIconPng from "src/assets/images/home_icon.png";
 import homeIconWebp from "src/assets/images/home_icon.webp";
 
