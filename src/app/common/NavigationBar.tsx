@@ -3,6 +3,7 @@ import Link from "@mui/joy/Link";
 import Stack from "@mui/joy/Stack";
 import { Link as RouterLink } from "react-router-dom";
 
+import { ColourModeToggle } from "src/app/common/ColourModeToggle";
 import { Routes } from "src/app/shared/constants";
 
 export function NavigationBar() {
@@ -30,6 +31,7 @@ export function NavigationBar() {
           Co-op Reports
         </Link>
       </Stack>
+      <ColourModeToggle />
     </Box>
   );
 }

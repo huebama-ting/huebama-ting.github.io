@@ -1,4 +1,5 @@
 import "@fontsource-variable/overpass";
+import GlobalStyles from "@mui/joy/GlobalStyles";
 import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
@@ -56,7 +57,18 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <CssVarsProvider defaultMode="dark" theme={theme}>
+    <CssVarsProvider defaultMode="system" theme={theme}>
+      <GlobalStyles
+        styles={{
+          ".react-icon": {
+            color: "var(--Icon-color)",
+            margin: "var(--Icon-margin)",
+            fontSize: "var(--Icon-fontSize, 20px)",
+            width: "0.75em",
+            height: "0.75em",
+          },
+        }}
+      />
       <RouterProvider router={router} />
       <PwaReloadPrompt />
     </CssVarsProvider>
