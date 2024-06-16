@@ -35,7 +35,12 @@ export function PwaReloadPrompt() {
   return (
     <>
       {(offlineReady || needRefresh) && (
-        <Modal open={open} onClose={(_, reason) => close(_, reason)}>
+        <Modal
+          open={open}
+          onClose={(_, reason) => {
+            close(_, reason);
+          }}
+        >
           <ModalDialog>
             <DialogContent>
               {offlineReady
@@ -51,7 +56,13 @@ export function PwaReloadPrompt() {
                   Reload
                 </Button>
               )}
-              <Button onClick={() => close({}, "closeClick")}>Close</Button>
+              <Button
+                onClick={() => {
+                  close({}, "closeClick");
+                }}
+              >
+                Close
+              </Button>
             </DialogActions>
           </ModalDialog>
         </Modal>

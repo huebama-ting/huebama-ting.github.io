@@ -1,7 +1,3 @@
-export function generateKey(
-  keySource: string,
-  start: number = 0,
-  end: number = 5,
-): string {
+export function generateKey(keySource: string, start = 0, end = 5): string {
   return keySource.substring(start, end);
 }
