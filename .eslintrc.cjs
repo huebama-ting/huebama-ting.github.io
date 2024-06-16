@@ -9,8 +9,8 @@ module.exports = {
   extends: [
     "eslint:recommended",
 
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:@typescript-eslint/stylistic",
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:react/recommended",
@@ -43,6 +43,13 @@ module.exports = {
         destructuredArrayIgnorePattern: "^_",
         varsIgnorePattern: "^_",
         ignoreRestSiblings: true,
+      },
+    ],
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      {
+        allowBoolean: true,
+        allowNumber: true,
       },
     ],
     "import/default": "off",
