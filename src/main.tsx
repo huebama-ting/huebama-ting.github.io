@@ -1,4 +1,5 @@
 import "@fontsource-variable/overpass";
+import "@fontsource-variable/overpass/wght-italic.css";
 import GlobalStyles from "@mui/joy/GlobalStyles";
 import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
 import { StrictMode } from "react";
@@ -50,17 +51,18 @@ const router = createBrowserRouter([
           return { Component: CoopReport };
         },
         loader: () => {
-          const accessCode = sessionStorage.getItem('COOP_ROUTE_ACCESS_CODE');
-          const isAuthorised = accessCode === import.meta.env.VITE_COOP_ROUTE_ACCESS_CODE;
-          
+          const accessCode = sessionStorage.getItem("COOP_ROUTE_ACCESS_CODE");
+          const isAuthorised =
+            accessCode === import.meta.env.VITE_COOP_ROUTE_ACCESS_CODE;
+
           if (!isAuthorised) {
             // eslint-disable-next-line @typescript-eslint/only-throw-error
             throw new Response(
-              'Cannot access co-op reports without COOP_ROUTE_ACCESS_CODE set in session storage.',
+              "Cannot access co-op reports without COOP_ROUTE_ACCESS_CODE set in session storage.",
               {
                 status: 401,
-                statusText: 'Unauthorized'
-              }
+                statusText: "Unauthorized",
+              },
             );
           }
 

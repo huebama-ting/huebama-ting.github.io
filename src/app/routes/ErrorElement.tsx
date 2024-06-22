@@ -42,10 +42,10 @@ export function ErrorElement(props: ErrorProps): React.ReactNode {
         <ErrorText />
         <br />
         <Typography level="body-md">
-          <strong>
+          <em>
             {error.status} {error.statusText}
             {error.data ? `: ${error.data}` : ""}
-          </strong>
+          </em>
         </Typography>
       </ErrorContainer>
     );
