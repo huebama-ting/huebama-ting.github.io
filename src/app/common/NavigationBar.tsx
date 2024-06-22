@@ -8,6 +8,10 @@ import { ColourModeToggle } from "src/app/common/ColourModeToggle";
 import { Routes } from "src/app/shared/constants";
 
 export function NavigationBar() {
+  const accessCode = sessionStorage.getItem("COOP_ROUTE_ACCESS_CODE");
+  const isAuthorised =
+    accessCode === import.meta.env.VITE_COOP_ROUTE_ACCESS_CODE;
+
   return (
     <Box
       sx={{
@@ -22,7 +26,7 @@ export function NavigationBar() {
         direction="row"
         justifyContent="center"
         alignItems="center"
-        spacing={1}
+        spacing={4}
         sx={{ display: "flex" }}
       >
         <Link
@@ -32,13 +36,15 @@ export function NavigationBar() {
         >
           Home
         </Link>
-        <Link
-          startDecorator={<IoClipboard />}
-          component={RouterLink}
-          to={Routes.COOP_REPORT}
-        >
-          Co-op Reports
-        </Link>
+        {isAuthorised && (
+          <Link
+            startDecorator={<IoClipboard />}
+            component={RouterLink}
+            to={Routes.COOP_REPORT}
+          >
+            Co-op Reports
+          </Link>
+        )}
       </Stack>
       <ColourModeToggle />
     </Box>
