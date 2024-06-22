@@ -13,9 +13,9 @@ export function ColourModeToggle() {
       }}
     >
       {mode === "light" ? (
-        <IoSunny className="react-icon" />
-      ) : (
         <IoMoon className="react-icon" />
+      ) : (
+        <IoSunny className="react-icon" />
       )}
     </IconButton>
   );
