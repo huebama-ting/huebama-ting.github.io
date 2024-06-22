@@ -2,6 +2,10 @@ import styled from "@emotion/styled";
 import Typography from "@mui/joy/Typography";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
+interface ErrorProps {
+  message?: string | undefined;
+}
+
 const ErrorContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,19 +13,21 @@ const ErrorContainer = styled.div`
   font-family: "Overpass Variable";
 `;
 
-function ErrorText() {
+function ErrorText(props: ErrorProps) {
   return (
     <>
       <Typography level="h1">Oops!</Typography>
       <br />
       <Typography level="body-lg">
         Sorry, an unexpected error has occurred.
+        <br />
+        {props.message}
       </Typography>
     </>
   );
 }
 
-export function ErrorElement(): React.ReactNode {
+export function ErrorElement(props: ErrorProps): React.ReactNode {
   const error = useRouteError();
 
   if (import.meta.env.DEV) {
@@ -34,9 +40,9 @@ export function ErrorElement(): React.ReactNode {
         <ErrorText />
         <br />
         <Typography level="body-md">
-          <i>
-            {error.status} {error.statusText}
-          </i>
+          <strong>
+            {error.status} {error.statusText}{error.data ? `: ${error.data}` : ''}
+          </strong>
         </Typography>
       </ErrorContainer>
     );
@@ -57,7 +63,7 @@ export function ErrorElement(): React.ReactNode {
     } else {
       return (
         <ErrorContainer>
-          <ErrorText />
+          <ErrorText message={props.message} />
         </ErrorContainer>
       );
     }
