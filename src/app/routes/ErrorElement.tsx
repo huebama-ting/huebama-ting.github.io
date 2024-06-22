@@ -10,7 +10,9 @@ const ErrorContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 1rem;
   font-family: "Overpass Variable";
+  text-align: center;
 `;
 
 function ErrorText(props: ErrorProps) {
@@ -41,7 +43,8 @@ export function ErrorElement(props: ErrorProps): React.ReactNode {
         <br />
         <Typography level="body-md">
           <strong>
-            {error.status} {error.statusText}{error.data ? `: ${error.data}` : ''}
+            {error.status} {error.statusText}
+            {error.data ? `: ${error.data}` : ""}
           </strong>
         </Typography>
       </ErrorContainer>
