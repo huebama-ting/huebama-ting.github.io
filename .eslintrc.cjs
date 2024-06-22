@@ -100,6 +100,9 @@ module.exports = {
         project: "./tsconfig.json",
       },
     },
+    react: {
+      version: "detect",
+    },
   },
   reportUnusedDisableDirectives: true,
 };
