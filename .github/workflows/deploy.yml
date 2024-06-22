@@ -53,6 +53,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Copy secrets to .env
+        run: echo "${{ secrets.COOP_ROUTE_ACCESS_CODE }}" > .env
+
       - name: Build
         run: pnpm run build
 
