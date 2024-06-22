@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "noEmit": true,
-    "allowJs": true
+    "allowJs": true,
+
+    "strict": true
   },
   "extends": "./tsconfig.json",
   "include": [".eslintrc.cjs", "stylelint.config.js", "vite.config.ts"]
