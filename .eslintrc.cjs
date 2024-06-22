@@ -26,7 +26,11 @@ module.exports = {
       jsx: true,
     },
     sourceType: "module",
-    project: true,
+    project: [
+      "./tsconfig.json",
+      "./tsconfig.node.json",
+      "./tsconfig.eslint.json",
+    ],
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     tsconfigRootDir: __dirname,
   },

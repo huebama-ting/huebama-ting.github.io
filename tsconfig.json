@@ -28,6 +28,6 @@
 
     "types": ["vite-plugin-pwa/react"]
   },
-  "include": ["src", ".eslintrc.cjs", "stylelint.config.js", "vite.config.ts"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
