@@ -7,9 +7,11 @@ import { Loading } from "src/app/shared/Loading";
 import { CoopReportContent } from "src/app/types/coop-report";
 
 const CoopReportContentView = lazy(
-  () => import("src/app/components/CoopReportContentView"),
+  () => import("src/app/components/coop-report/CoopReportContentView"),
 );
-const ReportSelect = lazy(() => import("src/app/components/ReportSelect"));
+const ReportSelect = lazy(
+  () => import("src/app/components/coop-report/ReportSelect"),
+);
 
 function countAmount(): string[] {
   const list: string[] = [];
