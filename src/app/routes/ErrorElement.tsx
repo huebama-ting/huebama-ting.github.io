@@ -72,3 +72,5 @@ export function ErrorElement(props: ErrorProps): React.ReactNode {
     }
   }
 }
+
+export default ErrorElement;

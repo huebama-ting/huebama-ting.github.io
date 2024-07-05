@@ -20,3 +20,5 @@ export function ColourModeToggle() {
     </IconButton>
   );
 }
+
+export default ColourModeToggle;

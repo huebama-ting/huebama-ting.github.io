@@ -31,3 +31,5 @@ export function Home() {
     </Sheet>
   );
 }
+
+export default Home;

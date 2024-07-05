@@ -50,3 +50,5 @@ export function CoopReport() {
     </Sheet>
   );
 }
+
+export default CoopReport;
