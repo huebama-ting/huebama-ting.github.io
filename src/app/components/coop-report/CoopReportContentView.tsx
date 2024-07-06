@@ -16,7 +16,6 @@ import TabPanel from "@mui/joy/TabPanel";
 import Tabs from "@mui/joy/Tabs";
 import Typography from "@mui/joy/Typography";
 
-import { FlexContainerColumn } from "src/app/shared/Layout";
 import { CoopReportContent } from "src/app/types/coop-report";
 import { generateKey } from "src/app/utils/react-key-generator";
 
@@ -71,7 +70,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
 
       <Divider sx={dividerStyles}>Job Information</Divider>
       <Card>
-        <FlexContainerColumn>
+        <Box>
           <Typography level="title-lg" sx={cardTextStyles}>
             {props.report.company.name}
           </Typography>
@@ -79,10 +78,10 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
           <Typography level="body-md" sx={cardTextStyles}>
             {props.report.company.description}
           </Typography>
-        </FlexContainerColumn>
+        </Box>
       </Card>
       <Card>
-        <FlexContainerColumn>
+        <Box>
           <Typography level="title-lg" sx={cardTextStyles}>
             {props.report.job.position}
           </Typography>
@@ -94,17 +93,17 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
               </ListItem>
             ))}
           </List>
-        </FlexContainerColumn>
+        </Box>
       </Card>
       <Card>
-        <FlexContainerColumn>
+        <Box>
           <Typography level="title-lg" sx={cardTextStyles}>
             Unique Aspect of the Job
           </Typography>
           <Typography level="body-md" sx={cardTextStyles}>
             {props.report.job.uniqueAspect}
           </Typography>
-        </FlexContainerColumn>
+        </Box>
       </Card>
 
       <Divider sx={dividerStyles}>Skills</Divider>
@@ -147,11 +146,11 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
       </Box>
       {props.report.goal.miscGoals.map((m) => (
         <Card key={generateKey(m.name, 0, 5)}>
-          <FlexContainerColumn>
+          <Box>
             <Typography level="title-lg">{m.name}</Typography>
             <br />
             <Typography level="body-md">{m.outcome}</Typography>
-          </FlexContainerColumn>
+          </Box>
         </Card>
       ))}
 
@@ -163,7 +162,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         </Quote>
       ))}
       <Card>
-        <FlexContainerColumn>
+        <Box>
           {props.report.bonus.explanations.map((e) => (
             <Typography
               level="body-md"
@@ -173,7 +172,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
               {e}
             </Typography>
           ))}
-        </FlexContainerColumn>
+        </Box>
       </Card>
 
       <Divider sx={dividerStyles}>Conclusion and Acknowledgements</Divider>
@@ -181,7 +180,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         {props.report.conclusion.endingNote}
       </Typography>
       <Card>
-        <FlexContainerColumn>
+        <Box>
           <Typography level="title-lg" sx={cardTextStyles}>
             Special Thanks
           </Typography>
@@ -194,7 +193,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
               {st}
             </Typography>
           ))}
-        </FlexContainerColumn>
+        </Box>
       </Card>
     </Stack>
   );
