@@ -6,7 +6,7 @@ import Typography from "@mui/joy/Typography";
 
 import {
   CDN_BASE_URL,
-  DOLL_INFO_REPO_FILES_URL as DOLL_INFO_REPO_FILES_PATH,
+  DOLL_INFO_REPO_FILES_PATH,
 } from "src/app/shared/constants";
 import { Doll } from "src/app/types/doll";
 
