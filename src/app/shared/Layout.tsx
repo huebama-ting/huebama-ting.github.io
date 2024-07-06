@@ -14,7 +14,7 @@ export const FlexContainerColumn = styled.div`
 
 export function Page(props: PageProps) {
   return (
-    <Sheet>
+    <Sheet sx={{ padding: "1rem" }}>
       <FlexContainerColumn>{props.children}</FlexContainerColumn>
     </Sheet>
   );
