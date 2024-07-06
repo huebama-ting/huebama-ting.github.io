@@ -14,20 +14,17 @@ export function NavigationBar() {
 
   return (
     <Box
-      sx={{
-        height: "10%",
-        display: "flex",
-        flexGrow: 1,
-        justifyContent: "space-between",
-        margin: "0 1rem",
-      }}
+      height="10%"
+      display="flex"
+      flexGrow={1}
+      justifyContent="space-between"
+      margin="0 1rem"
     >
       <Stack
         direction="row"
         justifyContent="center"
         alignItems="center"
         spacing={4}
-        sx={{ display: "flex" }}
       >
         <Link
           startDecorator={<IoHome className="react-icon" />}

@@ -28,10 +28,6 @@ const Quote = styled.blockquote`
   background-color: var(--joy-palette-background-level3);
 `;
 
-const cardTextStyles: SxProps = {
-  marginBottom: "0.5rem",
-  marginTop: "0.5rem",
-};
 const dividerStyles: SxProps = {
   marginBottom: "2rem",
   marginTop: "2rem",
@@ -46,23 +42,19 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
     <Stack
       alignItems={"center"}
       spacing={4}
-      sx={{
-        textAlign: "center",
-        width: {
-          xs: "15rem",
-          sm: "30rem",
-          md: "40rem",
-          lg: "45rem",
-          xl: "55rem",
-        },
+      textAlign="center"
+      width={{
+        xs: "15rem",
+        sm: "30rem",
+        md: "40rem",
+        lg: "45rem",
+        xl: "55rem",
       }}
     >
       <Typography
-        sx={{
-          fontSize: { xs: "1rem", md: "2rem", lg: "3rem" },
-          marginBottom: "1rem",
-          marginTop: "1rem",
-        }}
+        fontSize={{ xs: "1rem", md: "2rem", lg: "3rem" }}
+        marginBottom="1rem"
+        marginTop="1rem"
       >
         {props.report.title}
       </Typography>
@@ -71,18 +63,18 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
       <Divider sx={dividerStyles}>Job Information</Divider>
       <Card>
         <Box>
-          <Typography level="title-lg" sx={cardTextStyles}>
+          <Typography level="title-lg" mb="0.5rem" mt="0.5rem">
             {props.report.company.name}
           </Typography>
           <Typography level="title-sm">Company</Typography>
-          <Typography level="body-md" sx={cardTextStyles}>
+          <Typography level="body-md" mb="0.5rem" mt="0.5rem">
             {props.report.company.description}
           </Typography>
         </Box>
       </Card>
       <Card>
         <Box>
-          <Typography level="title-lg" sx={cardTextStyles}>
+          <Typography level="title-lg" mb="0.5rem" mt="0.5rem">
             {props.report.job.position}
           </Typography>
           <Typography level="title-sm">Job Description</Typography>
@@ -97,10 +89,10 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
       </Card>
       <Card>
         <Box>
-          <Typography level="title-lg" sx={cardTextStyles}>
+          <Typography level="title-lg" mb="0.5rem" mt="0.5rem">
             Unique Aspect of the Job
           </Typography>
-          <Typography level="body-md" sx={cardTextStyles}>
+          <Typography level="body-md" mb="0.5rem" mt="0.5rem">
             {props.report.job.uniqueAspect}
           </Typography>
         </Box>
@@ -167,7 +159,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
             <Typography
               level="body-md"
               key={generateKey(e, 0, e.length / 10)}
-              sx={{ padding: "1rem 0" }}
+              padding="1rem 0"
             >
               {e}
             </Typography>
@@ -181,14 +173,15 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
       </Typography>
       <Card>
         <Box>
-          <Typography level="title-lg" sx={cardTextStyles}>
+          <Typography level="title-lg" mb="0.5rem" mt="0.5rem">
             Special Thanks
           </Typography>
           {props.report.conclusion.specialThanks.map((st) => (
             <Typography
               level="body-md"
               key={generateKey(st)}
-              sx={cardTextStyles}
+              mb="0.5rem"
+              mt="0.5rem"
             >
               {st}
             </Typography>
