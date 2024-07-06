@@ -45,7 +45,7 @@ export function DollCard(props: DollCardProps) {
               src={`${imageUrl}.png`}
               width="256"
               height="512"
-              alt="Icon showing a lazy egg"
+              alt={`Doll - ${props.doll.nameEn}`}
               loading="lazy"
             />
           </picture>
