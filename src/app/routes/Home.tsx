@@ -24,6 +24,7 @@ export function Home() {
             width="1000"
             height="1000"
             alt="Icon showing a lazy egg"
+            loading="lazy"
           />
         </picture>
         <Typography level="h1">Hello world!</Typography>
