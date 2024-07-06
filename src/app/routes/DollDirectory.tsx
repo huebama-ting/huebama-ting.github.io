@@ -1,3 +1,4 @@
+import Box from "@mui/joy/Box";
 import { lazy, useEffect, useState } from "react";
 
 import { Page } from "src/app/shared/Layout";
@@ -26,9 +27,11 @@ export function DollDirectory() {
 
   return (
     <Page>
-      {dolls.map((doll) => (
-        <DollCard key={doll.cardImageUrl} doll={doll} />
-      ))}
+      <Box display="flex" flexWrap="wrap" gap="3rem">
+        {dolls.map((doll) => (
+          <DollCard key={doll.cardImageUrl} doll={doll} />
+        ))}
+      </Box>
     </Page>
   );
 }
