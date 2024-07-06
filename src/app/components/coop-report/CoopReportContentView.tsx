@@ -16,7 +16,7 @@ import TabPanel from "@mui/joy/TabPanel";
 import Tabs from "@mui/joy/Tabs";
 import Typography from "@mui/joy/Typography";
 
-import { Container } from "src/app/shared/Layout";
+import { FlexContainerColumn } from "src/app/shared/Layout";
 import { CoopReportContent } from "src/app/types/coop-report";
 import { generateKey } from "src/app/utils/react-key-generator";
 
@@ -71,7 +71,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
 
       <Divider sx={dividerStyles}>Job Information</Divider>
       <Card>
-        <Container>
+        <FlexContainerColumn>
           <Typography level="title-lg" sx={cardTextStyles}>
             {props.report.company.name}
           </Typography>
@@ -79,10 +79,10 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
           <Typography level="body-md" sx={cardTextStyles}>
             {props.report.company.description}
           </Typography>
-        </Container>
+        </FlexContainerColumn>
       </Card>
       <Card>
-        <Container>
+        <FlexContainerColumn>
           <Typography level="title-lg" sx={cardTextStyles}>
             {props.report.job.position}
           </Typography>
@@ -94,17 +94,17 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
               </ListItem>
             ))}
           </List>
-        </Container>
+        </FlexContainerColumn>
       </Card>
       <Card>
-        <Container>
+        <FlexContainerColumn>
           <Typography level="title-lg" sx={cardTextStyles}>
             Unique Aspect of the Job
           </Typography>
           <Typography level="body-md" sx={cardTextStyles}>
             {props.report.job.uniqueAspect}
           </Typography>
-        </Container>
+        </FlexContainerColumn>
       </Card>
 
       <Divider sx={dividerStyles}>Skills</Divider>
@@ -147,11 +147,11 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
       </Box>
       {props.report.goal.miscGoals.map((m) => (
         <Card key={generateKey(m.name, 0, 5)}>
-          <Container>
+          <FlexContainerColumn>
             <Typography level="title-lg">{m.name}</Typography>
             <br />
             <Typography level="body-md">{m.outcome}</Typography>
-          </Container>
+          </FlexContainerColumn>
         </Card>
       ))}
 
@@ -163,7 +163,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         </Quote>
       ))}
       <Card>
-        <Container>
+        <FlexContainerColumn>
           {props.report.bonus.explanations.map((e) => (
             <Typography
               level="body-md"
@@ -173,7 +173,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
               {e}
             </Typography>
           ))}
-        </Container>
+        </FlexContainerColumn>
       </Card>
 
       <Divider sx={dividerStyles}>Conclusion and Acknowledgements</Divider>
@@ -181,7 +181,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         {props.report.conclusion.endingNote}
       </Typography>
       <Card>
-        <Container>
+        <FlexContainerColumn>
           <Typography level="title-lg" sx={cardTextStyles}>
             Special Thanks
           </Typography>
@@ -194,7 +194,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
               {st}
             </Typography>
           ))}
-        </Container>
+        </FlexContainerColumn>
       </Card>
     </Stack>
   );

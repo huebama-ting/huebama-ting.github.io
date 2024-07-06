@@ -6,7 +6,7 @@ interface PageProps {
   children: ReactNode;
 }
 
-export const Container = styled.div`
+export const FlexContainerColumn = styled.div`
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -15,7 +15,7 @@ export const Container = styled.div`
 export function Page(props: PageProps) {
   return (
     <Sheet>
-      <Container>{props.children}</Container>
+      <FlexContainerColumn>{props.children}</FlexContainerColumn>
     </Sheet>
   );
 }
