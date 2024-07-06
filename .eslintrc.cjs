@@ -31,7 +31,6 @@ module.exports = {
       "./tsconfig.node.json",
       "./tsconfig.eslint.json",
     ],
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     tsconfigRootDir: __dirname,
   },
   plugins: ["@emotion", "react-refresh"],
