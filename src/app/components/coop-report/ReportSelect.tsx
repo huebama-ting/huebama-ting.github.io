@@ -3,11 +3,14 @@ import FormLabel from "@mui/joy/FormLabel";
 import Option from "@mui/joy/Option";
 import Select from "@mui/joy/Select";
 
+import { CoopReportContent } from "src/app/types/coop-report";
+import { DynamicImport } from "src/app/types/dynamic-import";
+
 interface ReportSelectProps {
-  wtrList: string[];
+  reportModuleList: DynamicImport<CoopReportContent>[];
   onChange: (
     _: React.SyntheticEvent | null,
-    reportFileName: string | null,
+    reportModule: (() => Promise<CoopReportContent>) | null,
   ) => Promise<void>;
 }
 
@@ -22,10 +25,11 @@ export function ReportSelect(props: ReportSelectProps) {
         size="md"
         sx={{ minWidth: "16rem" }}
       >
-        {props.wtrList.map((fileName: string, index: number) => (
-          <Option key={fileName} value={fileName}>{`Co-op Work Term Report ${
-            index + 1
-          }`}</Option>
+        {props.reportModuleList.map((reportModule, index) => (
+          <Option
+            key={reportModule.fileName}
+            value={reportModule.module}
+          >{`Co-op Work Term Report ${index + 1}`}</Option>
         ))}
       </Select>
     </FormControl>
