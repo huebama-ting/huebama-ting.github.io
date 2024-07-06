@@ -58,7 +58,7 @@ export function DollCard(props: DollCardProps) {
             borderRadius="var(--CardCover-radius)"
             sx={{
               background:
-                "linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,1))",
+                "linear-gradient(to bottom, rgba(0,0,0,0) 75%, rgba(0,0,0,1))",
             }}
           ></Box>
         </Skeleton>
