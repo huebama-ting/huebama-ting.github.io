@@ -67,7 +67,9 @@ export function DollCard(props: DollCardProps) {
         <Typography
           level="body-lg"
           fontWeight="lg"
-          mt="14.5rem"
+          mt="15rem"
+          ml="-0.5rem"
+          mr="-0.5rem"
           textColor="#bbb"
         >
           {props.doll.nameEn}
