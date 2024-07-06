@@ -1,12 +1,9 @@
-import Sheet from "@mui/joy/Sheet";
 import { lazy, useEffect, useState } from "react";
 
-import { Container } from "src/app/shared/Layout";
+import { Page } from "src/app/shared/Layout";
 import { Doll } from "src/app/types/doll";
 
-const DollCard = lazy(
-  () => import("src/app/components/doll/DollCard"),
-);
+const DollCard = lazy(() => import("src/app/components/doll/DollCard"));
 
 export function DollDirectory() {
   const [dolls, setDolls] = useState<Doll[]>([]);
@@ -28,13 +25,11 @@ export function DollDirectory() {
   }, []);
 
   return (
-    <Sheet>
-      <Container>
-        {dolls.map((doll) => (
-          <DollCard key={doll.cardImageUrl} doll={doll} />
-        ))}
-      </Container>
-    </Sheet>
+    <Page>
+      {dolls.map((doll) => (
+        <DollCard key={doll.cardImageUrl} doll={doll} />
+      ))}
+    </Page>
   );
 }
 

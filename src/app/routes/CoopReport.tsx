@@ -1,14 +1,13 @@
-import Sheet from "@mui/joy/Sheet";
 import { Suspense, lazy, useEffect, useState } from "react";
 
-import { Container } from "src/app/shared/Layout";
-import { Loading } from "src/app/shared/Loading";
+import { Page } from "src/app/shared/Layout";
 import { CoopReportContent } from "src/app/types/coop-report";
 import { DynamicImport } from "src/app/types/dynamic-import";
 
 const CoopReportContentView = lazy(
   () => import("src/app/components/coop-report/CoopReportContentView"),
 );
+const Loading = lazy(() => import("src/app/shared/Loading"));
 const ReportSelect = lazy(
   () => import("src/app/components/coop-report/ReportSelect"),
 );
@@ -45,17 +44,15 @@ export function CoopReport() {
   };
 
   return (
-    <Sheet>
-      <Container>
-        <Suspense fallback={<Loading />}>
-          <ReportSelect
-            reportModuleList={moduleList}
-            onChange={(_, reportModule) => handleChange(_, reportModule)}
-          />
-          <CoopReportContentView report={report} />
-        </Suspense>
-      </Container>
-    </Sheet>
+    <Page>
+      <Suspense fallback={<Loading />}>
+        <ReportSelect
+          reportModuleList={moduleList}
+          onChange={(_, reportModule) => handleChange(_, reportModule)}
+        />
+        <CoopReportContentView report={report} />
+      </Suspense>
+    </Page>
   );
 }
 
