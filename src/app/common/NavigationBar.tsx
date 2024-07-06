@@ -1,7 +1,7 @@
 import Box from "@mui/joy/Box";
 import Link from "@mui/joy/Link";
 import Stack from "@mui/joy/Stack";
-import { IoClipboard, IoHome } from "react-icons/io5";
+import { IoClipboard, IoHome, IoPerson } from "react-icons/io5";
 import { Link as RouterLink } from "react-router-dom";
 
 import { ColourModeToggle } from "src/app/common/ColourModeToggle";
@@ -35,6 +35,13 @@ export function NavigationBar() {
           to={Routes.ROOT}
         >
           Home
+        </Link>
+        <Link
+          startDecorator={<IoPerson />}
+          component={RouterLink}
+          to={Routes.DOLL_DIRECTORY}
+        >
+          Doll Directory
         </Link>
         {isAuthorised && (
           <Link

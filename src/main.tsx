@@ -52,6 +52,17 @@ const router = createBrowserRouter([
         },
         errorElement: <ErrorElement />,
       },
+      {
+        path: Routes.DOLL_DIRECTORY,
+        lazy: async () => {
+          const { DollDirectory } = await import(
+            "src/app/routes/DollDirectory"
+          );
+
+          return { Component: DollDirectory };
+        },
+        errorElement: <ErrorElement />,
+      },
     ],
   },
 ]);

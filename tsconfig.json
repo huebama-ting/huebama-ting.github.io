@@ -26,7 +26,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
 
-    "types": ["vite-plugin-pwa/react"]
+    "types": ["node", "vite-plugin-pwa/react"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
