@@ -27,7 +27,12 @@ export function DollDirectory() {
 
   return (
     <Page>
-      <Box display="flex" flexWrap="wrap" gap="3rem">
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        gap="2rem 1rem"
+        justifyContent="center"
+      >
         {dolls.map((doll) => (
           <DollCard key={doll.cardImageUrl} doll={doll} />
         ))}
