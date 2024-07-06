@@ -7,7 +7,7 @@ interface ReportSelectProps {
   wtrList: string[];
   onChange: (
     _: React.SyntheticEvent | null,
-    reportFileName: string | null
+    reportFileName: string | null,
   ) => Promise<void>;
 }
 
