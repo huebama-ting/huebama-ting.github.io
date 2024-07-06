@@ -30,14 +30,14 @@ export function NavigationBar() {
         sx={{ display: "flex" }}
       >
         <Link
-          startDecorator={<IoHome />}
+          startDecorator={<IoHome className="react-icon" />}
           component={RouterLink}
           to={Routes.ROOT}
         >
           Home
         </Link>
         <Link
-          startDecorator={<IoPerson />}
+          startDecorator={<IoPerson className="react-icon" />}
           component={RouterLink}
           to={Routes.DOLL_DIRECTORY}
         >
