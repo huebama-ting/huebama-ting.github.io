@@ -11,6 +11,7 @@ import { NavWrapper } from "src/app/common/NavWrapper";
 import { PwaReloadPrompt } from "src/app/common/PwaReloadPrompt";
 import { ErrorElement } from "src/app/routes/ErrorElement";
 import { Routes } from "src/app/shared/constants";
+import { Doll } from "src/app/types/doll";
 
 const theme = extendTheme({
   components: {
@@ -60,6 +61,18 @@ const router = createBrowserRouter([
           );
 
           return { Component: DollDirectory };
+        },
+        errorElement: <ErrorElement />,
+      },
+      {
+        path: Routes.DOLL_INFO,
+        lazy: async () => {
+          const { DollInfo } = await import("src/app/routes/DollInfo");
+
+          return { Component: DollInfo };
+        },
+        loader: async ({ params }) => {
+          return (await import(`@assets/dolls/${params["name"]}.json`)) as Doll;
         },
         errorElement: <ErrorElement />,
       },

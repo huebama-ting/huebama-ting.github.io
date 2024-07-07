@@ -34,7 +34,7 @@ export function DollDirectory() {
         justifyContent="center"
       >
         {dolls.map((doll) => (
-          <DollCard key={doll.cardImageUrl} doll={doll} />
+          <DollCard key={doll.path} doll={doll} />
         ))}
       </Box>
     </Page>

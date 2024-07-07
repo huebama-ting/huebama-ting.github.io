@@ -3,9 +3,11 @@ import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import CardCover from "@mui/joy/CardCover";
+import Link from "@mui/joy/Link";
 import Skeleton from "@mui/joy/Skeleton";
 import Typography from "@mui/joy/Typography";
 import { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
 import {
   CDN_BASE_URL,
@@ -23,59 +25,61 @@ const Image = styled.img`
 `;
 
 export function DollCard(props: DollCardProps) {
-  const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_FILES_PATH}/${props.doll.cardImageUrl}`;
+  const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_FILES_PATH}/${props.doll.path}`;
   const [loading, setLoading] = useState<boolean>(true);
 
   return (
-    <Card sx={{ height: "16rem", width: "8rem" }}>
-      <CardCover>
-        <Skeleton loading={loading}>
-          <picture
-            onLoad={() => {
-              setLoading(false);
-            }}
+    <Link component={RouterLink} to={props.doll.path}>
+      <Card sx={{ height: "16rem", width: "8rem" }}>
+        <CardCover>
+          <Skeleton loading={loading}>
+            <picture
+              onLoad={() => {
+                setLoading(false);
+              }}
+            >
+              <source
+                type="image/webp"
+                width="256"
+                height="512"
+                srcSet={`${imageUrl}.webp`}
+              />
+              <Image
+                src={`${imageUrl}.png`}
+                width="256"
+                height="512"
+                alt={`Doll - ${props.doll.nameEn}`}
+                loading="lazy"
+              />
+            </picture>
+            <Box
+              position="absolute"
+              top={0}
+              left={0}
+              right={0}
+              bottom={0}
+              borderRadius="var(--CardCover-radius)"
+              sx={{
+                background:
+                  "linear-gradient(to bottom, rgba(0,0,0,0) 75%, rgba(0,0,0,1))",
+              }}
+            ></Box>
+          </Skeleton>
+        </CardCover>
+        <CardContent>
+          <Typography
+            level="body-lg"
+            fontWeight="lg"
+            mt="15rem"
+            ml="-0.5rem"
+            mr="-0.5rem"
+            textColor="#bbb"
           >
-            <source
-              type="image/webp"
-              width="256"
-              height="512"
-              srcSet={`${imageUrl}.webp`}
-            />
-            <Image
-              src={`${imageUrl}.png`}
-              width="256"
-              height="512"
-              alt={`Doll - ${props.doll.nameEn}`}
-              loading="lazy"
-            />
-          </picture>
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            borderRadius="var(--CardCover-radius)"
-            sx={{
-              background:
-                "linear-gradient(to bottom, rgba(0,0,0,0) 75%, rgba(0,0,0,1))",
-            }}
-          ></Box>
-        </Skeleton>
-      </CardCover>
-      <CardContent>
-        <Typography
-          level="body-lg"
-          fontWeight="lg"
-          mt="15rem"
-          ml="-0.5rem"
-          mr="-0.5rem"
-          textColor="#bbb"
-        >
-          {props.doll.nameEn}
-        </Typography>
-      </CardContent>
-    </Card>
+            {props.doll.nameEn}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Link>
   );
 }
 

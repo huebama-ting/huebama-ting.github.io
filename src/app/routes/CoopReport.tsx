@@ -38,6 +38,7 @@ export function CoopReport() {
   ) => {
     if (reportModule) {
       const reportContent = await reportModule();
+      console.log(reportContent);
 
       setReport(reportContent);
     }
