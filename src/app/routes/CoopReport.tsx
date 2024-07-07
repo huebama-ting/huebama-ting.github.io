@@ -1,6 +1,5 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 
-import { Page } from "src/app/shared/Layout";
 import { CoopReportContent } from "src/app/types/coop-report";
 import { DynamicImport } from "src/app/types/dynamic-import";
 
@@ -8,6 +7,7 @@ const CoopReportContentView = lazy(
   () => import("src/app/components/coop-report/CoopReportContentView"),
 );
 const Loading = lazy(() => import("src/app/shared/Loading"));
+const Page = lazy(() => import("src/app/shared/Layout"));
 const ReportSelect = lazy(
   () => import("src/app/components/coop-report/ReportSelect"),
 );
@@ -45,15 +45,15 @@ export function CoopReport() {
   };
 
   return (
-    <Page>
-      <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading />}>
+      <Page>
         <ReportSelect
           reportModuleList={moduleList}
           onChange={(_, reportModule) => handleChange(_, reportModule)}
         />
         <CoopReportContentView report={report} />
-      </Suspense>
-    </Page>
+      </Page>
+    </Suspense>
   );
 }
 

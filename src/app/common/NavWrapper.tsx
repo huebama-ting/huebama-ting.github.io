@@ -1,7 +1,9 @@
 import styled from "@emotion/styled";
+import { Suspense, lazy } from "react";
 import { Outlet } from "react-router-dom";
 
-import { NavigationBar } from "src/app/common/NavigationBar";
+const Loading = lazy(() => import("src/app/shared/Loading"));
+const NavigationBar = lazy(() => import("src/app/common/NavigationBar"));
 
 const AppContainer = styled.div`
   display: flex;
@@ -13,7 +15,10 @@ const AppContainer = styled.div`
 export function NavWrapper() {
   return (
     <>
-      <NavigationBar />
+      <Suspense fallback={<Loading />}>
+        <NavigationBar />
+      </Suspense>
+
       <AppContainer>
         <Outlet />
       </AppContainer>

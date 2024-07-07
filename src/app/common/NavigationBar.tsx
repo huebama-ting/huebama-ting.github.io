@@ -1,11 +1,14 @@
 import Box from "@mui/joy/Box";
 import Link from "@mui/joy/Link";
 import Stack from "@mui/joy/Stack";
+import { Suspense, lazy } from "react";
 import { IoClipboard, IoHome, IoPerson } from "react-icons/io5";
 import { Link as RouterLink } from "react-router-dom";
 
-import { ColourModeToggle } from "src/app/common/ColourModeToggle";
 import { Routes } from "src/app/shared/constants";
+
+const ColourModeToggle = lazy(() => import("src/app/common/ColourModeToggle"));
+const Loading = lazy(() => import("src/app/shared/Loading"));
 
 export function NavigationBar() {
   const accessCode = sessionStorage.getItem("COOP_ROUTE_ACCESS_CODE");
@@ -50,7 +53,9 @@ export function NavigationBar() {
           </Link>
         )}
       </Stack>
-      <ColourModeToggle />
+      <Suspense fallback={<Loading />}>
+        <ColourModeToggle />
+      </Suspense>
     </Box>
   );
 }

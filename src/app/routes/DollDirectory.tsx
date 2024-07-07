@@ -1,10 +1,11 @@
 import Box from "@mui/joy/Box";
-import { lazy, useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 
-import { Page } from "src/app/shared/Layout";
 import { Doll } from "src/app/types/doll";
 
 const DollCard = lazy(() => import("src/app/components/doll/DollCard"));
+const Loading = lazy(() => import("src/app/shared/Loading"));
+const Page = lazy(() => import("src/app/shared/Layout"));
 
 export function DollDirectory() {
   const [dolls, setDolls] = useState<Doll[]>([]);
@@ -26,18 +27,22 @@ export function DollDirectory() {
   }, []);
 
   return (
-    <Page>
-      <Box
-        display="flex"
-        flexWrap="wrap"
-        gap="2rem 1rem"
-        justifyContent="center"
-      >
-        {dolls.map((doll) => (
-          <DollCard key={doll.path} doll={doll} />
-        ))}
-      </Box>
-    </Page>
+    <Suspense fallback={<Loading />}>
+      <Page>
+        <Box
+          display="flex"
+          flexWrap="wrap"
+          gap="2rem 1rem"
+          justifyContent="center"
+        >
+          {dolls.map((doll) => (
+            <Suspense key={doll.path} fallback={<Loading />}>
+              <DollCard doll={doll} />
+            </Suspense>
+          ))}
+        </Box>
+      </Page>
+    </Suspense>
   );
 }
 
