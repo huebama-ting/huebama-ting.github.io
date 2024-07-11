@@ -17,8 +17,8 @@ importers:
         specifier: ^5.0.19
         version: 5.0.19
       "@mui/joy":
-        specifier: 5.0.0-beta.47
-        version: 5.0.0-beta.47(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 5.0.0-beta.48
+        version: 5.0.0-beta.48(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -32,18 +32,21 @@ importers:
         specifier: ^6.24.1
         version: 6.24.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
-      "@emotion/eslint-plugin":
-        specifier: ^11.11.0
-        version: 11.11.0(eslint@8.57.0)
       "@eslint-react/eslint-plugin":
         specifier: ^1.5.24
         version: 1.5.24(eslint@8.57.0)(typescript@5.5.3)
+      "@eslint/js":
+        specifier: ^8.56.0
+        version: 8.57.0
       "@nabla/vite-plugin-eslint":
         specifier: ^2.0.4
         version: 2.0.4(eslint@8.57.0)(vite@5.3.3(@types/node@20.14.10)(lightningcss@1.25.1)(terser@5.31.2))
       "@swc/plugin-emotion":
         specifier: ^3.0.9
         version: 3.0.9
+      "@types/eslint__js":
+        specifier: ^8.42.3
+        version: 8.42.3
       "@types/node":
         specifier: ^20.14.10
         version: 20.14.10
@@ -53,12 +56,6 @@ importers:
       "@types/react-dom":
         specifier: ^18.3.0
         version: 18.3.0
-      "@typescript-eslint/eslint-plugin":
-        specifier: ^7.16.0
-        version: 7.16.0(@typescript-eslint/parser@7.16.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
-      "@typescript-eslint/parser":
-        specifier: ^7.16.0
-        version: 7.16.0(eslint@8.57.0)(typescript@5.5.3)
       "@vite-pwa/assets-generator":
         specifier: ^0.2.4
         version: 0.2.4
@@ -84,8 +81,8 @@ importers:
         specifier: ^8.0.0
         version: 8.0.0(eslint@8.57.0)
       eslint-plugin-import-x:
-        specifier: ^0.5.3
-        version: 0.5.3(eslint@8.57.0)(typescript@5.5.3)
+        specifier: ^3.0.0
+        version: 3.0.0(eslint@8.57.0)(typescript@5.5.3)
       eslint-plugin-jsonc:
         specifier: ^2.16.0
         version: 2.16.0(eslint@8.57.0)
@@ -134,6 +131,9 @@ importers:
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
+      typescript-eslint:
+        specifier: ^7.16.0
+        version: 7.16.0(eslint@8.57.0)(typescript@5.5.3)
       vite:
         specifier: ^5.3.3
         version: 5.3.3(@types/node@20.14.10)(lightningcss@1.25.1)(terser@5.31.2)
@@ -1129,15 +1129,6 @@ packages:
         integrity: sha512-P34z9ssTCBi3e9EI1ZsWpNHcfY1r09ZO0rZbRO2ob3ZQMnFI35jB536qoXbkdesr5EUhYi22anuEJuyxifaqAQ==,
       }
 
-  "@emotion/eslint-plugin@11.11.0":
-    resolution:
-      {
-        integrity: sha512-jCOYqU/0Sqm+g+6D7QuIlG99q8YAF0T7BP98zQF/MPZKfbcm46z5mizXn0YlhZ9AYZfNtZ1DeODXdncYxZzR4Q==,
-      }
-    engines: { node: ">=6" }
-    peerDependencies:
-      eslint: 6 || 7 || 8
-
   "@emotion/hash@0.9.1":
     resolution:
       {
@@ -1625,16 +1616,16 @@ packages:
       "@types/react":
         optional: true
 
-  "@mui/core-downloads-tracker@5.16.0":
+  "@mui/core-downloads-tracker@5.16.1":
     resolution:
       {
-        integrity: sha512-8SLffXYPRVpcZx5QzxNE8fytTqzp+IuU3deZbQWg/vSaTlDpR5YVrQ4qQtXTi5cRdhOufV5INylmwlKK+//nPw==,
+        integrity: sha512-62Jq7ACYi/55Kjkh/nVfEL3F3ytTYTsdB8MGJ9iI+eRQv+Aoem5CPUAzQihUo25qqh1VkVu9/jQn3dFbyrXHgw==,
       }
 
-  "@mui/joy@5.0.0-beta.47":
+  "@mui/joy@5.0.0-beta.48":
     resolution:
       {
-        integrity: sha512-iWTuabnVg8XA5oBB5d6inNbCfYBhE0oq0d0+DMs2ndI4Nq459LheJ74P7mTkohg4sFIhTbvr3uXuKk8U9Rw+zg==,
+        integrity: sha512-OhTvjuGl9I5IvpBr0BQyDehIW/xb2yteW6YglHJMdOb/279nItn76X1NBtPV9ImldNlBjReGwvpOXmBTTGER9w==,
       }
     engines: { node: ">=12.0.0" }
     peerDependencies:
@@ -1651,10 +1642,10 @@ packages:
       "@types/react":
         optional: true
 
-  "@mui/private-theming@5.16.0":
+  "@mui/private-theming@5.16.1":
     resolution:
       {
-        integrity: sha512-sYpubkO1MZOnxNyVOClrPNOTs0MfuRVVnAvCeMaOaXt6GimgQbnUcshYv2pSr6PFj+Mqzdff/FYOBceK8u5QgA==,
+        integrity: sha512-2EGCKnAlq9vRIFj61jNWNXlKAxXp56577OVvsts7fAqRx+G1y6F+N7Q198SBaz8jYQeGKSz8ZMXK/M3FqjdEyw==,
       }
     engines: { node: ">=12.0.0" }
     peerDependencies:
@@ -1664,10 +1655,10 @@ packages:
       "@types/react":
         optional: true
 
-  "@mui/styled-engine@5.15.14":
+  "@mui/styled-engine@5.16.1":
     resolution:
       {
-        integrity: sha512-RILkuVD8gY6PvjZjqnWhz8fu68dVkqhM5+jYWfB5yhlSQKg+2rHkmEwm75XIeAqI3qwOndK6zELK5H6Zxn4NHw==,
+        integrity: sha512-JwWUBaYR8HHCFefSeos0z6JoTbu0MnjAuNHu4QoDgPxl2EE70XH38CsKay66Iy0QkNWmGTRXVU2sVFgUOPL/Dw==,
       }
     engines: { node: ">=12.0.0" }
     peerDependencies:
@@ -1680,10 +1671,10 @@ packages:
       "@emotion/styled":
         optional: true
 
-  "@mui/system@5.16.0":
+  "@mui/system@5.16.1":
     resolution:
       {
-        integrity: sha512-9YbkC2m3+pNumAvubYv+ijLtog6puJ0fJ6rYfzfLCM47pWrw3m+30nXNM8zMgDaKL6vpfWJcCXm+LPaWBpy7sw==,
+        integrity: sha512-VaFcClC+uhvIEzhzcNmh9FRBvrG9IPjsOokhj6U1HPZsFnLzHV7AD7dJcT6LxWoiIZj9Ej0GK+MGh/b8+BtSlQ==,
       }
     engines: { node: ">=12.0.0" }
     peerDependencies:
@@ -1699,10 +1690,10 @@ packages:
       "@types/react":
         optional: true
 
-  "@mui/types@7.2.14":
+  "@mui/types@7.2.15":
     resolution:
       {
-        integrity: sha512-MZsBZ4q4HfzBsywtXgM1Ksj6HDThtiwmOKUXH1pKYISI9gAVXCNHNpo7TlGoGrBaYWZTdNoirIN7JsQcQUjmQQ==,
+        integrity: sha512-nbo7yPhtKJkdf9kcVOF8JZHPZTmqXjJ/tI0bdWgHg5tp9AnIN4Y7f7wm9T+0SyGYJk76+GYZ8Q5XaTYAsUHN0Q==,
       }
     peerDependencies:
       "@types/react": ^17.0.0 || ^18.0.0
@@ -1710,10 +1701,10 @@ packages:
       "@types/react":
         optional: true
 
-  "@mui/utils@5.16.0":
+  "@mui/utils@5.16.1":
     resolution:
       {
-        integrity: sha512-kLLi5J1xY+mwtUlMb8Ubdxf4qFAA1+U7WPBvjM/qQ4CIwLCohNb0sHo1oYPufjSIH/Z9+dhVxD7dJlfGjd1AVA==,
+        integrity: sha512-4UQzK46tAEYs2xZv79hRiIc3GxZScd00kGPDadNrGztAEZlmSaUY8cb9ITd2xCiTfzsx5AN6DH8aaQ8QEKJQeQ==,
       }
     engines: { node: ">=12.0.0" }
     peerDependencies:
@@ -2091,6 +2082,12 @@ packages:
     resolution:
       {
         integrity: sha512-Shavhk87gCtY2fhXDctcfS3e6FdxWkCx1iUZ9eEUbh7rTqlZT0/IzOkCOVt0fCjcFuZ9FPYfuezTBImfHCDBGQ==,
+      }
+
+  "@types/eslint__js@8.42.3":
+    resolution:
+      {
+        integrity: sha512-alfG737uhmPdnvkrLdZLcEKJ/B8s9Y4hrZ+YAdzUeoArBlSUERA2E87ROfOaS4jd/C45fzOoZzidLc1IPwLqOw==,
       }
 
   "@types/estree@0.0.39":
@@ -3213,10 +3210,10 @@ packages:
     peerDependencies:
       eslint: ">=8"
 
-  eslint-plugin-import-x@0.5.3:
+  eslint-plugin-import-x@3.0.0:
     resolution:
       {
-        integrity: sha512-hJ/wkMcsLQXAZL3+txXIDpbW5cqwdm1rLTqV4VRY03aIbzE3zWE7rPZKW6Gzf7xyl1u3V1iYC6tOG77d9NF4GQ==,
+        integrity: sha512-zk3QklFELk7mrSlhP9C27NpKx86G5YtIEvDV1dIJRS3VOIm5tCHQCln2JkwbO5lpYOvyYSoro35PCAAVG9lY8w==,
       }
     engines: { node: ">=16" }
     peerDependencies:
@@ -5860,6 +5857,19 @@ packages:
       }
     engines: { node: ">= 0.4" }
 
+  typescript-eslint@7.16.0:
+    resolution:
+      {
+        integrity: sha512-kaVRivQjOzuoCXU6+hLnjo3/baxyzWVO5GrnExkFzETRYJKVHYkrJglOu2OCm8Hi9RPDWX1PTNNTpU5KRV0+RA==,
+      }
+    engines: { node: ^18.18.0 || >=20.0.0 }
+    peerDependencies:
+      eslint: ^8.56.0
+      typescript: "*"
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   typescript@5.5.3:
     resolution:
       {
@@ -7057,10 +7067,6 @@ snapshots:
       "@emotion/weak-memoize": 0.3.1
       stylis: 4.2.0
 
-  "@emotion/eslint-plugin@11.11.0(eslint@8.57.0)":
-    dependencies:
-      eslint: 8.57.0
-
   "@emotion/hash@0.9.1": {}
 
   "@emotion/is-prop-valid@1.2.2":
@@ -7369,8 +7375,8 @@ snapshots:
     dependencies:
       "@babel/runtime": 7.24.7
       "@floating-ui/react-dom": 2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      "@mui/types": 7.2.14(@types/react@18.3.3)
-      "@mui/utils": 5.16.0(@types/react@18.3.3)(react@18.3.1)
+      "@mui/types": 7.2.15(@types/react@18.3.3)
+      "@mui/utils": 5.16.1(@types/react@18.3.3)(react@18.3.1)
       "@popperjs/core": 2.11.8
       clsx: 2.1.1
       prop-types: 15.8.1
@@ -7379,16 +7385,16 @@ snapshots:
     optionalDependencies:
       "@types/react": 18.3.3
 
-  "@mui/core-downloads-tracker@5.16.0": {}
+  "@mui/core-downloads-tracker@5.16.1": {}
 
-  "@mui/joy@5.0.0-beta.47(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)":
+  "@mui/joy@5.0.0-beta.48(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)":
     dependencies:
       "@babel/runtime": 7.24.7
       "@mui/base": 5.0.0-beta.40(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      "@mui/core-downloads-tracker": 5.16.0
-      "@mui/system": 5.16.0(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)
-      "@mui/types": 7.2.14(@types/react@18.3.3)
-      "@mui/utils": 5.16.0(@types/react@18.3.3)(react@18.3.1)
+      "@mui/core-downloads-tracker": 5.16.1
+      "@mui/system": 5.16.1(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)
+      "@mui/types": 7.2.15(@types/react@18.3.3)
+      "@mui/utils": 5.16.1(@types/react@18.3.3)(react@18.3.1)
       clsx: 2.1.1
       prop-types: 15.8.1
       react: 18.3.1
@@ -7398,16 +7404,16 @@ snapshots:
       "@emotion/styled": 11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)
       "@types/react": 18.3.3
 
-  "@mui/private-theming@5.16.0(@types/react@18.3.3)(react@18.3.1)":
+  "@mui/private-theming@5.16.1(@types/react@18.3.3)(react@18.3.1)":
     dependencies:
       "@babel/runtime": 7.24.7
-      "@mui/utils": 5.16.0(@types/react@18.3.3)(react@18.3.1)
+      "@mui/utils": 5.16.1(@types/react@18.3.3)(react@18.3.1)
       prop-types: 15.8.1
       react: 18.3.1
     optionalDependencies:
       "@types/react": 18.3.3
 
-  "@mui/styled-engine@5.15.14(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)":
+  "@mui/styled-engine@5.16.1(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)":
     dependencies:
       "@babel/runtime": 7.24.7
       "@emotion/cache": 11.11.0
@@ -7418,13 +7424,13 @@ snapshots:
       "@emotion/react": 11.11.4(@types/react@18.3.3)(react@18.3.1)
       "@emotion/styled": 11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)
 
-  "@mui/system@5.16.0(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)":
+  "@mui/system@5.16.1(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)":
     dependencies:
       "@babel/runtime": 7.24.7
-      "@mui/private-theming": 5.16.0(@types/react@18.3.3)(react@18.3.1)
-      "@mui/styled-engine": 5.15.14(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
-      "@mui/types": 7.2.14(@types/react@18.3.3)
-      "@mui/utils": 5.16.0(@types/react@18.3.3)(react@18.3.1)
+      "@mui/private-theming": 5.16.1(@types/react@18.3.3)(react@18.3.1)
+      "@mui/styled-engine": 5.16.1(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+      "@mui/types": 7.2.15(@types/react@18.3.3)
+      "@mui/utils": 5.16.1(@types/react@18.3.3)(react@18.3.1)
       clsx: 2.1.1
       csstype: 3.1.3
       prop-types: 15.8.1
@@ -7434,11 +7440,11 @@ snapshots:
       "@emotion/styled": 11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1)
       "@types/react": 18.3.3
 
-  "@mui/types@7.2.14(@types/react@18.3.3)":
+  "@mui/types@7.2.15(@types/react@18.3.3)":
     optionalDependencies:
       "@types/react": 18.3.3
 
-  "@mui/utils@5.16.0(@types/react@18.3.3)(react@18.3.1)":
+  "@mui/utils@5.16.1(@types/react@18.3.3)(react@18.3.1)":
     dependencies:
       "@babel/runtime": 7.24.7
       "@types/prop-types": 15.7.12
@@ -7638,6 +7644,10 @@ snapshots:
     dependencies:
       "@types/estree": 1.0.5
       "@types/json-schema": 7.0.15
+
+  "@types/eslint__js@8.42.3":
+    dependencies:
+      "@types/eslint": 8.56.10
 
   "@types/estree@0.0.39": {}
 
@@ -8437,7 +8447,7 @@ snapshots:
       eslint: 8.57.0
       eslint-compat-utils: 0.5.1(eslint@8.57.0)
 
-  eslint-plugin-import-x@0.5.3(eslint@8.57.0)(typescript@5.5.3):
+  eslint-plugin-import-x@3.0.0(eslint@8.57.0)(typescript@5.5.3):
     dependencies:
       "@typescript-eslint/utils": 7.16.0(eslint@8.57.0)(typescript@5.5.3)
       debug: 4.3.5
@@ -10119,6 +10129,17 @@ snapshots:
       has-proto: 1.0.3
       is-typed-array: 1.1.13
       possible-typed-array-names: 1.0.0
+
+  typescript-eslint@7.16.0(eslint@8.57.0)(typescript@5.5.3):
+    dependencies:
+      "@typescript-eslint/eslint-plugin": 7.16.0(@typescript-eslint/parser@7.16.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
+      "@typescript-eslint/parser": 7.16.0(eslint@8.57.0)(typescript@5.5.3)
+      "@typescript-eslint/utils": 7.16.0(eslint@8.57.0)(typescript@5.5.3)
+      eslint: 8.57.0
+    optionalDependencies:
+      typescript: 5.5.3
+    transitivePeerDependencies:
+      - supports-color
 
   typescript@5.5.3: {}
 

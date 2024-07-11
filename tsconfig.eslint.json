@@ -6,5 +6,5 @@
     "strict": true
   },
   "extends": "./tsconfig.json",
-  "include": [".eslintrc.cjs", "stylelint.config.js"]
+  "include": ["eslint.config.js", "stylelint.config.js"]
 }
