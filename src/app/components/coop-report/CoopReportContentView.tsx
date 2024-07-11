@@ -20,7 +20,7 @@ import { CoopReportContent } from "src/app/types/coop-report";
 import { generateKey } from "src/app/utils/react-key-generator";
 
 interface CoopReportContentViewProps {
-  report: CoopReportContent | undefined;
+  readonly report: CoopReportContent | undefined;
 }
 
 const Quote = styled.blockquote`

@@ -7,8 +7,8 @@ import { CoopReportContent } from "src/app/types/coop-report";
 import { DynamicImport } from "src/app/types/dynamic-import";
 
 interface ReportSelectProps {
-  reportModuleList: DynamicImport<CoopReportContent>[];
-  onChange: (
+  readonly reportModuleList: DynamicImport<CoopReportContent>[];
+  readonly onChange: (
     _: React.SyntheticEvent | null,
     reportModule: (() => Promise<CoopReportContent>) | null,
   ) => Promise<void>;

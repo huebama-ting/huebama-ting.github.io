@@ -3,7 +3,7 @@ import Typography from "@mui/joy/Typography";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
 interface ErrorProps {
-  message?: string | undefined;
+  readonly message?: string | undefined;
 }
 
 const ErrorContainer = styled.div`

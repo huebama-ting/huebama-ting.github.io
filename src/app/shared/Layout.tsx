@@ -3,7 +3,7 @@ import Sheet from "@mui/joy/Sheet";
 import { ReactNode } from "react";
 
 interface PageProps {
-  children: ReactNode;
+  readonly children: ReactNode;
 }
 
 export const FlexContainerColumn = styled.div`

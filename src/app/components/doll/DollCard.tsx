@@ -16,7 +16,7 @@ import {
 import { Doll } from "src/app/types/doll";
 
 interface DollCardProps {
-  doll: Doll;
+  readonly doll: Doll;
 }
 
 const Image = styled.img`
