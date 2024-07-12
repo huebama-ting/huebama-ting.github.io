@@ -9,8 +9,21 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    target: "es2022",
     cssMinify: "lightningcss",
+    target: "es2022",
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          if (id.includes("react-router-dom") || id.includes("react-router")) {
+            return "react-router";
+          }
+
+          // if (id.includes("swiper")) {
+          //   return "swiper";
+          // }
+        },
+      },
+    },
   },
   css: {
     transformer: "lightningcss",
