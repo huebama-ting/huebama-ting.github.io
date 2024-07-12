@@ -21,7 +21,8 @@ const Image = styled.img`
 `;
 
 export function DollCard(props: DollProps) {
-  const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/${props.doll.path}`;
+  const cardsPath = "cards";
+  const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/${cardsPath}/${props.doll.path}`;
   const [loading, setLoading] = useState<boolean>(true);
 
   return (
