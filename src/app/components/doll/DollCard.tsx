@@ -11,7 +11,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 import {
   CDN_BASE_URL,
-  DOLL_INFO_REPO_FILES_PATH,
+  DOLL_INFO_REPO_IMAGES_PATH,
 } from "src/app/shared/constants";
 import { DollProps } from "src/app/types/doll";
 
@@ -21,7 +21,7 @@ const Image = styled.img`
 `;
 
 export function DollCard(props: DollProps) {
-  const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_FILES_PATH}/${props.doll.path}`;
+  const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/${props.doll.path}`;
   const [loading, setLoading] = useState<boolean>(true);
 
   return (
