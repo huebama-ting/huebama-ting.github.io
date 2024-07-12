@@ -13,18 +13,14 @@ import {
   CDN_BASE_URL,
   DOLL_INFO_REPO_FILES_PATH,
 } from "src/app/shared/constants";
-import { Doll } from "src/app/types/doll";
-
-interface DollCardProps {
-  readonly doll: Doll;
-}
+import { DollProps } from "src/app/types/doll";
 
 const Image = styled.img`
   /* stylelint-disable-next-line custom-property-pattern */
   border-radius: var(--CardCover-radius);
 `;
 
-export function DollCard(props: DollCardProps) {
+export function DollCard(props: DollProps) {
   const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_FILES_PATH}/${props.doll.path}`;
   const [loading, setLoading] = useState<boolean>(true);
 
