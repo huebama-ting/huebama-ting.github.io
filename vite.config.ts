@@ -17,10 +17,6 @@ export default defineConfig({
           if (id.includes("react-router-dom") || id.includes("react-router")) {
             return "react-router";
           }
-
-          // if (id.includes("swiper")) {
-          //   return "swiper";
-          // }
         },
       },
     },
