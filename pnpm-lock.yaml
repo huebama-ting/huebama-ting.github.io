@@ -16,6 +16,9 @@ importers:
       "@fontsource-variable/overpass":
         specifier: ^5.0.19
         version: 5.0.19
+      "@glidejs/glide":
+        specifier: ^3.6.2
+        version: 3.6.2
       "@mui/joy":
         specifier: 5.0.0-beta.48
         version: 5.0.0-beta.48(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react@18.3.1))(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -47,6 +50,9 @@ importers:
       "@types/eslint__js":
         specifier: ^8.42.3
         version: 8.42.3
+      "@types/glidejs__glide":
+        specifier: ^3.6.5
+        version: 3.6.5
       "@types/node":
         specifier: ^20.14.10
         version: 20.14.10
@@ -1538,6 +1544,12 @@ packages:
         integrity: sha512-MGeaVYF/ItkSIbNNVBlCC68srrUSFJCSqIuRY9L3qyIsKdDUuF3ZCsIQ2SBWfWo/0zZ3Pa7TuVNOojgHENbioQ==,
       }
 
+  "@glidejs/glide@3.6.2":
+    resolution:
+      {
+        integrity: sha512-oXw7In0IZV69PC0PChQakY+yh+UnqIb5+zfVuEIzub6Kkfl1foo7TAhr2PZXPzihOG9YS57t8wvdzBFEZ0aPVA==,
+      }
+
   "@humanwhocodes/config-array@0.11.14":
     resolution:
       {
@@ -2103,6 +2115,12 @@ packages:
     resolution:
       {
         integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==,
+      }
+
+  "@types/glidejs__glide@3.6.5":
+    resolution:
+      {
+        integrity: sha512-OUjzveIu+tiK5VvyPh6jTBJ/vH6+vC+XWzC2KJzpgUW8uancMJBa7R+BlXuvtSPdLw/pQForVasy0fm1D7JWOQ==,
       }
 
   "@types/json-schema@7.0.15":
@@ -5740,13 +5758,6 @@ packages:
         integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==,
       }
 
-  swiper@11.1.4:
-    resolution:
-      {
-        integrity: sha512-1n7kbYJB2dFEpUHRFszq7gys/ofIBrMNibwTiMvPHwneKND/t9kImnHt6CfGPScMHgI+dWMbGTycCKGMoOO1KA==,
-      }
-    engines: { node: ">= 4.7.0" }
-
   synckit@0.6.2:
     resolution:
       {
@@ -7471,6 +7482,8 @@ snapshots:
 
   "@fontsource-variable/overpass@5.0.19": {}
 
+  "@glidejs/glide@3.6.2": {}
+
   "@humanwhocodes/config-array@0.11.14":
     dependencies:
       "@humanwhocodes/object-schema": 2.0.3
@@ -7788,6 +7801,8 @@ snapshots:
   "@types/estree@0.0.39": {}
 
   "@types/estree@1.0.5": {}
+
+  "@types/glidejs__glide@3.6.5": {}
 
   "@types/json-schema@7.0.15": {}
 
