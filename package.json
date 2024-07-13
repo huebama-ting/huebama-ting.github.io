@@ -24,11 +24,10 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
-    "react-router-dom": "^6.24.1",
-    "unplugin-turbo-console": "^1.9.3"
+    "react-router-dom": "^6.24.1"
   },
   "devDependencies": {
-    "@eslint-react/eslint-plugin": "^1.5.24",
+    "@eslint-react/eslint-plugin": "^1.5.25",
     "@eslint/js": "^8.57.0",
     "@nabla/vite-plugin-eslint": "^2.0.4",
     "@swc/plugin-emotion": "^3.0.9",
@@ -63,6 +62,7 @@
     "stylelint-config-standard": "^36.0.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.0",
+    "unplugin-turbo-console": "^1.9.3",
     "vite": "^5.3.3",
     "vite-bundle-visualizer": "^1.2.1",
     "vite-plugin-pwa": "^0.20.0",
@@ -72,6 +72,13 @@
   },
   "engines": {
     "node": ">=18.18.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "rollup": "2"
+      }
+    }
   },
   "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }
