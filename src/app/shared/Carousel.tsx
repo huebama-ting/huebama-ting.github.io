@@ -16,6 +16,7 @@ const CarouselContainer = styled.div<CarouselProps>`
 const CarouselControl = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 0.5rem;
 `;
 
 export function Carousel(props: CarouselProps) {
@@ -33,10 +34,10 @@ export function Carousel(props: CarouselProps) {
         <ul className="glide__slides">{props.children}</ul>
       </div>
       <CarouselControl data-glide-el="controls">
-        <IconButton data-glide-dir="<">
+        <IconButton data-glide-dir="<" variant="outlined">
           <IoArrowBack />
         </IconButton>
-        <IconButton data-glide-dir=">">
+        <IconButton data-glide-dir=">" variant="outlined">
           <IoArrowForward />
         </IconButton>
       </CarouselControl>

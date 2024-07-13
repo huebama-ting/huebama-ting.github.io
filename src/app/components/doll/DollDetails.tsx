@@ -24,7 +24,8 @@ const sizeStyles = `
     height: 40rem;
   }
 `;
-const carouselWidthStyles = `
+const carouselStyles = `
+  margin: 1rem;
   width: 16rem;
 
   ${MEDIA_QUERIES["md"]} {
@@ -52,16 +53,16 @@ export function DollDetails(props: DollProps) {
       container
       spacing={2}
       flexGrow={1}
-      sx={{ border: "0.125rem solid #bbb", borderRadius: "0.5rem" }}
+      sx={{ border: "1px solid #bbb", borderRadius: "0.5rem" }}
     >
-      <Grid xs={12} mb="1rem">
+      <Grid xs={12}>
         <Typography level="title-lg" textAlign="center">
           {props.doll.nameEn}
         </Typography>
       </Grid>
       <Grid xs={12} container justifyContent="center" alignItems="center">
         <Suspense fallback={<Loading />}>
-          <Carousel styles={carouselWidthStyles}>
+          <Carousel styles={carouselStyles}>
             <picture className="glide__slide">
               <Source
                 type="image/webp"
