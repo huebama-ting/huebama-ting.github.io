@@ -20,6 +20,7 @@ const CarouselContainer = styled.div<CarouselProps>`
 `;
 const CarouselControl = styled.div`
   display: flex;
+  gap: 0.5rem;
   justify-content: center;
   margin-top: 0.5rem;
 `;
