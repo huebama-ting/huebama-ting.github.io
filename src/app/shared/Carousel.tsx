@@ -30,7 +30,12 @@ export function Carousel(props: CarouselProps) {
 
   useEffect(() => {
     if (ref.current) {
-      new Glide(ref.current).mount({ Controls, Images, Keyboard, Swipe });
+      new Glide(ref.current, { type: "carousel" }).mount({
+        Controls,
+        Images,
+        Keyboard,
+        Swipe,
+      });
     }
   }, [ref]);
 
