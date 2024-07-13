@@ -1,10 +1,7 @@
 import styled from "@emotion/styled";
 import Sheet from "@mui/joy/Sheet";
-import { ReactNode } from "react";
 
-interface PageProps {
-  readonly children: ReactNode;
-}
+import { ChildrenProps } from "src/app/types/prop";
 
 export const FlexContainerColumn = styled.div`
   display: flex;
@@ -12,7 +9,7 @@ export const FlexContainerColumn = styled.div`
   align-items: center;
 `;
 
-export function Page(props: PageProps) {
+export function Page(props: ChildrenProps) {
   return (
     <Sheet sx={{ padding: "1rem" }}>
       <FlexContainerColumn>{props.children}</FlexContainerColumn>

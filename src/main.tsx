@@ -1,5 +1,7 @@
 import "@fontsource-variable/overpass";
 import "@fontsource-variable/overpass/wght-italic.css";
+import "@glidejs/glide/dist/css/glide.core.min.css";
+import "@glidejs/glide/dist/css/glide.theme.min.css";
 import GlobalStyles from "@mui/joy/GlobalStyles";
 import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
 import { StrictMode } from "react";
