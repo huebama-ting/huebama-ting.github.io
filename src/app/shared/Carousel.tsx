@@ -1,5 +1,10 @@
 import styled from "@emotion/styled";
-import Glide, { Controls } from "@glidejs/glide/dist/glide.modular.esm";
+import Glide, {
+  Controls,
+  Images,
+  Keyboard,
+  Swipe,
+} from "@glidejs/glide/dist/glide.modular.esm";
 import IconButton from "@mui/joy/IconButton";
 import { useEffect, useRef } from "react";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
@@ -24,7 +29,7 @@ export function Carousel(props: CarouselProps) {
 
   useEffect(() => {
     if (ref.current) {
-      new Glide(ref.current).mount({ Controls });
+      new Glide(ref.current).mount({ Controls, Images, Keyboard, Swipe });
     }
   }, [ref]);
 
