@@ -45,8 +45,8 @@ const Source = styled.source`
 `;
 
 export function DollDetails(props: DollProps) {
-  // const [stage, setStage] = useState<string>("stage-1");
-  // const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/${stage}/${props.doll.path}`;
+  const baseSkins = ["stage-1", "stage-2", "stage-3"];
+  const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}`;
 
   return (
     <Grid
@@ -63,51 +63,23 @@ export function DollDetails(props: DollProps) {
       <Grid xs={12} container justifyContent="center" alignItems="center">
         <Suspense fallback={<Loading />}>
           <Carousel styles={carouselStyles}>
-            <picture className="glide__slide">
-              <Source
-                type="image/webp"
-                width={256}
-                height={256}
-                srcSet={`${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/stage-1/${props.doll.path}.webp`}
-              />
-              <Image
-                src={`${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/stage-1/${props.doll.path}.png`}
-                width={256}
-                height={256}
-                alt={`Doll - ${props.doll.nameEn}`}
-                loading="lazy"
-              />
-            </picture>
-            <picture className="glide__slide">
-              <Source
-                type="image/webp"
-                width={256}
-                height={256}
-                srcSet={`${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/stage-2/${props.doll.path}.webp`}
-              />
-              <Image
-                src={`${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/stage-2/${props.doll.path}.png`}
-                width={256}
-                height={256}
-                alt={`Doll - ${props.doll.nameEn}`}
-                loading="lazy"
-              />
-            </picture>
-            <picture className="glide__slide">
-              <Source
-                type="image/webp"
-                width={256}
-                height={256}
-                srcSet={`${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/stage-3/${props.doll.path}.webp`}
-              />
-              <Image
-                src={`${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/stage-3/${props.doll.path}.png`}
-                width={256}
-                height={256}
-                alt={`Doll - ${props.doll.nameEn}`}
-                loading="lazy"
-              />
-            </picture>
+            {baseSkins.map((skinName) => (
+              <picture key={skinName} className="glide__slide">
+                <Source
+                  type="image/webp"
+                  width={256}
+                  height={256}
+                  srcSet={`${imageUrl}/${skinName}/${props.doll.path}.webp`}
+                />
+                <Image
+                  src={`${imageUrl}/${skinName}/${props.doll.path}.png`}
+                  width={256}
+                  height={256}
+                  alt={`Doll - ${props.doll.nameEn}`}
+                  loading="lazy"
+                />
+              </picture>
+            ))}
           </Carousel>
         </Suspense>
       </Grid>
