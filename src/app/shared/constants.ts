@@ -12,7 +12,7 @@ const BREAKPOINTS: Record<string, number> = {
   xl: 1280,
 };
 
-export const mql = Object.keys(BREAKPOINTS)
+export const MEDIA_QUERIES = Object.keys(BREAKPOINTS)
   .map((key) => [key, BREAKPOINTS[key]] as [string, number])
   .reduce<Record<string, string>>((prev, [key, breakpoint]) => {
     prev[key] = `@media (min-width: ${breakpoint}px)`;

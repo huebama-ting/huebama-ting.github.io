@@ -6,18 +6,19 @@ import { useState } from "react";
 import {
   CDN_BASE_URL,
   DOLL_INFO_REPO_IMAGES_PATH,
-  mql,
+  MEDIA_QUERIES,
 } from "src/app/shared/constants";
 import { DollProps } from "src/app/types/doll";
 
 const sizeStyles = `
-  ${mql["md"]} {
-    width: 384px;
-    height: 384px;
+  ${MEDIA_QUERIES["md"]} {
+    width: 24rem;
+    height: 24rem;
   }
-  ${mql["lg"]} {
-    width: 512px;
-    height: 512px;
+
+  ${MEDIA_QUERIES["lg"]} {
+    width: 32rem;
+    height: 32rem;
   }
 `;
 
