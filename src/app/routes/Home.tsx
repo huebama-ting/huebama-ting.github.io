@@ -23,8 +23,8 @@ export function Home() {
           <source type="image/png" srcSet={homeIconPng} />
           <Image
             src={homeIconPng}
-            width="1000"
-            height="1000"
+            width={1000}
+            height={1000}
             alt="Icon showing a lazy egg"
             loading="lazy"
           />
