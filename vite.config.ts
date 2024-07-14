@@ -46,7 +46,10 @@ export default defineConfig({
       plugins: [["@swc/plugin-emotion", {}]],
     }),
     reactClickToComponent(),
-    stylelint(),
+    stylelint({
+      fix: true,
+      lintInWorker: true,
+    }),
     tsconfigPaths(),
     TurboConsole(),
     ViteImageOptimizer(),
