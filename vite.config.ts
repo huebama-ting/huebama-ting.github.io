@@ -4,7 +4,6 @@ import eslintPlugin from "@nabla/vite-plugin-eslint";
 import react from "@vitejs/plugin-react-swc";
 import TurboConsole from "unplugin-turbo-console/vite";
 import { defineConfig } from "vite";
-import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 import { VitePWA } from "vite-plugin-pwa";
 import { qrcode } from "vite-plugin-qrcode";
 import { reactClickToComponent } from "vite-plugin-react-click-to-component";
@@ -52,7 +51,6 @@ export default defineConfig({
     }),
     tsconfigPaths(),
     TurboConsole(),
-    ViteImageOptimizer(),
     VitePWA({
       devOptions: {
         enabled: true,
