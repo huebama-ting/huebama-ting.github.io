@@ -51,9 +51,10 @@ export function PwaReloadPrompt() {
             <DialogActions>
               {needRefresh && (
                 <Button
-                  startDecorator={<IoReload className="react-icon" />}
+                  aria-label="Reload content"
                   // eslint-disable-next-line @typescript-eslint/no-misused-promises
                   onClick={() => updateServiceWorker()}
+                  startDecorator={<IoReload className="react-icon" />}
                 >
                   Reload
                 </Button>
