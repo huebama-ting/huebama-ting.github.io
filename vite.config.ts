@@ -7,6 +7,7 @@ import { defineConfig } from "vite";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 import { VitePWA } from "vite-plugin-pwa";
 import { qrcode } from "vite-plugin-qrcode";
+import { reactClickToComponent } from "vite-plugin-react-click-to-component";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
@@ -43,6 +44,7 @@ export default defineConfig({
       jsxImportSource: "@emotion/react",
       plugins: [["@swc/plugin-emotion", {}]],
     }),
+    reactClickToComponent(),
     tsconfigPaths(),
     TurboConsole(),
     ViteImageOptimizer(),

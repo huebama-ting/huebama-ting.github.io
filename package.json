@@ -69,6 +69,7 @@
     "vite-plugin-image-optimizer": "^1.1.8",
     "vite-plugin-pwa": "^0.20.0",
     "vite-plugin-qrcode": "^0.2.3",
+    "vite-plugin-react-click-to-component": "^3.0.0",
     "vite-tsconfig-paths": "^4.3.2",
     "workbox-window": "^7.1.0"
   },
