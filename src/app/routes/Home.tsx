@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import Typography from "@mui/joy/Typography";
 import { Suspense, lazy } from "react";
 
-import homeIconPng from "src/assets/images/home_icon.png";
-import homeIconWebp from "src/assets/images/home_icon.webp";
+import homeIconPng from "src/assets/images/home-icon.png";
+import homeIconWebp from "src/assets/images/home-icon.webp";
 
 const Loading = lazy(() => import("src/app/shared/Loading"));
 const Page = lazy(() => import("src/app/shared/Layout"));
