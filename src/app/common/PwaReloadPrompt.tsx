@@ -59,10 +59,11 @@ export function PwaReloadPrompt() {
                 </Button>
               )}
               <Button
-                startDecorator={<IoClose className="react-icon" />}
+                aria-label="Close dialogue"
                 onClick={() => {
                   close({}, "closeClick");
                 }}
+                startDecorator={<IoClose className="react-icon" />}
               >
                 Close
               </Button>

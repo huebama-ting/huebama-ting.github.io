@@ -7,10 +7,11 @@ export function ColourModeToggle() {
 
   return (
     <IconButton
-      variant="plain"
+      aria-label="Theme toggle"
       onClick={() => {
         setMode(mode === "light" ? "dark" : "light");
       }}
+      variant="plain"
     >
       {mode === "light" ? (
         <IoMoon className="react-icon" />

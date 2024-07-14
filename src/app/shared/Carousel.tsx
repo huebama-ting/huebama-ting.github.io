@@ -45,10 +45,18 @@ export function Carousel(props: CarouselProps) {
         <ul className="glide__slides">{props.children}</ul>
       </div>
       <CarouselControl data-glide-el="controls">
-        <IconButton data-glide-dir="<" variant="outlined">
+        <IconButton
+          aria-label="Next carousel slide"
+          data-glide-dir="<"
+          variant="outlined"
+        >
           <IoArrowBack />
         </IconButton>
-        <IconButton data-glide-dir=">" variant="outlined">
+        <IconButton
+          aria-label="Previous carousel slide"
+          data-glide-dir=">"
+          variant="outlined"
+        >
           <IoArrowForward />
         </IconButton>
       </CarouselControl>
