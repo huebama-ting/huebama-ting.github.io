@@ -40,6 +40,7 @@ export default defineConfig({
     qrcode(),
     react({
       devTarget: "es2022",
+      jsxImportSource: "@emotion/react",
       plugins: [["@swc/plugin-emotion", {}]],
     }),
     tsconfigPaths(),
