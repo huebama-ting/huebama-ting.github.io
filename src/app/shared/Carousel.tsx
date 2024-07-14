@@ -42,7 +42,7 @@ export function Carousel(props: CarouselProps) {
   return (
     <CarouselContainer ref={ref} className="glide" styles={props.styles}>
       <div className="glide__track" data-glide-el="track">
-        <ul className="glide__slides">{props.children}</ul>
+        <div className="glide__slides">{props.children}</div>
       </div>
       <CarouselControl data-glide-el="controls">
         <IconButton
