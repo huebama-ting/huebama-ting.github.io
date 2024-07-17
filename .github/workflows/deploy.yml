@@ -2,9 +2,12 @@
 name: Build and deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
+    # Runs on pushes targeting the default branch
     branches: ["main"]
+
+    # Run on pushes changing files in src, index.html or pnpm-lock.yaml
+    paths: ["src/**", index.html, pnpm-lock.yaml]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,11 +25,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        name: Checkout
+        id: checkout
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
+        name: Set up Node
+        id: node-install
         with:
           node-version: 20
 
@@ -37,36 +42,42 @@ jobs:
           run_install: false
 
       - name: Get pnpm store directory
-        id: pnpm-cache
+        id: get-pnpm-cache-directory
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v4
         name: Setup pnpm cache
+        id: setup-pnpm-cache
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          path: ${{ steps.get-pnpm-cache-directory.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
+        id: install-packages
         run: pnpm install
 
       - name: Copy secrets to .env
+        id: copy-secrets
         run: echo "VITE_COOP_ROUTE_ACCESS_CODE=${{ secrets.COOP_ROUTE_ACCESS_CODE }}" > .env
 
       - name: Build
+        id: build
         run: pnpm run build
 
       - name: Setup Pages
+        id: setup-pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
+        id: upload-artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist repository
-          path: "./dist"
+          path: "dist"
 
   deploy:
     needs: build
