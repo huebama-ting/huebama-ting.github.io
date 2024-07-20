@@ -16,8 +16,8 @@
     "preview": "vite preview --host"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
+    "@emotion/react": "^11.12.0",
+    "@emotion/styled": "^11.12.0",
     "@fontsource-variable/overpass": "^5.0.19",
     "@glidejs/glide": "^3.6.2",
     "@mui/joy": "5.0.0-beta.48",
@@ -48,7 +48,7 @@
     "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-n": "^17.9.0",
-    "eslint-plugin-promise": "^6.4.0",
+    "eslint-plugin-promise": "^6.5.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.8",
     "eslint-plugin-sonarjs": "^1.0.3",
