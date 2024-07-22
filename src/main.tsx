@@ -36,6 +36,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <NavWrapper />,
+    errorElement: <ErrorElement />,
     children: [
       {
         path: Routes.ROOT,
@@ -53,7 +54,6 @@ const router = createBrowserRouter([
 
           return { Component: CoopReport };
         },
-        errorElement: <ErrorElement />,
       },
       {
         path: Routes.DOLL_DIRECTORY,
@@ -64,7 +64,6 @@ const router = createBrowserRouter([
 
           return { Component: DollDirectory };
         },
-        errorElement: <ErrorElement />,
       },
       {
         path: Routes.DOLL_INFO,
@@ -76,7 +75,6 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           return (await import(`@assets/dolls/${params["name"]}.json`)) as Doll;
         },
-        errorElement: <ErrorElement />,
       },
     ],
   },
