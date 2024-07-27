@@ -1,5 +1,8 @@
 // @ts-check
 
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
 import eslint from "@eslint/js";
 import react from "@eslint-react/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier";
@@ -40,7 +43,7 @@ export default [
     },
     {
       files: ["**/*.{ts,tsx}"],
-      ...react.configs.recommended,
+      ...react.configs["recommended-type-checked"],
     },
     {
       files: ["**/*.{ts,tsx}"],
@@ -55,14 +58,13 @@ export default [
             "./tsconfig.node.json",
             "./tsconfig.eslint.json",
           ],
-          tsconfigRootDir: import.meta.dirname,
+          tsconfigRootDir: dirname(fileURLToPath(import.meta.url)),
         },
       },
       plugins: {
         "react-refresh": reactRefresh,
       },
       rules: {
-        "@eslint-react/no-leaked-conditional-rendering": "error",
         "@eslint-react/prefer-read-only-props": "error",
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-unused-vars": [
@@ -85,7 +87,7 @@ export default [
           },
         ],
         "react-refresh/only-export-components": [
-          "warn",
+          "error",
           { allowConstantExport: true },
         ],
       },
@@ -106,7 +108,7 @@ export default [
         "n/no-unsupported-features/node-builtins": [
           "error",
           {
-            ignores: ["navigator"],
+            ignores: ["navigator", "sessionStorage"],
           },
         ],
         "n/prefer-node-protocol": "error",
