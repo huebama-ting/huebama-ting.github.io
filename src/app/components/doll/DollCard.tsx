@@ -63,13 +63,11 @@ export function DollCard(props: DollProps) {
             ></Box>
           </Skeleton>
         </CardCover>
-        <CardContent>
+        <CardContent sx={{ display: "flex", flexDirection: "column-reverse" }}>
           <Typography
             level="body-lg"
             fontWeight="lg"
-            mt="15rem"
-            ml="-0.5rem"
-            mr="-0.5rem"
+            m="0 -0.5rem -0.75rem"
             textColor="#bbb"
           >
             {props.doll.nameEn}
