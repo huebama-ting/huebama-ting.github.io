@@ -32,7 +32,7 @@ const sizeStyles = `
 `;
 const carouselStyles = `
   margin: 0 1rem 1rem;
-  width: 16rem;
+  width: 20rem;
 
   ${MEDIA_QUERIES["md"]} {
     width: 32rem;
@@ -127,14 +127,14 @@ export function DollDetails(props: DollProps) {
                 <picture className="glide__slide">
                   <Source
                     type="image/webp"
-                    width={256}
-                    height={256}
+                    width={320}
+                    height={320}
                     srcSet={`${imageUrl}/${skinName}/${props.doll.path}.webp`}
                   />
                   <Image
                     src={`${imageUrl}/${skinName}/${props.doll.path}.png`}
-                    width={256}
-                    height={256}
+                    width={320}
+                    height={320}
                     alt={`Doll - ${props.doll.nameEn}`}
                     loading="lazy"
                   />
