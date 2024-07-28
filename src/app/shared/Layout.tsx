@@ -5,9 +5,9 @@ import { ChildrenProps } from "src/app/types/prop";
 
 export const AppContainer = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
-  height: 90%;
 `;
 export const FlexContainerColumn = styled.div`
   display: flex;

@@ -17,7 +17,8 @@ export function NavigationBar() {
 
   return (
     <Box
-      height="10%"
+      minHeight="5rem"
+      maxHeight="5rem"
       display="flex"
       flexGrow={1}
       justifyContent="space-between"
