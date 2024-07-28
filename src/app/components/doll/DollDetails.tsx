@@ -3,7 +3,6 @@ import Grid from "@mui/joy/Grid";
 import Typography from "@mui/joy/Typography";
 import { Suspense, lazy } from "react";
 
-import Carousel from "src/app/shared/Carousel";
 import {
   CDN_BASE_URL,
   DOLL_INFO_REPO_IMAGES_PATH,
@@ -11,6 +10,7 @@ import {
 } from "src/app/shared/constants";
 import { DollProps } from "src/app/types/doll";
 
+const Carousel = lazy(() => import("src/app/shared/Carousel"));
 const Loading = lazy(() => import("src/app/shared/Loading"));
 
 const sizeStyles = `
