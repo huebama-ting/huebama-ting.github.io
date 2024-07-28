@@ -16,16 +16,6 @@ import { Routes } from "src/app/shared/constants";
 import { Doll } from "src/app/types/doll";
 
 const theme = extendTheme({
-  components: {
-    JoySheet: {
-      styleOverrides: {
-        // eslint-disable-next-line no-empty-pattern
-        root: ({}) => ({
-          overflow: "auto",
-        }),
-      },
-    },
-  },
   fontFamily: {
     display:
       '"Overpass Variable", "Inter", var(--joy-fontFamily-fallback, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol")',
