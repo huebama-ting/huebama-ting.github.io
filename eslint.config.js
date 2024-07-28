@@ -66,7 +66,6 @@ export default [
       },
       rules: {
         "@eslint-react/prefer-read-only-props": "error",
-        "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-unused-vars": [
           "error",
           {
