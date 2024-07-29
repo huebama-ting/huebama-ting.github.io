@@ -3,6 +3,7 @@ import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import CardCover from "@mui/joy/CardCover";
+import { applySolidInversion } from "@mui/joy/colorInversion";
 import Link from "@mui/joy/Link";
 import Skeleton from "@mui/joy/Skeleton";
 import Typography from "@mui/joy/Typography";
@@ -74,11 +75,14 @@ export function DollCard(props: DollProps) {
           </Skeleton>
         </CardCover>
         <CardContent sx={{ display: "flex", flexDirection: "column-reverse" }}>
-          <Box overflow="hidden" m="0 -0.5rem -0.75rem">
+          <Box
+            overflow="hidden"
+            m="0 -0.5rem -0.75rem"
+            sx={[applySolidInversion("neutral")]}
+          >
             <Typography
               level="body-lg"
               fontWeight="lg"
-              textColor="#bbb"
               whiteSpace="nowrap"
               display="flex"
               ref={ref}
