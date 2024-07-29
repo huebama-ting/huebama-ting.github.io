@@ -4,8 +4,8 @@ import { Suspense, lazy, useEffect, useState } from "react";
 import { Doll } from "src/app/types/doll";
 
 const DollCard = lazy(() => import("src/app/components/doll/DollCard"));
-const Loading = lazy(() => import("src/app/shared/Loading"));
-const Page = lazy(() => import("src/app/shared/Layout"));
+const Loading = lazy(() => import("src/app/shared/components/Loading"));
+const Page = lazy(() => import("src/app/shared/components/Layout"));
 
 export function DollDirectory() {
   const [dolls, setDolls] = useState<Doll[]>([]);

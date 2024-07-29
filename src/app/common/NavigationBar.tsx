@@ -8,7 +8,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { Routes } from "src/app/shared/constants";
 
 const ColourModeToggle = lazy(() => import("src/app/common/ColourModeToggle"));
-const Loading = lazy(() => import("src/app/shared/Loading"));
+const Loading = lazy(() => import("src/app/shared/components/Loading"));
 
 export function NavigationBar() {
   const accessCode = sessionStorage.getItem("COOP_ROUTE_ACCESS_CODE");

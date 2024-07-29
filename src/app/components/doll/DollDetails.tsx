@@ -15,8 +15,8 @@ interface RarityTextProps {
   readonly baseRarity: number;
 }
 
-const Carousel = lazy(() => import("src/app/shared/Carousel"));
-const Loading = lazy(() => import("src/app/shared/Loading"));
+const Carousel = lazy(() => import("src/app/shared/components/Carousel"));
+const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const Rarity = lazy(() => import("src/app/components/doll/Rarity"));
 
 const sizeStyles = `

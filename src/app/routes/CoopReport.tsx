@@ -6,8 +6,8 @@ import { DynamicImport } from "src/app/types/dynamic-import";
 const CoopReportContentView = lazy(
   () => import("src/app/components/coop-report/CoopReportContentView"),
 );
-const Loading = lazy(() => import("src/app/shared/Loading"));
-const Page = lazy(() => import("src/app/shared/Layout"));
+const Loading = lazy(() => import("src/app/shared/components/Loading"));
+const Page = lazy(() => import("src/app/shared/components/Layout"));
 const ReportSelect = lazy(
   () => import("src/app/components/coop-report/ReportSelect"),
 );

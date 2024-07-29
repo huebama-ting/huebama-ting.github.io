@@ -5,8 +5,8 @@ import { Suspense, lazy } from "react";
 import homeIconPng from "src/assets/images/home-icon.png";
 import homeIconWebp from "src/assets/images/home-icon.webp";
 
-const Loading = lazy(() => import("src/app/shared/Loading"));
-const Page = lazy(() => import("src/app/shared/Layout"));
+const Loading = lazy(() => import("src/app/shared/components/Loading"));
+const Page = lazy(() => import("src/app/shared/components/Layout"));
 
 const Image = styled.img`
   max-width: 10rem;

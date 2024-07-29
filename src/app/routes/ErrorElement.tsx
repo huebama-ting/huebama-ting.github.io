@@ -3,9 +3,9 @@ import Typography from "@mui/joy/Typography";
 import { Suspense, lazy } from "react";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
-import { AppContainer } from "src/app/shared/Layout";
+import { AppContainer } from "src/app/shared/components/Layout";
 
-const Loading = lazy(() => import("src/app/shared/Loading"));
+const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const NavigationBar = lazy(() => import("src/app/common/NavigationBar"));
 
 interface ErrorProps {
