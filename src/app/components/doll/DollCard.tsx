@@ -68,17 +68,12 @@ export function DollCard(props: DollProps) {
               borderRadius="var(--CardCover-radius)"
               sx={{
                 background:
-                  "linear-gradient(to bottom, rgba(0,0,0,0) 75%, rgba(0,0,0,1))",
+                  "linear-gradient(to bottom, rgba(0,0,0,0) 77.5%, rgba(0,0,0,1))",
               }}
             ></Box>
           </Skeleton>
         </CardCover>
-        <CardContent
-          sx={{
-            display: "flex",
-            flexDirection: "column-reverse",
-          }}
-        >
+        <CardContent sx={{ display: "flex", flexDirection: "column-reverse" }}>
           <Box overflow="hidden" m="0 -0.5rem -0.75rem">
             <Typography
               level="body-lg"
