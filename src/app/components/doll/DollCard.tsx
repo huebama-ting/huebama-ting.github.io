@@ -6,13 +6,14 @@ import CardCover from "@mui/joy/CardCover";
 import Link from "@mui/joy/Link";
 import Skeleton from "@mui/joy/Skeleton";
 import Typography from "@mui/joy/Typography";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
 import {
   CDN_BASE_URL,
   DOLL_INFO_REPO_IMAGES_PATH,
 } from "src/app/shared/constants";
+import "src/app/shared/styles/animation.css";
 import { DollProps } from "src/app/types/doll";
 
 const Image = styled.img`
@@ -24,6 +25,15 @@ export function DollCard(props: DollProps) {
   const cardsPath = "cards";
   const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/${cardsPath}/${props.doll.path}`;
   const [loading, setLoading] = useState<boolean>(true);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useLayoutEffect(() => {
+    if (ref.current && ref.current.offsetWidth < ref.current.scrollWidth) {
+      ref.current.classList.add("animate");
+    } else {
+      ref.current?.classList.remove("animate");
+    }
+  }, [ref]);
 
   return (
     <Link component={RouterLink} to={props.doll.path}>
@@ -63,15 +73,24 @@ export function DollCard(props: DollProps) {
             ></Box>
           </Skeleton>
         </CardCover>
-        <CardContent sx={{ display: "flex", flexDirection: "column-reverse" }}>
-          <Typography
-            level="body-lg"
-            fontWeight="lg"
-            m="0 -0.5rem -0.75rem"
-            textColor="#bbb"
-          >
-            {props.doll.nameEn}
-          </Typography>
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column-reverse",
+          }}
+        >
+          <Box overflow="hidden" m="0 -0.5rem -0.75rem">
+            <Typography
+              level="body-lg"
+              fontWeight="lg"
+              textColor="#bbb"
+              whiteSpace="nowrap"
+              display="flex"
+              ref={ref}
+            >
+              {props.doll.nameEn}
+            </Typography>
+          </Box>
         </CardContent>
       </Card>
     </Link>

@@ -1,0 +1,12 @@
+@keyframes left-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate {
+  animation: left-right 5s infinite alternate ease-in-out;
+}
