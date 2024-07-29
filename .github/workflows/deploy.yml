@@ -6,7 +6,7 @@ on:
     # Runs on pushes targeting the default branch
     branches: ["main"]
 
-    # Run on pushes changing files in src, index.html or pnpm-lock.yaml
+    # Run on pushes changing files in src, .github/workflows/deploy.yml, index.html or pnpm-lock.yaml
     paths:
       [".github/workflows/deploy.yml", "src/**", index.html, pnpm-lock.yaml]
 
