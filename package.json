@@ -27,7 +27,7 @@
     "react-router-dom": "^6.25.1"
   },
   "devDependencies": {
-    "@eslint-react/eslint-plugin": "^1.7.0",
+    "@eslint-react/eslint-plugin": "^1.7.1",
     "@eslint/js": "^8.57.0",
     "@nabla/vite-plugin-eslint": "^2.0.4",
     "@swc/plugin-emotion": "^3.0.10",
@@ -59,11 +59,11 @@
     "postcss-styled-syntax": "^0.6.4",
     "prettier": "^3.3.3",
     "rollup": "^4.19.1",
-    "stylelint": "^16.8.0",
+    "stylelint": "^16.8.1",
     "stylelint-config-recess-order": "^5.0.1",
     "stylelint-config-standard": "^36.0.1",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^7.18.0",
+    "typescript-eslint": "^8.0.0",
     "unplugin-turbo-console": "^1.10.1",
     "vite": "^5.3.5",
     "vite-bundle-visualizer": "^1.2.1",
