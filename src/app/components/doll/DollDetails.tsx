@@ -100,7 +100,9 @@ export function DollDetails(props: DollProps) {
       container
       spacing={2}
       flexGrow={1}
-      sx={{ border: "1px solid #bbb", borderRadius: "0.5rem" }}
+      border={1}
+      borderColor="lightsteelblue"
+      borderRadius="0.5rem"
     >
       <Grid xs={12}>
         <Typography level="title-lg" textAlign="center">

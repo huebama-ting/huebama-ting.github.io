@@ -78,7 +78,7 @@ export function DollCard(props: DollProps) {
           <Box
             overflow="hidden"
             m="0 -0.5rem -0.75rem"
-            sx={[applySolidInversion("neutral")]}
+            sx={applySolidInversion("primary")}
           >
             <Typography
               level="body-lg"
