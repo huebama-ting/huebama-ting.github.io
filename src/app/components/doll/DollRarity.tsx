@@ -1,10 +1,10 @@
 import { IoStar, IoStarHalf } from "react-icons/io5";
 
-interface RarityProps {
+interface DollRarityProps {
   readonly rarity: number;
 }
 
-export function Rarity(props: RarityProps) {
+export function DollRarity(props: DollRarityProps) {
   const isHalfStar = !Number.isInteger(props.rarity);
   const revisedRarity = isHalfStar ? Math.trunc(props.rarity) : props.rarity;
 
@@ -18,4 +18,4 @@ export function Rarity(props: RarityProps) {
   );
 }
 
-export default Rarity;
+export default DollRarity;

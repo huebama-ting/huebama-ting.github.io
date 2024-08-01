@@ -8,8 +8,8 @@ const CoopReportContentView = lazy(
 );
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const Page = lazy(() => import("src/app/shared/components/Layout"));
-const ReportSelect = lazy(
-  () => import("src/app/components/coop-report/ReportSelect"),
+const CoopReportSelect = lazy(
+  () => import("src/app/components/coop-report/CoopReportSelect"),
 );
 
 export function CoopReport() {
@@ -46,7 +46,7 @@ export function CoopReport() {
   return (
     <Suspense fallback={<Loading />}>
       <Page>
-        <ReportSelect
+        <CoopReportSelect
           reportModuleList={moduleList}
           onChange={(_, reportModule) => handleChange(_, reportModule)}
         />

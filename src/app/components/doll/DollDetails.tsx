@@ -17,7 +17,7 @@ interface RarityTextProps {
 
 const Carousel = lazy(() => import("src/app/shared/components/Carousel"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
-const Rarity = lazy(() => import("src/app/components/doll/Rarity"));
+const DollRarity = lazy(() => import("src/app/components/doll/DollRarity"));
 
 const sizeStyles = `
   ${MEDIA_QUERIES["md"]} {
@@ -63,14 +63,14 @@ function RarityText(props: RarityTextProps) {
     return (
       <>
         <span>Base (</span>
-        <Rarity rarity={props.skinStage} />
+        <DollRarity rarity={props.skinStage} />
         <span>) Art</span>
       </>
     );
   } else {
     return (
       <>
-        <Rarity rarity={props.skinStage} />
+        <DollRarity rarity={props.skinStage} />
         <AfterRarityText> Art</AfterRarityText>
       </>
     );

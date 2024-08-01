@@ -6,7 +6,7 @@ import Select from "@mui/joy/Select";
 import { CoopReportContent } from "src/app/types/coop-report";
 import { DynamicImport } from "src/app/types/dynamic-import";
 
-interface ReportSelectProps {
+interface CoopReportSelectProps {
   readonly reportModuleList: DynamicImport<CoopReportContent>[];
   readonly onChange: (
     _: React.SyntheticEvent | null,
@@ -14,7 +14,7 @@ interface ReportSelectProps {
   ) => Promise<void>;
 }
 
-export function ReportSelect(props: ReportSelectProps) {
+export function ReportSelect(props: CoopReportSelectProps) {
   return (
     <FormControl>
       <FormLabel>Work Term Report</FormLabel>
