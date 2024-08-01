@@ -11,4 +11,7 @@ updates:
       interval: "monthly"
     ignore:
       - dependency-name: "@eslint/js"
+      - dependency-name: "@types/eslint__js"
+      - dependency-name: "@types/eslint"
+      - dependency-name: "@types/node"
       - dependency-name: "eslint"
