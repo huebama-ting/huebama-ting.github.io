@@ -53,11 +53,7 @@ export default [
       ],
       languageOptions: {
         parserOptions: {
-          project: [
-            "./tsconfig.json",
-            "./tsconfig.node.json",
-            "./tsconfig.eslint.json",
-          ],
+          projectService: true,
           tsconfigRootDir: dirname(fileURLToPath(import.meta.url)),
         },
       },
