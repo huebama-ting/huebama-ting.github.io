@@ -15,11 +15,19 @@ interface RarityTextProps {
   readonly baseRarity: number;
 }
 
+interface DollSkinImageProps {
+  readonly imageUrl: string;
+  readonly dollName: string;
+}
+
 const Carousel = lazy(() => import("src/app/shared/components/Carousel"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const DollRarity = lazy(() => import("src/app/components/doll/DollRarity"));
 
 const sizeStyles = `
+  width: 20rem;
+  height: 20rem;
+
   ${MEDIA_QUERIES["md"]} {
     width: 32rem;
     height: 32rem;
@@ -54,6 +62,13 @@ const FlexContainer = styled.div`
 const Image = styled.img`
   ${sizeStyles}
 `;
+const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ${sizeStyles}
+`;
 const Source = styled.source`
   ${sizeStyles}
 `;
@@ -75,6 +90,28 @@ function RarityText(props: RarityTextProps) {
       </>
     );
   }
+}
+
+function DollSkinImage(props: DollSkinImageProps) {
+  return (
+    <ImageContainer>
+      <picture>
+        <Source
+          type="image/webp"
+          srcSet={`${props.imageUrl}.webp`}
+          width={320}
+          height={320}
+        />
+        <Image
+          src={`${props.imageUrl}.png`}
+          width={320}
+          height={320}
+          alt={`Doll - ${props.dollName}`}
+          loading="lazy"
+        />
+      </picture>
+    </ImageContainer>
+  );
 }
 
 export function DollDetails(props: DollProps) {
@@ -120,7 +157,7 @@ export function DollDetails(props: DollProps) {
         <Suspense fallback={<Loading />}>
           <Carousel styles={carouselStyles}>
             {baseSkins.map((skinName) => (
-              <div key={skinName}>
+              <div key={skinName} className="glide__slide">
                 <FlexContainer>
                   {rarityPresent && (
                     <RarityText
@@ -129,21 +166,10 @@ export function DollDetails(props: DollProps) {
                     />
                   )}
                 </FlexContainer>
-                <picture className="glide__slide">
-                  <Source
-                    type="image/webp"
-                    width={320}
-                    height={320}
-                    srcSet={`${imageUrl}/${skinName}/${props.doll.path}.webp`}
-                  />
-                  <Image
-                    src={`${imageUrl}/${skinName}/${props.doll.path}.png`}
-                    width={320}
-                    height={320}
-                    alt={`Doll - ${props.doll.nameEn}`}
-                    loading="lazy"
-                  />
-                </picture>
+                <DollSkinImage
+                  imageUrl={`${imageUrl}/${skinName}/${props.doll.path}`}
+                  dollName={props.doll.nameEn}
+                />
               </div>
             ))}
           </Carousel>
