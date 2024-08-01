@@ -80,6 +80,7 @@ function RarityText(props: RarityTextProps) {
 export function DollDetails(props: DollProps) {
   const baseSkins = ["stage-1", "stage-2", "stage-3"];
   const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}`;
+  const rarityPresent = !!props.doll.baseRarity;
 
   const skinRarity = (skinStage: string) => {
     let skinRarity = 0;
@@ -121,10 +122,12 @@ export function DollDetails(props: DollProps) {
             {baseSkins.map((skinName) => (
               <div key={skinName}>
                 <FlexContainer>
-                  <RarityText
-                    skinStage={skinRarity(skinName)}
-                    baseRarity={props.doll.baseRarity}
-                  />
+                  {rarityPresent && (
+                    <RarityText
+                      skinStage={skinRarity(skinName)}
+                      baseRarity={props.doll.baseRarity}
+                    />
+                  )}
                 </FlexContainer>
                 <picture className="glide__slide">
                   <Source
