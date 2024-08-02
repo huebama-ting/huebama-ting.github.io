@@ -38,14 +38,14 @@ const router = createBrowserRouter([
         },
         errorElement: <ErrorElement />,
       },
-      // {
-      //   path: Routes.COOP_REPORT,
-      //   lazy: async () => {
-      //     const { CoopReport } = await import("src/app/routes/CoopReport");
+      {
+        path: Routes.COOP_REPORT,
+        lazy: async () => {
+          const { CoopReport } = await import("src/app/routes/CoopReport");
 
-      //     return { Component: CoopReport };
-      //   },
-      // },
+          return { Component: CoopReport };
+        },
+      },
       // {
       //   path: Routes.DOLL_DIRECTORY,
       //   lazy: async () => {

@@ -9,9 +9,9 @@ const ColourModeToggle = lazy(() => import("src/app/common/ColourModeToggle"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 
 export function NavigationBar() {
-  const accessCode = sessionStorage.getItem("COOP_ROUTE_ACCESS_CODE");
-  const isAuthorised =
-    accessCode === import.meta.env.VITE_COOP_ROUTE_ACCESS_CODE;
+  // const accessCode = sessionStorage.getItem("COOP_ROUTE_ACCESS_CODE");
+  // const isAuthorised =
+  //   accessCode === import.meta.env.VITE_COOP_ROUTE_ACCESS_CODE;
 
   return (
     <Group justify="space-between">
@@ -32,16 +32,14 @@ export function NavigationBar() {
         >
           Doll Directory
         </Button>
-        {isAuthorised && (
-          <Button
-            component={RouterLink}
-            to={Routes.COOP_REPORT}
-            leftSection={<IoClipboard />}
-            variant="subtle"
-          >
-            Co-op Reports
-          </Button>
-        )}
+        <Button
+          component={RouterLink}
+          to={Routes.COOP_REPORT}
+          leftSection={<IoClipboard />}
+          variant="subtle"
+        >
+          Co-op Reports
+        </Button>
       </Group>
 
       <Suspense fallback={<Loading />}>
