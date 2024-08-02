@@ -1,7 +1,8 @@
+import { Stack } from "@mantine/core";
 import { Suspense, lazy } from "react";
 import { Outlet } from "react-router-dom";
 
-import { AppContainer } from "src/app/shared/components/Layout";
+import classes from "src/app/shared/styles/layout.module.css";
 
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const NavigationBar = lazy(() => import("src/app/common/NavigationBar"));
@@ -13,9 +14,9 @@ export function NavWrapper() {
         <NavigationBar />
       </Suspense>
 
-      <AppContainer>
+      <Stack className={classes.appContainer}>
         <Outlet />
-      </AppContainer>
+      </Stack>
     </>
   );
 }

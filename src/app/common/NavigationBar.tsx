@@ -1,6 +1,4 @@
-import Box from "@mui/joy/Box";
-import Link from "@mui/joy/Link";
-import Stack from "@mui/joy/Stack";
+import { Button, Group } from "@mantine/core";
 import { Suspense, lazy } from "react";
 import { IoClipboard, IoHome, IoPerson } from "react-icons/io5";
 import { Link as RouterLink } from "react-router-dom";
@@ -16,48 +14,40 @@ export function NavigationBar() {
     accessCode === import.meta.env.VITE_COOP_ROUTE_ACCESS_CODE;
 
   return (
-    <Box
-      minHeight="5rem"
-      maxHeight="5rem"
-      display="flex"
-      flexGrow={1}
-      justifyContent="space-between"
-      margin="0 1rem"
-    >
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={4}
-      >
-        <Link
-          startDecorator={<IoHome className="react-icon" />}
+    <Group justify="space-between">
+      <Group>
+        <Button
           component={RouterLink}
           to={Routes.ROOT}
+          leftSection={<IoHome />}
+          variant="subtle"
         >
           Home
-        </Link>
-        <Link
-          startDecorator={<IoPerson className="react-icon" />}
+        </Button>
+        <Button
           component={RouterLink}
           to={Routes.DOLL_DIRECTORY}
+          leftSection={<IoPerson />}
+          variant="subtle"
         >
           Doll Directory
-        </Link>
+        </Button>
         {isAuthorised && (
-          <Link
-            startDecorator={<IoClipboard />}
+          <Button
             component={RouterLink}
             to={Routes.COOP_REPORT}
+            leftSection={<IoClipboard />}
+            variant="subtle"
           >
             Co-op Reports
-          </Link>
+          </Button>
         )}
-      </Stack>
+      </Group>
+
       <Suspense fallback={<Loading />}>
         <ColourModeToggle />
       </Suspense>
-    </Box>
+    </Group>
   );
 }
 
