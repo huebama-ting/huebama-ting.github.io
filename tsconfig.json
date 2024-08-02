@@ -16,7 +16,6 @@
     "jsxImportSource": "@emotion/react",
 
     "strict": true,
-    "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -25,7 +24,16 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
 
-    "types": ["node", "vite-plugin-pwa/react"]
+    "types": ["node", "vite-plugin-pwa/react"],
+
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "noUncheckedIndexedAccess": true
+        }
+      }
+    ]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
