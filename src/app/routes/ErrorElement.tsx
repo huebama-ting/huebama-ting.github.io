@@ -1,33 +1,25 @@
-import styled from "@emotion/styled";
-import Typography from "@mui/joy/Typography";
+import { Stack, Text, Title } from "@mantine/core";
 import { Suspense, lazy } from "react";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
-import { AppContainer } from "src/app/shared/components/Layout";
+import styles from "src/app/shared/styles/layout.module.css";
 
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const NavigationBar = lazy(() => import("src/app/common/NavigationBar"));
+const Page = lazy(() => import("src/app/shared/components/Layout"));
 
 interface ErrorProps {
   readonly message?: string | undefined;
 }
 
-const ErrorContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 function ErrorText(props: ErrorProps) {
   return (
     <>
-      <Typography level="h1">Oops!</Typography>
-      <br />
-      <Typography level="body-lg">
+      <Title size="h1">Oops!</Title>
+      <Text size="xl">
         Sorry, an unexpected error has occurred.
-        <br />
         {props.message}
-      </Typography>
+      </Text>
     </>
   );
 }
@@ -45,35 +37,34 @@ export function ErrorElement(props: ErrorProps): React.ReactNode {
         <NavigationBar />
       </Suspense>
 
-      <AppContainer>
-        <ErrorContainer>
+      <Stack className={styles["appContainer"]}>
+        <Page>
           {isRouteErrorResponse(error) ? (
             <>
               <ErrorText />
-              <br />
-              <Typography level="body-md">
+              <Text size="md">
                 <em>
                   {error.status} {error.statusText}
                   {error.data ? `: ${error.data}` : ""}
                 </em>
-              </Typography>
+              </Text>
             </>
           ) : !navigator.onLine ? (
             <>
               <ErrorText />
               <br />
-              <Typography level="body-md">
+              <Text size="md">
                 <em>
                   You seem to be offline. Try reloading this page again once you
                   are online.
                 </em>
-              </Typography>
+              </Text>
             </>
           ) : (
             <ErrorText message={props.message} />
           )}
-        </ErrorContainer>
-      </AppContainer>
+        </Page>
+      </Stack>
     </>
   );
 }
