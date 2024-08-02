@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Sheet from "@mui/joy/Sheet";
+import { Center, Stack } from "@mantine/core";
 
 import { ChildrenProps } from "src/app/types/prop";
 
@@ -17,9 +17,9 @@ export const FlexContainerColumn = styled.div`
 
 export function Page(props: ChildrenProps) {
   return (
-    <Sheet sx={{ padding: "1rem" }}>
-      <FlexContainerColumn>{props.children}</FlexContainerColumn>
-    </Sheet>
+    <Center>
+      <Stack align="center">{props.children}</Stack>
+    </Center>
   );
 }
 
