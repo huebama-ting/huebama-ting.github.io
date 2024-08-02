@@ -61,7 +61,7 @@ export default [
         "react-refresh": reactRefresh,
       },
       rules: {
-        "@eslint-react/prefer-read-only-props": "error",
+        "@typescript-eslint/dot-notation": "off",
         "@typescript-eslint/no-unused-vars": [
           "error",
           {
@@ -74,6 +74,7 @@ export default [
             ignoreRestSiblings: true,
           },
         ],
+        "@eslint-react/prefer-read-only-props": "error",
         "@typescript-eslint/restrict-template-expressions": [
           "error",
           {
