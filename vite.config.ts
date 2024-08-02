@@ -21,6 +21,10 @@ export default defineConfig({
             return "@glide";
           }
 
+          if (id.includes("@mantine")) {
+            return "@mantine";
+          }
+
           if (id.includes("react-icons")) {
             return "react-icons";
           }
