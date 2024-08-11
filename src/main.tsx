@@ -9,7 +9,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "src/index.css";
 import { NavWrapper } from "src/app/common/NavWrapper";
-// import { PwaReloadPrompt } from "src/app/common/PwaReloadPrompt";
+import { PwaReloadPrompt } from "src/app/common/PwaReloadPrompt";
 import { ErrorElement } from "src/app/routes/ErrorElement";
 import { Routes } from "src/app/shared/constants";
 // import { Doll } from "src/app/types/doll";
@@ -74,6 +74,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <MantineProvider>
       <RouterProvider router={router} />
+      <PwaReloadPrompt />
     </MantineProvider>
   </StrictMode>,
 );

@@ -1,14 +1,15 @@
-import Button from "@mui/joy/Button";
-import DialogActions from "@mui/joy/DialogActions";
-import DialogContent from "@mui/joy/DialogContent";
-import Modal from "@mui/joy/Modal";
-import ModalDialog from "@mui/joy/ModalDialog";
-import { useState } from "react";
+import { Button, Group, Modal, Text } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { IoClose, IoReload } from "react-icons/io5";
 import { useRegisterSW } from "virtual:pwa-register/react";
 
 export function PwaReloadPrompt() {
-  const [open, setOpen] = useState<boolean>(true);
+  const [opened, { close }] = useDisclosure(true, {
+    onClose: () => {
+      setOfflineReady(false);
+      setNeedRefresh(false);
+    },
+  });
   const {
     offlineReady: [offlineReady, setOfflineReady],
     needRefresh: [needRefresh, setNeedRefresh],
@@ -22,54 +23,42 @@ export function PwaReloadPrompt() {
     },
   });
 
-  const close = (
-    _: Record<string, never>,
-    reason: "backdropClick" | "escapeKeyDown" | "closeClick",
-  ) => {
-    if (reason === "closeClick") {
-      setOpen(false);
-      setOfflineReady(false);
-      setNeedRefresh(false);
-    }
-  };
-
   return (
     <>
       {(offlineReady || needRefresh) && (
         <Modal
-          open={open}
-          onClose={(_, reason) => {
-            close(_, reason);
-          }}
+          opened={opened}
+          onClose={close}
+          title={offlineReady ? "Offline Ready" : "Update Available"}
+          closeOnClickOutside={false}
+          closeOnEscape={false}
+          centered
         >
-          <ModalDialog>
-            <DialogContent>
-              {offlineReady
-                ? "App ready to work offline."
-                : "New content available. Reload for new content?"}
-            </DialogContent>
-            <DialogActions>
-              {needRefresh && (
-                <Button
-                  aria-label="Reload content"
-                  // eslint-disable-next-line @typescript-eslint/no-misused-promises
-                  onClick={() => updateServiceWorker()}
-                  startDecorator={<IoReload className="react-icon" />}
-                >
-                  Reload
-                </Button>
-              )}
+          <Text my="xs">
+            {offlineReady
+              ? "App ready to work offline."
+              : "New content available. Reload for new content?"}
+          </Text>
+
+          <Group mt="xl" justify="flex-end">
+            {needRefresh && (
               <Button
-                aria-label="Close dialogue"
-                onClick={() => {
-                  close({}, "closeClick");
-                }}
-                startDecorator={<IoClose className="react-icon" />}
+                aria-label="Reload content"
+                // eslint-disable-next-line @typescript-eslint/no-misused-promises
+                onClick={() => updateServiceWorker()}
+                leftSection={<IoReload />}
               >
-                Close
+                Reload
               </Button>
-            </DialogActions>
-          </ModalDialog>
+            )}
+            <Button
+              aria-label="Close modal"
+              onClick={close}
+              leftSection={<IoClose />}
+            >
+              Close
+            </Button>
+          </Group>
         </Modal>
       )}
     </>
