@@ -15,6 +15,7 @@ export function ReportSelect(props: CoopReportSelectProps) {
 
   return (
     <Select
+      miw="15rem"
       onChange={props.onChange}
       placeholder="Choose a work term report..."
       data={options}
