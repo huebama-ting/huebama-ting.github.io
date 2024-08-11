@@ -34,7 +34,6 @@ const router = createBrowserRouter([
 
           return { Component: Home };
         },
-        errorElement: <ErrorElement />,
       },
       {
         path: Routes.COOP_REPORT,
