@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       {
         path: Routes.COOP_REPORT,
         lazy: async () => {
-          const { CoopReport } = await import("src/app/routes/CoopReport");
+          const { CoopReport } = await import("src/app/routes/coop/CoopReport");
 
           return { Component: CoopReport };
         },
