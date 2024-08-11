@@ -1,14 +1,12 @@
 import styled from "@emotion/styled";
+import { Anchor, Group, Text } from "@mantine/core";
 import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import CardCover from "@mui/joy/CardCover";
-import { applySolidInversion } from "@mui/joy/colorInversion";
-import Link from "@mui/joy/Link";
 import Skeleton from "@mui/joy/Skeleton";
-import Typography from "@mui/joy/Typography";
 import { useLayoutEffect, useRef, useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import {
   CDN_BASE_URL,
@@ -16,6 +14,8 @@ import {
 } from "src/app/shared/constants";
 import "src/app/shared/styles/animation.css";
 import { DollProps } from "src/app/types/doll";
+
+import styles from "./styles/doll-card.module.css";
 
 const Image = styled.img`
   /* stylelint-disable-next-line custom-property-pattern */
@@ -26,7 +26,7 @@ export function DollCard(props: DollProps) {
   const cardsPath = "cards";
   const imageUrl = `${CDN_BASE_URL}/${DOLL_INFO_REPO_IMAGES_PATH}/${cardsPath}/${props.doll.path}`;
   const [loading, setLoading] = useState<boolean>(true);
-  const ref = useRef<HTMLSpanElement>(null);
+  const ref = useRef<HTMLParagraphElement>(null);
 
   useLayoutEffect(() => {
     if (ref.current && ref.current.offsetWidth < ref.current.scrollWidth) {
@@ -37,7 +37,7 @@ export function DollCard(props: DollProps) {
   }, [ref]);
 
   return (
-    <Link component={RouterLink} to={props.doll.path}>
+    <Anchor component={Link} to={props.doll.path}>
       <Card sx={{ height: "16rem", width: "8rem" }}>
         <CardCover>
           <Skeleton loading={loading}>
@@ -75,24 +75,20 @@ export function DollCard(props: DollProps) {
           </Skeleton>
         </CardCover>
         <CardContent sx={{ display: "flex", flexDirection: "column-reverse" }}>
-          <Box
-            overflow="hidden"
-            m="0 -0.5rem -0.75rem"
-            sx={applySolidInversion("primary")}
-          >
-            <Typography
-              level="body-lg"
-              fontWeight="lg"
-              whiteSpace="nowrap"
+          <Group m="0 -0.5rem -0.75rem" className={styles["dollNameContainer"]}>
+            <Text
+              size="lg"
+              fw={500}
               display="flex"
               ref={ref}
+              className={styles["dollName"]}
             >
               {props.doll.nameEn}
-            </Typography>
-          </Box>
+            </Text>
+          </Group>
         </CardContent>
       </Card>
-    </Link>
+    </Anchor>
   );
 }
 
