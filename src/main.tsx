@@ -12,7 +12,7 @@ import { NavWrapper } from "src/app/common/NavWrapper";
 import { PwaReloadPrompt } from "src/app/common/PwaReloadPrompt";
 import { ErrorElement } from "src/app/routes/ErrorElement";
 import { Routes } from "src/app/shared/constants";
-// import { Doll } from "src/app/types/doll";
+import { Doll } from "src/app/types/doll";
 
 // const theme = extendTheme({
 //   fontFamily: {
@@ -44,27 +44,27 @@ const router = createBrowserRouter([
           return { Component: CoopReport };
         },
       },
-      // {
-      //   path: Routes.DOLL_DIRECTORY,
-      //   lazy: async () => {
-      //     const { DollDirectory } = await import(
-      //       "src/app/routes/DollDirectory"
-      //     );
+      {
+        path: Routes.DOLL_DIRECTORY,
+        lazy: async () => {
+          const { DollDirectory } = await import(
+            "src/app/routes/doll/DollDirectory"
+          );
 
-      //     return { Component: DollDirectory };
-      //   },
-      // },
-      // {
-      //   path: Routes.DOLL_INFO,
-      //   lazy: async () => {
-      //     const { DollInfo } = await import("src/app/routes/DollInfo");
+          return { Component: DollDirectory };
+        },
+      },
+      {
+        path: Routes.DOLL_INFO,
+        lazy: async () => {
+          const { DollInfo } = await import("src/app/routes/doll/DollInfo");
 
-      //     return { Component: DollInfo };
-      //   },
-      //   loader: async ({ params }) => {
-      //     return (await import(`@assets/dolls/${params["name"]}.json`)) as Doll;
-      //   },
-      // },
+          return { Component: DollInfo };
+        },
+        loader: async ({ params }) => {
+          return (await import(`@assets/dolls/${params["name"]}.json`)) as Doll;
+        },
+      },
     ],
   },
 ]);
