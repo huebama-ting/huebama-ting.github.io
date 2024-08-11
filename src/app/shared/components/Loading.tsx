@@ -1,7 +1,7 @@
-import CircularProgress from "@mui/joy/CircularProgress";
+import { Loader } from "@mantine/core";
 
 export function Loading() {
-  return <CircularProgress />;
+  return <Loader />;
 }
 
 export default Loading;
