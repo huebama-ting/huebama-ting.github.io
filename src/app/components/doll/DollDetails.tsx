@@ -1,6 +1,4 @@
-import styled from "@emotion/styled";
-import Grid from "@mui/joy/Grid";
-import Typography from "@mui/joy/Typography";
+import { Center, Grid, Group, Image, Title } from "@mantine/core";
 import { Suspense, lazy } from "react";
 
 import {
@@ -9,6 +7,8 @@ import {
   MEDIA_QUERIES,
 } from "src/app/shared/constants";
 import { DollProps } from "src/app/types/doll";
+
+import styles from "./styles/doll-details.module.css";
 
 interface RarityTextProps {
   readonly skinStage: number;
@@ -24,20 +24,20 @@ const Carousel = lazy(() => import("src/app/shared/components/Carousel"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const DollRarity = lazy(() => import("src/app/components/doll/DollRarity"));
 
-const sizeStyles = `
-  width: 20rem;
-  height: 20rem;
+// const sizeStyles = `
+//   width: 20rem;
+//   height: 20rem;
 
-  ${MEDIA_QUERIES["md"]} {
-    width: 32rem;
-    height: 32rem;
-  }
+//   ${MEDIA_QUERIES["md"]} {
+//     width: 32rem;
+//     height: 32rem;
+//   }
 
-  ${MEDIA_QUERIES["lg"]} {
-    width: 40rem;
-    height: 40rem;
-  }
-`;
+//   ${MEDIA_QUERIES["lg"]} {
+//     width: 40rem;
+//     height: 40rem;
+//   }
+// `;
 const carouselStyles = `
   margin: 0 1rem 1rem;
   width: 20rem;
@@ -51,27 +51,24 @@ const carouselStyles = `
   }
 `;
 
-const AfterRarityText = styled.span`
-  white-space: pre;
-`;
-const FlexContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0.25rem 0 0.5rem;
-`;
-const Image = styled.img`
-  ${sizeStyles}
-`;
-const ImageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// const FlexContainer = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   margin: 0.25rem 0 0.5rem;
+// `;
+// const Image = styled.img`
+//   ${sizeStyles}
+// `;
+// const ImageContainer = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
 
-  ${sizeStyles}
-`;
-const Source = styled.source`
-  ${sizeStyles}
-`;
+//   ${sizeStyles}
+// `;
+// const Source = styled.source`
+//   ${sizeStyles}
+// `;
 
 function RarityText(props: RarityTextProps) {
   if (props.skinStage === props.baseRarity) {
@@ -86,7 +83,7 @@ function RarityText(props: RarityTextProps) {
     return (
       <>
         <DollRarity rarity={props.skinStage} />
-        <AfterRarityText> Art</AfterRarityText>
+        <span className={styles["afterRarityText"]}> Art</span>
       </>
     );
   }
@@ -94,9 +91,9 @@ function RarityText(props: RarityTextProps) {
 
 function DollSkinImage(props: DollSkinImageProps) {
   return (
-    <ImageContainer>
+    <Center>
       <picture>
-        <Source
+        <source
           type="image/webp"
           srcSet={`${props.imageUrl}.webp`}
           width={320}
@@ -110,7 +107,7 @@ function DollSkinImage(props: DollSkinImageProps) {
           loading="lazy"
         />
       </picture>
-    </ImageContainer>
+    </Center>
   );
 }
 
@@ -134,38 +131,25 @@ export function DollDetails(props: DollProps) {
   };
 
   return (
-    <Grid
-      container
-      spacing={2}
-      flexGrow={1}
-      border={1}
-      borderColor="lightsteelblue"
-      borderRadius="0.5rem"
-    >
-      <Grid xs={12}>
-        <Typography level="title-lg" textAlign="center">
+    <Grid className={styles["introContainer"]}>
+      <Grid.Col span={12}>
+        <Title size="1.5rem" className={styles["dollName"]}>
           {props.doll.nameEn}
-        </Typography>
-      </Grid>
-      <Grid
-        xs={12}
-        container
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-      >
+        </Title>
+      </Grid.Col>
+      <Grid.Col span={12}>
         <Suspense fallback={<Loading />}>
           <Carousel styles={carouselStyles}>
             {baseSkins.map((skinName) => (
               <div key={skinName} className="glide__slide">
-                <FlexContainer>
+                <Group justify="center" gap="0">
                   {rarityPresent && (
                     <RarityText
                       skinStage={skinRarity(skinName)}
                       baseRarity={props.doll.baseRarity}
                     />
                   )}
-                </FlexContainer>
+                </Group>
                 <DollSkinImage
                   imageUrl={`${imageUrl}/${skinName}/${props.doll.path}`}
                   dollName={props.doll.nameEn}
@@ -174,7 +158,7 @@ export function DollDetails(props: DollProps) {
             ))}
           </Carousel>
         </Suspense>
-      </Grid>
+      </Grid.Col>
     </Grid>
   );
 }

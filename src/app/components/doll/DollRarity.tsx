@@ -11,9 +11,9 @@ export function DollRarity(props: DollRarityProps) {
   return (
     <div>
       {[...new Array(revisedRarity).keys()].map((count) => (
-        <IoStar key={count} className="react-icon" />
+        <IoStar key={count} />
       ))}
-      {isHalfStar && <IoStarHalf className="react-icon" />}
+      {isHalfStar && <IoStarHalf />}
     </div>
   );
 }
