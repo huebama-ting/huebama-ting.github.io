@@ -14,7 +14,7 @@ export function NavigationBar() {
   //   accessCode === import.meta.env.VITE_COOP_ROUTE_ACCESS_CODE;
 
   return (
-    <Group justify="space-between">
+    <Group justify="space-between" m="lg">
       <Group>
         <Button
           component={RouterLink}

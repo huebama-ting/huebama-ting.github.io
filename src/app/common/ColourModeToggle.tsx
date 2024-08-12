@@ -12,11 +12,7 @@ export function ColourModeToggle() {
       }}
       variant="subtle"
     >
-      {colorScheme === "light" ? (
-        <IoMoon className="react-icon" />
-      ) : (
-        <IoSunny className="react-icon" />
-      )}
+      {colorScheme === "light" ? <IoMoon /> : <IoSunny />}
     </ActionIcon>
   );
 }
