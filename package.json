@@ -10,8 +10,8 @@
     "build": "tsc && vite build",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --max-warnings 0 --fix",
-    "lint:css": "stylelint ./src/**/*.{css,scss,sass,jsx,tsx}",
-    "lint:css:fix": "stylelint ./src/**/*.{css,scss,sass,jsx,tsx} --fix",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:css:fix": "stylelint \"**/*.css\" --fix",
     "prepare": "husky",
     "preview": "vite preview --host"
   },
