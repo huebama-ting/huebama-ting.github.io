@@ -2,6 +2,13 @@
   white-space: pre;
 }
 
+.control {
+  &[data-inactive] {
+    opacity: 0;
+    cursor: default;
+  }
+}
+
 .dollName {
   text-align: center;
 }
@@ -9,11 +16,4 @@
 .introContainer {
   border: 1px solid;
   border-radius: 0.5rem;
-}
-
-.control {
-  &[data-inactive] {
-    opacity: 0;
-    cursor: default;
-  }
 }
