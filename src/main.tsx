@@ -1,5 +1,6 @@
 import "@glidejs/glide/dist/css/glide.core.min.css";
 import "@glidejs/glide/dist/css/glide.theme.min.css";
+import "@mantine/carousel/styles.css";
 import "@mantine/core/styles.css";
 
 import { MantineProvider } from "@mantine/core";
@@ -7,12 +8,13 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import "src/index.css";
 import { NavWrapper } from "src/app/common/NavWrapper";
 import { PwaReloadPrompt } from "src/app/common/PwaReloadPrompt";
 import { ErrorElement } from "src/app/routes/ErrorElement";
 import { Routes } from "src/app/shared/constants";
 import { Doll } from "src/app/types/doll";
+
+import "./index.css";
 
 // const theme = extendTheme({
 //   fontFamily: {
