@@ -1,19 +1,19 @@
-.afterRarityText {
+.after-rarity-text {
   white-space: pre;
 }
 
 .control {
   &[data-inactive] {
-    opacity: 0;
     cursor: default;
+    opacity: 0;
   }
 }
 
-.dollName {
+.doll-name {
   text-align: center;
 }
 
-.introContainer {
+.intro-container {
   border: 1px solid;
   border-radius: 0.5rem;
 }

@@ -85,7 +85,7 @@ function RarityText(props: RarityTextProps) {
     RarityText = (
       <>
         <DollRarity rarity={props.skinStage} />
-        <span className={styles["afterRarityText"]}> Art</span>
+        <span className={styles["after-rarity-text"]}> Art</span>
       </>
     );
   }
@@ -135,9 +135,9 @@ export function DollDetails(props: DollProps) {
   };
 
   return (
-    <Grid className={styles["introContainer"]}>
+    <Grid className={styles["intro-container"]}>
       <Grid.Col span={12}>
-        <Title size="1.5rem" className={styles["dollName"]}>
+        <Title size="1.5rem" mt="sm" className={styles["doll-name"]}>
           {props.doll.nameEn}
         </Title>
       </Grid.Col>

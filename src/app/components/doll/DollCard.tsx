@@ -76,7 +76,7 @@ export function DollCard(props: DollProps) {
                 pl="0.25rem"
                 c="#bbb"
                 ref={ref}
-                className={styles["dollName"]}
+                className={styles["doll-name"]}
               >
                 {props.doll.nameEn}
               </Text>

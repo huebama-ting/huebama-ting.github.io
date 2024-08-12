@@ -1,7 +1,7 @@
-.dollName {
+.doll-name {
   white-space: nowrap;
 }
 
-.dollNameContainer {
+.doll-name-container {
   overflow: hidden;
 }
