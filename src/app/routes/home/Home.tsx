@@ -1,4 +1,4 @@
-import { Skeleton, Title } from "@mantine/core";
+import { Image, Skeleton, Title } from "@mantine/core";
 import { Suspense, lazy, useState } from "react";
 
 import homeIconPng from "src/assets/images/home-icon.png";
@@ -22,8 +22,7 @@ export function Home() {
             }}
           >
             <source type="image/webp" srcSet={homeIconWebp} />
-            <source type="image/png" srcSet={homeIconPng} />
-            <img
+            <Image
               className={styles["image"]}
               src={homeIconPng}
               width={160}
