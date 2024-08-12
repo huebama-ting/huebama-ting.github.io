@@ -14,7 +14,7 @@ import {
   CDN_BASE_URL,
   DOLL_INFO_REPO_IMAGES_PATH,
 } from "src/app/shared/constants";
-import "src/app/shared/styles/animation.css";
+import sharedStyles from "src/app/shared/styles/animation.module.css";
 import { DollProps } from "src/app/types/doll";
 
 import styles from "./styles/doll-card.module.css";
@@ -27,9 +27,11 @@ export function DollCard(props: DollProps) {
 
   useLayoutEffect(() => {
     if (ref.current && ref.current.offsetWidth < ref.current.scrollWidth) {
-      ref.current.classList.add("animate");
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      ref.current.classList.add(sharedStyles["animate"]!);
     } else {
-      ref.current?.classList.remove("animate");
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      ref.current?.classList.remove(sharedStyles["animate"]!);
     }
   }, [ref]);
 
