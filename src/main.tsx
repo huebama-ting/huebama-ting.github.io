@@ -1,5 +1,3 @@
-import "@glidejs/glide/dist/css/glide.core.min.css";
-import "@glidejs/glide/dist/css/glide.theme.min.css";
 import "@mantine/carousel/styles.css";
 import "@mantine/core/styles.css";
 
