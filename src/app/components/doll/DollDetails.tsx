@@ -1,10 +1,10 @@
+import { Carousel } from "@mantine/carousel";
 import { Center, Grid, Group, Image, Title } from "@mantine/core";
 import { Suspense, lazy } from "react";
 
 import {
   CDN_BASE_URL,
   DOLL_INFO_REPO_IMAGES_PATH,
-  MEDIA_QUERIES,
 } from "src/app/shared/constants";
 import { DollProps } from "src/app/types/doll";
 
@@ -20,7 +20,7 @@ interface DollSkinImageProps {
   readonly dollName: string;
 }
 
-const Carousel = lazy(() => import("src/app/shared/components/Carousel"));
+// const Carousel = lazy(() => import("src/app/shared/components/Carousel"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const DollRarity = lazy(() => import("src/app/components/doll/DollRarity"));
 
@@ -38,18 +38,18 @@ const DollRarity = lazy(() => import("src/app/components/doll/DollRarity"));
 //     height: 40rem;
 //   }
 // `;
-const carouselStyles = `
-  margin: 0 1rem 1rem;
-  width: 20rem;
+// const carouselStyles = `
+//   margin: 0 1rem 1rem;
+//   width: 20rem;
 
-  ${MEDIA_QUERIES["md"]} {
-    width: 32rem;
-  }
+//   ${MEDIA_QUERIES["md"]} {
+//     width: 32rem;
+//   }
 
-  ${MEDIA_QUERIES["lg"]} {
-    width: 40rem;
-  }
-`;
+//   ${MEDIA_QUERIES["lg"]} {
+//     width: 40rem;
+//   }
+// `;
 
 // const FlexContainer = styled.div`
 //   display: flex;
@@ -139,9 +139,9 @@ export function DollDetails(props: DollProps) {
       </Grid.Col>
       <Grid.Col span={12}>
         <Suspense fallback={<Loading />}>
-          <Carousel styles={carouselStyles}>
+          <Carousel withIndicators classNames={styles}>
             {baseSkins.map((skinName) => (
-              <div key={skinName} className="glide__slide">
+              <Carousel.Slide key={skinName}>
                 <Group justify="center" gap="0">
                   {rarityPresent && (
                     <RarityText
@@ -154,7 +154,7 @@ export function DollDetails(props: DollProps) {
                   imageUrl={`${imageUrl}/${skinName}/${props.doll.path}`}
                   dollName={props.doll.nameEn}
                 />
-              </div>
+              </Carousel.Slide>
             ))}
           </Carousel>
         </Suspense>
