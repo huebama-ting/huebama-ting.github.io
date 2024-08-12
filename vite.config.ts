@@ -17,10 +17,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id: string) {
-          if (id.includes("@glide")) {
-            return "@glide";
-          }
-
           if (id.includes("react-icons")) {
             return "react-icons";
           }
