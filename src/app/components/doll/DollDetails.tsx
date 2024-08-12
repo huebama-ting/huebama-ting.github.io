@@ -71,8 +71,10 @@ const DollRarity = lazy(() => import("src/app/components/doll/DollRarity"));
 // `;
 
 function RarityText(props: RarityTextProps) {
+  let RarityText: JSX.Element;
+
   if (props.skinStage === props.baseRarity) {
-    return (
+    RarityText = (
       <>
         <span>Base (</span>
         <DollRarity rarity={props.skinStage} />
@@ -80,13 +82,15 @@ function RarityText(props: RarityTextProps) {
       </>
     );
   } else {
-    return (
+    RarityText = (
       <>
         <DollRarity rarity={props.skinStage} />
         <span className={styles["afterRarityText"]}> Art</span>
       </>
     );
   }
+
+  return RarityText;
 }
 
 function DollSkinImage(props: DollSkinImageProps) {
