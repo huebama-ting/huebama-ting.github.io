@@ -1,16 +1,11 @@
 html,
 body {
   height: 100%;
-  margin: 0;
 }
 
 :root {
-  color-scheme: light dark;
-  background-color: var(--joy-palette-background-surface);
   font-synthesis: none;
   text-rendering: optimizelegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
 }
 
