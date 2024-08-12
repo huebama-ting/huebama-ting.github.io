@@ -21,10 +21,6 @@ export default defineConfig({
             return "@glide";
           }
 
-          if (id.includes("@mantine")) {
-            return "@mantine";
-          }
-
           if (id.includes("react-icons")) {
             return "react-icons";
           }
@@ -36,16 +32,11 @@ export default defineConfig({
       },
     },
   },
-  css: {
-    transformer: "lightningcss",
-  },
   plugins: [
-    eslintPlugin(),
+    eslintPlugin({ eslintOptions: { fix: true } }),
     qrcode(),
     react({
       devTarget: "es2022",
-      jsxImportSource: "@emotion/react",
-      plugins: [["@swc/plugin-emotion", {}]],
     }),
     reactClickToComponent(),
     stylelint({
