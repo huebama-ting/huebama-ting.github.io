@@ -3,7 +3,7 @@ import "@glidejs/glide/dist/css/glide.theme.min.css";
 import "@mantine/carousel/styles.css";
 import "@mantine/core/styles.css";
 
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { ColorSchemeScript, MantineProvider, createTheme } from "@mantine/core";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -16,13 +16,12 @@ import { Doll } from "src/app/types/doll";
 
 import "./index.css";
 
-// const theme = extendTheme({
-//   fontFamily: {
-//     display:
-//       '"Overpass Variable", "Inter", var(--joy-fontFamily-fallback, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol")',
-//     body: '"Overpass Variable", "Inter", var(--joy-fontFamily-fallback, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol")',
-//   },
-// });
+const fontFamily =
+  "Overpass Variable, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji";
+const theme = createTheme({
+  fontFamily,
+  headings: { fontFamily },
+});
 const router = createBrowserRouter([
   {
     path: "/",
@@ -74,7 +73,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ColorSchemeScript defaultColorScheme="auto" />
-    <MantineProvider defaultColorScheme="auto">
+    <MantineProvider defaultColorScheme="auto" theme={theme}>
       <RouterProvider router={router} />
       <PwaReloadPrompt />
     </MantineProvider>
