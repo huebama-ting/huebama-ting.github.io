@@ -1,10 +1,12 @@
-import styled from "@emotion/styled";
-import { Anchor, Group, Text } from "@mantine/core";
-import Box from "@mui/joy/Box";
-import Card from "@mui/joy/Card";
-import CardContent from "@mui/joy/CardContent";
-import CardCover from "@mui/joy/CardCover";
-import Skeleton from "@mui/joy/Skeleton";
+import {
+  Anchor,
+  AspectRatio,
+  Card,
+  Image,
+  Overlay,
+  Skeleton,
+  Text,
+} from "@mantine/core";
 import { useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -16,11 +18,6 @@ import "src/app/shared/styles/animation.css";
 import { DollProps } from "src/app/types/doll";
 
 import styles from "./styles/doll-card.module.css";
-
-const Image = styled.img`
-  /* stylelint-disable-next-line custom-property-pattern */
-  border-radius: var(--CardCover-radius);
-`;
 
 export function DollCard(props: DollProps) {
   const cardsPath = "cards";
@@ -38,55 +35,54 @@ export function DollCard(props: DollProps) {
 
   return (
     <Anchor component={Link} to={props.doll.path}>
-      <Card sx={{ height: "16rem", width: "8rem" }}>
-        <CardCover>
-          <Skeleton loading={loading}>
-            <picture
-              onLoad={() => {
-                setLoading(false);
-              }}
+      <Card withBorder h="24rem" w="12rem">
+        <Card.Section>
+          <AspectRatio ratio={192 / 384}>
+            <Skeleton visible={loading}>
+              <picture
+                onLoad={() => {
+                  setLoading(false);
+                }}
+              >
+                <source
+                  type="image/webp"
+                  width="192"
+                  height="384"
+                  srcSet={`${imageUrl}.webp`}
+                />
+                <Image
+                  src={`${imageUrl}.png`}
+                  width="192"
+                  height="384"
+                  alt={`Doll - ${props.doll.nameEn}`}
+                  loading="lazy"
+                />
+              </picture>
+            </Skeleton>
+
+            <Overlay
+              h="24rem"
+              w="12rem"
+              gradient="linear-gradient(to bottom, rgba(0,0,0,0) 82.5%, rgba(0,0,0,1))"
             >
-              <source
-                type="image/webp"
-                width="256"
-                height="512"
-                srcSet={`${imageUrl}.webp`}
-              />
-              <Image
-                src={`${imageUrl}.png`}
-                width="256"
-                height="512"
-                alt={`Doll - ${props.doll.nameEn}`}
-                loading="lazy"
-              />
-            </picture>
-            <Box
-              position="absolute"
-              top={0}
-              left={0}
-              right={0}
-              bottom={0}
-              borderRadius="var(--CardCover-radius)"
-              sx={{
-                background:
-                  "linear-gradient(to bottom, rgba(0,0,0,0) 77.5%, rgba(0,0,0,1))",
-              }}
-            ></Box>
-          </Skeleton>
-        </CardCover>
-        <CardContent sx={{ display: "flex", flexDirection: "column-reverse" }}>
-          <Group m="0 -0.5rem -0.75rem" className={styles["dollNameContainer"]}>
-            <Text
-              size="lg"
-              fw={500}
-              display="flex"
-              ref={ref}
-              className={styles["dollName"]}
-            >
-              {props.doll.nameEn}
-            </Text>
-          </Group>
-        </CardContent>
+              <Text
+                pos="absolute"
+                left={0}
+                right={0}
+                bottom={0}
+                size="xl"
+                fw={500}
+                pb="0.125rem"
+                pl="0.25rem"
+                c="#bbb"
+                ref={ref}
+                className={styles["dollName"]}
+              >
+                {props.doll.nameEn}
+              </Text>
+            </Overlay>
+          </AspectRatio>
+        </Card.Section>
       </Card>
     </Anchor>
   );

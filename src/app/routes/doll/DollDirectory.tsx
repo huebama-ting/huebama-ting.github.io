@@ -1,4 +1,4 @@
-import Box from "@mui/joy/Box";
+import { Group } from "@mantine/core";
 import { Suspense, lazy, useEffect, useState } from "react";
 
 import { Doll } from "src/app/types/doll";
@@ -29,18 +29,13 @@ export function DollDirectory() {
   return (
     <Suspense fallback={<Loading />}>
       <Page>
-        <Box
-          display="flex"
-          flexWrap="wrap"
-          gap="2rem 1rem"
-          justifyContent="center"
-        >
+        <Group gap="2rem 1rem" justify="center">
           {dolls.map((doll) => (
             <Suspense key={doll.path} fallback={<Loading />}>
               <DollCard doll={doll} />
             </Suspense>
           ))}
-        </Box>
+        </Group>
       </Page>
     </Suspense>
   );
