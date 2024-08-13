@@ -1,5 +1,5 @@
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
-import { IoMoon, IoSunny } from "react-icons/io5";
+import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
 
 export function ColourModeToggle() {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
@@ -12,7 +12,7 @@ export function ColourModeToggle() {
       }}
       variant="subtle"
     >
-      {colorScheme === "light" ? <IoMoon /> : <IoSunny />}
+      {colorScheme === "light" ? <IconMoonFilled /> : <IconSunFilled />}
     </ActionIcon>
   );
 }

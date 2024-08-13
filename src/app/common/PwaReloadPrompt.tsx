@@ -1,6 +1,6 @@
 import { Button, Group, Modal, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IoClose, IoReload } from "react-icons/io5";
+import { IconReload, IconX } from "@tabler/icons-react";
 import { useRegisterSW } from "virtual:pwa-register/react";
 
 export function PwaReloadPrompt() {
@@ -46,7 +46,7 @@ export function PwaReloadPrompt() {
                 aria-label="Reload content"
                 // eslint-disable-next-line @typescript-eslint/no-misused-promises
                 onClick={() => updateServiceWorker()}
-                leftSection={<IoReload />}
+                leftSection={<IconReload />}
               >
                 Reload
               </Button>
@@ -54,7 +54,7 @@ export function PwaReloadPrompt() {
             <Button
               aria-label="Close modal"
               onClick={close}
-              leftSection={<IoClose />}
+              leftSection={<IconX />}
             >
               Close
             </Button>

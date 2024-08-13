@@ -1,6 +1,10 @@
 import { Button, Group } from "@mantine/core";
+import {
+  IconClipboard,
+  IconHomeFilled,
+  IconUserFilled,
+} from "@tabler/icons-react";
 import { Suspense, lazy } from "react";
-import { IoClipboard, IoHome, IoPerson } from "react-icons/io5";
 import { Link as RouterLink } from "react-router-dom";
 
 import { Routes } from "src/app/shared/constants";
@@ -19,7 +23,7 @@ export function NavigationBar() {
         <Button
           component={RouterLink}
           to={Routes.ROOT}
-          leftSection={<IoHome />}
+          leftSection={<IconHomeFilled />}
           variant="subtle"
         >
           Home
@@ -27,7 +31,7 @@ export function NavigationBar() {
         <Button
           component={RouterLink}
           to={Routes.DOLL_DIRECTORY}
-          leftSection={<IoPerson />}
+          leftSection={<IconUserFilled />}
           variant="subtle"
         >
           Doll Directory
@@ -35,7 +39,7 @@ export function NavigationBar() {
         <Button
           component={RouterLink}
           to={Routes.COOP_REPORT}
-          leftSection={<IoClipboard />}
+          leftSection={<IconClipboard />}
           variant="subtle"
         >
           Co-op Reports
