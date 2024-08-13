@@ -3,12 +3,17 @@
 }
 
 .container {
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .doll-image {
   width: 16rem;
   height: 16rem;
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    width: 24rem;
+    height: 24rem;
+  }
 
   @media (min-width: $mantine-breakpoint-sm) {
     width: 32rem;
@@ -16,6 +21,11 @@
   }
 
   @media (min-width: $mantine-breakpoint-md) {
+    width: 40rem;
+    height: 40rem;
+  }
+
+  @media (min-width: $mantine-breakpoint-lg) {
     width: 48rem;
     height: 48rem;
   }
@@ -33,14 +43,18 @@
   border-radius: 0.5rem;
 
   @media (min-width: $mantine-breakpoint-xs) {
-    width: 32rem;
+    width: 28rem;
   }
 
   @media (min-width: $mantine-breakpoint-sm) {
-    width: 40rem;
+    width: 36rem;
   }
 
   @media (min-width: $mantine-breakpoint-md) {
+    width: 48rem;
+  }
+
+  @media (min-width: $mantine-breakpoint-lg) {
     width: 56rem;
   }
 }
