@@ -20,38 +20,43 @@ interface CoopReportContentViewProps {
 }
 
 export function CoopReportContentView(props: CoopReportContentViewProps) {
+  const cardClassName = "card";
+  const contentClassName = "card-content";
+  const dividerClassName = "divider";
+  const titleClassName = "card-title";
+
   if (!props.report) {
     return null;
   }
 
   return (
     <Stack>
-      <Title order={1}>{props.report.title}</Title>
-      <Title order={2} fw={500}>
+      <Title>{props.report.title}</Title>
+      <Title order={2} className={styles["term"]}>
         {props.report.term}
       </Title>
 
-      <Divider my="xs" label="Job Information" labelPosition="center" />
+      <Divider
+        label="Job Information"
+        labelPosition="center"
+        className={styles[dividerClassName]}
+      />
 
-      <Paper shadow="xs" p="lg" withBorder>
-        <Text size="lg" fw={500} mb="0.5rem" mt="0.5rem">
+      <Paper withBorder className={styles[cardClassName]}>
+        <Text className={styles[titleClassName]}>
           {props.report.company.name}
         </Text>
-        <Text fw={500} mb="0.5rem" mt="0.5rem">
-          Company
-        </Text>
-        <Text mb="0.5rem" mt="0.5rem">
+        <Text className={styles[contentClassName]}>Company</Text>
+        <Text className={styles[contentClassName]}>
           {props.report.company.description}
         </Text>
       </Paper>
 
-      <Paper shadow="xs" p="lg" withBorder>
-        <Text size="lg" fw={500} mb="0.5rem" mt="0.5rem">
+      <Paper withBorder className={styles[cardClassName]}>
+        <Text className={styles[titleClassName]}>
           {props.report.job.position}
         </Text>
-        <Text fw={500} mb="0.5rem" mt="0.5rem">
-          Job Description
-        </Text>
+        <Text className={styles[contentClassName]}>Job Description</Text>
         <List>
           {props.report.job.tasks.map((t) => (
             <List.Item key={generateKey(t)}>{t}</List.Item>
@@ -59,27 +64,27 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         </List>
       </Paper>
 
-      <Paper shadow="xs" p="lg" withBorder>
-        <Text size="lg" fw={500} mb="0.5rem" mt="0.5rem">
-          Unique Aspect of the Job
-        </Text>
-        <Text mb="0.5rem" mt="0.5rem">
+      <Paper withBorder className={styles[cardClassName]}>
+        <Text className={styles[titleClassName]}>Unique Aspect of the Job</Text>
+        <Text className={styles[contentClassName]}>
           {props.report.job.uniqueAspect}
         </Text>
       </Paper>
 
-      <Divider my="xs" label="Skills" labelPosition="center" />
+      <Divider
+        label="Skills"
+        labelPosition="center"
+        className={styles[dividerClassName]}
+      />
 
       <Accordion>
         {props.report.workTermSkills.map((wts) => (
           <Accordion.Item key={generateKey(wts.skill)} value={wts.skill}>
             <Accordion.Control>{wts.skill}</Accordion.Control>
             <Accordion.Panel>
-              <Text mb="0.5rem" mt="0.5rem">
-                {wts.use}
-              </Text>
+              <Text className={styles[contentClassName]}>{wts.use}</Text>
               <br />
-              <Text mb="0.5rem" mt="0.5rem">
+              <Text className={styles[contentClassName]}>
                 {wts.knowledgeSource}
               </Text>
             </Accordion.Panel>
@@ -87,13 +92,17 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         ))}
       </Accordion>
 
-      <Divider my="xs" label="Goals" labelPosition="center" />
+      <Divider
+        label="Goals"
+        labelPosition="center"
+        className={styles[dividerClassName]}
+      />
 
       <Tabs>
         <Tabs.List>
           {props.report.goal.mainGoals.map((g) => (
             <Tabs.Tab key={generateKey(g.name)} value={g.name}>
-              <Text className={styles["tab-text"]}>{g.name}</Text>
+              <Text className={styles["tab-title-text"]}>{g.name}</Text>
             </Tabs.Tab>
           ))}
         </Tabs.List>
@@ -103,23 +112,27 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
             key={generateKey(g.outcome, 0, g.outcome.length / 10)}
             value={g.name}
           >
-            <Text m="md">{g.outcome}</Text>
+            <Text className={styles["tab-content-text"]}>{g.outcome}</Text>
           </Tabs.Panel>
         ))}
       </Tabs>
 
       {props.report.goal.miscGoals.map((m) => (
-        <Paper shadow="xs" p="lg" withBorder key={generateKey(m.name, 0, 5)}>
-          <Text size="lg" fw={500} mb="1.5rem" mt="0.5rem">
-            {m.name}
-          </Text>
-          <Text mb="0.5rem" mt="0.5rem">
-            {m.outcome}
-          </Text>
+        <Paper
+          withBorder
+          key={generateKey(m.name, 0, 5)}
+          className={styles[cardClassName]}
+        >
+          <Text className={styles[titleClassName]}>{m.name}</Text>
+          <Text className={styles[contentClassName]}>{m.outcome}</Text>
         </Paper>
       ))}
 
-      <Divider my="xs" label="Bonus" labelPosition="center" />
+      <Divider
+        label="Bonus"
+        labelPosition="center"
+        className={styles[dividerClassName]}
+      />
 
       {props.report.bonus.quotes.map((q) => (
         <Blockquote cite="Anonymous" key={generateKey(q, 0, q.length / 10)}>
@@ -127,31 +140,32 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         </Blockquote>
       ))}
 
-      <Paper shadow="xs" p="lg" withBorder>
+      <Paper withBorder className={styles[cardClassName]}>
         {props.report.bonus.explanations.map((e) => (
-          <Text key={generateKey(e, 0, e.length / 10)} p="1rem 0">
+          <Text
+            key={generateKey(e, 0, e.length / 10)}
+            className={styles[contentClassName]}
+          >
             {e}
           </Text>
         ))}
       </Paper>
 
       <Divider
-        my="xs"
         label="Conclusion and Acknowledgements"
         labelPosition="center"
+        className={styles[dividerClassName]}
       />
 
-      <Text mb="0.5rem" mt="0.5rem">
+      <Text className={styles[contentClassName]}>
         {props.report.conclusion.endingNote}
       </Text>
 
-      <Paper shadow="xs" p="lg" withBorder>
-        <Text size="lg" fw={500} mb="0.5rem" mt="0.5rem">
-          Special Thanks
-        </Text>
+      <Paper withBorder className={styles[cardClassName]}>
+        <Text className={styles[titleClassName]}>Special Thanks</Text>
 
         {props.report.conclusion.specialThanks.map((st) => (
-          <Text key={generateKey(st)} mb="0.5rem" mt="0.5rem">
+          <Text key={generateKey(st)} className={styles[contentClassName]}>
             {st}
           </Text>
         ))}

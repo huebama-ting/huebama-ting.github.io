@@ -1,7 +1,33 @@
-.tab-text {
+.card {
+  padding: 1.25rem;
+}
+
+.card-title {
+  margin-block: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.card-content {
+  margin-block: 0.5rem;
+}
+
+.divider {
+  margin-block: 1rem;
+}
+
+.tab-content-text {
+  margin: 1rem;
+}
+
+.tab-title-text {
   font-size: 0.75rem;
 
   @media (min-width: $mantine-breakpoint-xs) {
     font-size: 1rem;
   }
+}
+
+.term {
+  font-weight: 500;
 }
