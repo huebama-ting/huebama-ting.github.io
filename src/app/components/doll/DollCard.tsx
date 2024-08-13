@@ -75,8 +75,8 @@ export function DollCard(props: DollProps) {
                 size="xl"
                 fw={500}
                 pb="0.125rem"
-                pl="0.25rem"
-                c="#bbb"
+                pl="0.5rem"
+                c="#ccc"
                 ref={ref}
                 className={styles["doll-name"]}
               >
