@@ -3,6 +3,8 @@ import { Suspense, lazy, useEffect, useState } from "react";
 
 import { Doll } from "src/app/types/doll";
 
+import styles from "./styles/doll-directory.module.css";
+
 const DollCard = lazy(() => import("src/app/components/doll/DollCard"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 
@@ -27,7 +29,7 @@ export function DollDirectory() {
 
   return (
     <Suspense fallback={<Loading />}>
-      <Group gap="2rem 1rem" justify="center">
+      <Group className={styles["doll-directory-container"]}>
         {dolls.map((doll) => (
           <Suspense key={doll.path} fallback={<Loading />}>
             <DollCard doll={doll} />
