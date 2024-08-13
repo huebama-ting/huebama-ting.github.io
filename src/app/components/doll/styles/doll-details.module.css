@@ -2,10 +2,13 @@
   white-space: pre;
 }
 
-.control {
-  &[data-inactive] {
-    cursor: default;
-    opacity: 0;
+.doll-image {
+  width: 16rem;
+  height: 16rem;
+
+  @media (min-width: $mantine-breakpoint-sm) {
+    width: 32rem;
+    height: 32rem;
   }
 }
 
@@ -14,6 +17,11 @@
 }
 
 .intro-container {
+  width: 18rem;
   border: 1px solid;
   border-radius: 0.5rem;
+
+  @media (min-width: $mantine-breakpoint-sm) {
+    width: 40rem;
+  }
 }

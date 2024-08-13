@@ -145,10 +145,7 @@ export function DollDetails(props: DollProps) {
         </Grid.Col>
         <Grid.Col span={12}>
           <Suspense fallback={<Loading />}>
-            <Carousel
-              withIndicators
-              classNames={{ control: styles["control"] }}
-            >
+            <Carousel withIndicators loop>
               {baseSkins.map((skinName) => (
                 <Carousel.Slide key={skinName}>
                   <Group justify="center" gap="0" fz="1.25rem">
