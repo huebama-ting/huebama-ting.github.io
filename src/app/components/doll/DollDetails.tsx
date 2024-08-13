@@ -136,7 +136,7 @@ export function DollDetails(props: DollProps) {
   };
 
   return (
-    <Center>
+    <Center p="1rem">
       <Grid className={styles["intro-container"]}>
         <Grid.Col span={12}>
           <Title size="1.5rem" mt="sm" className={styles["doll-name"]}>
@@ -145,7 +145,7 @@ export function DollDetails(props: DollProps) {
         </Grid.Col>
         <Grid.Col span={12}>
           <Suspense fallback={<Loading />}>
-            <Carousel withIndicators loop>
+            <Carousel loop>
               {baseSkins.map((skinName) => (
                 <Carousel.Slide key={skinName}>
                   <Group justify="center" gap="0" fz="1.25rem">

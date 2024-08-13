@@ -10,6 +10,11 @@
     width: 32rem;
     height: 32rem;
   }
+
+  @media (min-width: $mantine-breakpoint-md) {
+    width: 48rem;
+    height: 48rem;
+  }
 }
 
 .doll-name {
@@ -17,11 +22,19 @@
 }
 
 .intro-container {
-  width: 18rem;
+  width: 100%;
   border: 1px solid;
   border-radius: 0.5rem;
 
+  @media (min-width: $mantine-breakpoint-xs) {
+    width: 32rem;
+  }
+
   @media (min-width: $mantine-breakpoint-sm) {
     width: 40rem;
+  }
+
+  @media (min-width: $mantine-breakpoint-md) {
+    width: 56rem;
   }
 }
