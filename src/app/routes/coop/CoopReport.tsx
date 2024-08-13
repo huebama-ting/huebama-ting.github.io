@@ -1,8 +1,10 @@
-import { ComboboxItem } from "@mantine/core";
+import { ComboboxItem, Stack } from "@mantine/core";
 import { Suspense, lazy, useEffect, useState } from "react";
 
 import { CoopReportContent } from "src/app/types/coop-report";
 import { DynamicImport } from "src/app/types/dynamic-import";
+
+import styles from "./styles/coop-report.module.css";
 
 const CoopReportContentView = lazy(
   () => import("src/app/components/coop-report/CoopReportContentView"),
@@ -45,12 +47,14 @@ export function CoopReport() {
 
   return (
     <Suspense fallback={<Loading />}>
-      <CoopReportSelect
-        fileList={fileList}
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        onChange={handleChange}
-      />
-      <CoopReportContentView report={report} />
+      <Stack className={styles["coop-report-container"]}>
+        <CoopReportSelect
+          fileList={fileList}
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          onChange={handleChange}
+        />
+        <CoopReportContentView report={report} />
+      </Stack>
     </Suspense>
   );
 }
