@@ -36,11 +36,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         {props.report.term}
       </Title>
 
-      <Divider
-        label="Job Information"
-        labelPosition="center"
-        className={styles[dividerClassName]}
-      />
+      <Divider label="Job Information" className={styles[dividerClassName]} />
 
       <Paper withBorder className={styles[cardClassName]}>
         <Text className={styles[titleClassName]}>
@@ -71,11 +67,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         </Text>
       </Paper>
 
-      <Divider
-        label="Skills"
-        labelPosition="center"
-        className={styles[dividerClassName]}
-      />
+      <Divider label="Skills" className={styles[dividerClassName]} />
 
       <Accordion>
         {props.report.workTermSkills.map((wts) => (
@@ -92,11 +84,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         ))}
       </Accordion>
 
-      <Divider
-        label="Goals"
-        labelPosition="center"
-        className={styles[dividerClassName]}
-      />
+      <Divider label="Goals" className={styles[dividerClassName]} />
 
       <Tabs>
         <Tabs.List>
@@ -128,11 +116,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         </Paper>
       ))}
 
-      <Divider
-        label="Bonus"
-        labelPosition="center"
-        className={styles[dividerClassName]}
-      />
+      <Divider label="Bonus" className={styles[dividerClassName]} />
 
       {props.report.bonus.quotes.map((q) => (
         <Blockquote cite="Anonymous" key={generateKey(q, 0, q.length / 10)}>
@@ -153,7 +137,6 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
 
       <Divider
         label="Conclusion and Acknowledgements"
-        labelPosition="center"
         className={styles[dividerClassName]}
       />
 
