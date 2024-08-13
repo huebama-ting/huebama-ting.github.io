@@ -9,6 +9,8 @@ import { Link as RouterLink } from "react-router-dom";
 
 import { Routes } from "src/app/shared/constants";
 
+import styles from "./styles/navigation-bar.module.css";
+
 const ColourModeToggle = lazy(() => import("src/app/common/ColourModeToggle"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 
@@ -18,7 +20,7 @@ export function NavigationBar() {
   //   accessCode === import.meta.env.VITE_COOP_ROUTE_ACCESS_CODE;
 
   return (
-    <Group justify="space-between" m="lg">
+    <Group className={styles["nav"]}>
       <Group>
         <Button
           component={RouterLink}
