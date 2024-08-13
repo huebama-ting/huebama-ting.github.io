@@ -37,7 +37,7 @@ export function DollCard(props: DollProps) {
 
   return (
     <Anchor component={Link} to={props.doll.path}>
-      <Card withBorder h="24rem" w="12rem">
+      <Card withBorder>
         <Card.Section>
           <AspectRatio ratio={192 / 384}>
             <Skeleton visible={loading}>
@@ -62,24 +62,8 @@ export function DollCard(props: DollProps) {
               </picture>
             </Skeleton>
 
-            <Overlay
-              h="24rem"
-              w="12rem"
-              gradient="linear-gradient(to bottom, rgba(0,0,0,0) 82.5%, rgba(0,0,0,1))"
-            >
-              <Text
-                pos="absolute"
-                left={0}
-                right={0}
-                bottom={0}
-                size="xl"
-                fw={500}
-                pb="0.125rem"
-                pl="0.5rem"
-                c="#ccc"
-                ref={ref}
-                className={styles["doll-name"]}
-              >
+            <Overlay className={styles["card-overlay"]}>
+              <Text ref={ref} className={styles["doll-name"]}>
                 {props.doll.nameEn}
               </Text>
             </Overlay>
