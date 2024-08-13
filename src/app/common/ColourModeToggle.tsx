@@ -11,6 +11,7 @@ export function ColourModeToggle() {
         setColorScheme(colorScheme === "light" ? "dark" : "light");
       }}
       variant="subtle"
+      size="lg"
     >
       {colorScheme === "light" ? <IconMoonFilled /> : <IconSunFilled />}
     </ActionIcon>
