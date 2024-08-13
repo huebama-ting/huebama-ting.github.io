@@ -146,7 +146,7 @@ export function DollDetails(props: DollProps) {
           <Carousel withIndicators classNames={{ control: styles["control"] }}>
             {baseSkins.map((skinName) => (
               <Carousel.Slide key={skinName}>
-                <Group justify="center" gap="0">
+                <Group justify="center" gap="0" fz="1.25rem">
                   {rarityPresent && (
                     <RarityText
                       skinStage={skinRarity(skinName)}
