@@ -3,6 +3,8 @@ import { useDisclosure } from "@mantine/hooks";
 import { IconReload, IconX } from "@tabler/icons-react";
 import { useRegisterSW } from "virtual:pwa-register/react";
 
+import styles from "./styles/pwa-reload-prompt.module.css";
+
 export function PwaReloadPrompt() {
   const [opened, { close }] = useDisclosure(true, {
     onClose: () => {
@@ -34,13 +36,13 @@ export function PwaReloadPrompt() {
           closeOnEscape={false}
           centered
         >
-          <Text my="xs">
+          <Text className={styles["modal-text"]}>
             {offlineReady
               ? "App ready to work offline."
               : "New content available. Reload for new content?"}
           </Text>
 
-          <Group mt="xl" justify="flex-end">
+          <Group className={styles["button-container"]}>
             {needRefresh && (
               <Button
                 aria-label="Reload content"
