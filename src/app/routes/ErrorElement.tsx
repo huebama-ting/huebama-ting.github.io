@@ -2,6 +2,8 @@ import { Stack, Text, Title } from "@mantine/core";
 import { Suspense, lazy } from "react";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
+import styles from "./styles/error-element.module.css";
+
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const NavigationBar = lazy(() => import("src/app/common/NavigationBar"));
 
@@ -12,9 +14,9 @@ interface ErrorProps {
 function ErrorText(props: ErrorProps) {
   return (
     <>
-      <Title order={1}>Oops!</Title>
+      <Title>Oops!</Title>
       <br />
-      <Text size="xl">
+      <Text className={styles["message"]}>
         Sorry, an unexpected error has occurred.
         <br />
         {props.message}
@@ -36,7 +38,7 @@ export function ErrorElement(props: ErrorProps): React.ReactNode {
         <NavigationBar />
       </Suspense>
 
-      <Stack justify="center" align="center" flex={1} gap="xs">
+      <Stack className={styles["error-container"]}>
         {isRouteErrorResponse(error) ? (
           <>
             <ErrorText />

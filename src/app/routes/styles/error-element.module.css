@@ -1,0 +1,10 @@
+.error-container {
+  flex: 1;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  font-size: 1.25rem;
+}
