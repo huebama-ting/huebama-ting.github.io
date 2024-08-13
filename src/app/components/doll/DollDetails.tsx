@@ -136,19 +136,17 @@ export function DollDetails(props: DollProps) {
   };
 
   return (
-    <Center p="1rem">
+    <Center className={styles["container"]}>
       <Grid className={styles["intro-container"]}>
         <Grid.Col span={12}>
-          <Title size="1.5rem" mt="sm" className={styles["doll-name"]}>
-            {props.doll.nameEn}
-          </Title>
+          <Title className={styles["doll-name"]}>{props.doll.nameEn}</Title>
         </Grid.Col>
         <Grid.Col span={12}>
           <Suspense fallback={<Loading />}>
             <Carousel loop>
               {baseSkins.map((skinName) => (
                 <Carousel.Slide key={skinName}>
-                  <Group justify="center" gap="0" fz="1.25rem">
+                  <Group className={styles["rarity-container"]}>
                     {rarityPresent && (
                       <RarityText
                         skinStage={skinRarity(skinName)}
