@@ -1,0 +1,7 @@
+.tab-text {
+  font-size: 0.75rem;
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    font-size: 1rem;
+  }
+}

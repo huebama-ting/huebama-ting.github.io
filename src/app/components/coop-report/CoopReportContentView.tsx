@@ -13,6 +13,8 @@ import {
 import { CoopReportContent } from "src/app/types/coop-report";
 import { generateKey } from "src/app/utils/react-key-generator";
 
+import styles from "./styles/coop-report-content-view.module.css";
+
 interface CoopReportContentViewProps {
   readonly report: CoopReportContent | undefined;
 }
@@ -91,7 +93,7 @@ export function CoopReportContentView(props: CoopReportContentViewProps) {
         <Tabs.List>
           {props.report.goal.mainGoals.map((g) => (
             <Tabs.Tab key={generateKey(g.name)} value={g.name}>
-              <Text m="xs">{g.name}</Text>
+              <Text className={styles["tab-text"]}>{g.name}</Text>
             </Tabs.Tab>
           ))}
         </Tabs.List>
