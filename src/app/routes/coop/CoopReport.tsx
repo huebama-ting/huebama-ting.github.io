@@ -8,7 +8,6 @@ const CoopReportContentView = lazy(
   () => import("src/app/components/coop-report/CoopReportContentView"),
 );
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
-const Page = lazy(() => import("src/app/shared/components/Layout"));
 const CoopReportSelect = lazy(
   () => import("src/app/components/coop-report/CoopReportSelect"),
 );
@@ -46,14 +45,12 @@ export function CoopReport() {
 
   return (
     <Suspense fallback={<Loading />}>
-      <Page>
-        <CoopReportSelect
-          fileList={fileList}
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onChange={handleChange}
-        />
-        <CoopReportContentView report={report} />
-      </Page>
+      <CoopReportSelect
+        fileList={fileList}
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onChange={handleChange}
+      />
+      <CoopReportContentView report={report} />
     </Suspense>
   );
 }

@@ -5,18 +5,13 @@ import { Doll } from "src/app/types/doll";
 
 const DollDetails = lazy(() => import("src/app/components/doll/DollDetails"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
-const Page = lazy(() => import("src/app/shared/components/Layout"));
 
 export function DollInfo() {
   const doll = useLoaderData() as Doll;
 
   return (
     <Suspense fallback={<Loading />}>
-      <Page>
-        <DollDetails doll={doll} />
-      </Page>
+      <DollDetails doll={doll} />
     </Suspense>
   );
 }
-
-export default DollInfo;

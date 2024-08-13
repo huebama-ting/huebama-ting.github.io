@@ -95,7 +95,7 @@ function RarityText(props: RarityTextProps) {
 
 function DollSkinImage(props: DollSkinImageProps) {
   return (
-    <Center>
+    <Center py="1rem">
       <picture>
         <source
           type="image/webp"
@@ -109,6 +109,7 @@ function DollSkinImage(props: DollSkinImageProps) {
           height={320}
           alt={`Doll - ${props.dollName}`}
           loading="lazy"
+          className={styles["doll-image"]}
         />
       </picture>
     </Center>
@@ -135,35 +136,40 @@ export function DollDetails(props: DollProps) {
   };
 
   return (
-    <Grid className={styles["intro-container"]}>
-      <Grid.Col span={12}>
-        <Title size="1.5rem" mt="sm" className={styles["doll-name"]}>
-          {props.doll.nameEn}
-        </Title>
-      </Grid.Col>
-      <Grid.Col span={12}>
-        <Suspense fallback={<Loading />}>
-          <Carousel withIndicators classNames={{ control: styles["control"] }}>
-            {baseSkins.map((skinName) => (
-              <Carousel.Slide key={skinName}>
-                <Group justify="center" gap="0" fz="1.25rem">
-                  {rarityPresent && (
-                    <RarityText
-                      skinStage={skinRarity(skinName)}
-                      baseRarity={props.doll.baseRarity}
-                    />
-                  )}
-                </Group>
-                <DollSkinImage
-                  imageUrl={`${imageUrl}/${skinName}/${props.doll.path}`}
-                  dollName={props.doll.nameEn}
-                />
-              </Carousel.Slide>
-            ))}
-          </Carousel>
-        </Suspense>
-      </Grid.Col>
-    </Grid>
+    <Center>
+      <Grid className={styles["intro-container"]}>
+        <Grid.Col span={12}>
+          <Title size="1.5rem" mt="sm" className={styles["doll-name"]}>
+            {props.doll.nameEn}
+          </Title>
+        </Grid.Col>
+        <Grid.Col span={12}>
+          <Suspense fallback={<Loading />}>
+            <Carousel
+              withIndicators
+              classNames={{ control: styles["control"] }}
+            >
+              {baseSkins.map((skinName) => (
+                <Carousel.Slide key={skinName}>
+                  <Group justify="center" gap="0" fz="1.25rem">
+                    {rarityPresent && (
+                      <RarityText
+                        skinStage={skinRarity(skinName)}
+                        baseRarity={props.doll.baseRarity}
+                      />
+                    )}
+                  </Group>
+                  <DollSkinImage
+                    imageUrl={`${imageUrl}/${skinName}/${props.doll.path}`}
+                    dollName={props.doll.nameEn}
+                  />
+                </Carousel.Slide>
+              ))}
+            </Carousel>
+          </Suspense>
+        </Grid.Col>
+      </Grid>
+    </Center>
   );
 }
 

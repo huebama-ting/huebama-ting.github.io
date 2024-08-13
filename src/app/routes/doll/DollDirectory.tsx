@@ -5,7 +5,6 @@ import { Doll } from "src/app/types/doll";
 
 const DollCard = lazy(() => import("src/app/components/doll/DollCard"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
-const Page = lazy(() => import("src/app/shared/components/Layout"));
 
 export function DollDirectory() {
   const [dolls, setDolls] = useState<Doll[]>([]);
@@ -28,15 +27,13 @@ export function DollDirectory() {
 
   return (
     <Suspense fallback={<Loading />}>
-      <Page>
-        <Group gap="2rem 1rem" justify="center">
-          {dolls.map((doll) => (
-            <Suspense key={doll.path} fallback={<Loading />}>
-              <DollCard doll={doll} />
-            </Suspense>
-          ))}
-        </Group>
-      </Page>
+      <Group gap="2rem 1rem" justify="center">
+        {dolls.map((doll) => (
+          <Suspense key={doll.path} fallback={<Loading />}>
+            <DollCard doll={doll} />
+          </Suspense>
+        ))}
+      </Group>
     </Suspense>
   );
 }
