@@ -143,7 +143,11 @@ export function DollDetails(props: DollProps) {
         </Grid.Col>
         <Grid.Col span={12}>
           <Suspense fallback={<Loading />}>
-            <Carousel loop>
+            <Carousel
+              loop
+              nextControlProps={{ "aria-label": "Next carousel slide" }}
+              previousControlProps={{ "aria-label": "Previous carousel slide" }}
+            >
               {baseSkins.map((skinName) => (
                 <Carousel.Slide key={skinName}>
                   <Group className={styles["rarity-container"]}>

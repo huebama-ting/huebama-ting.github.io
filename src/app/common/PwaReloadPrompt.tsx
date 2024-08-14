@@ -34,6 +34,7 @@ export function PwaReloadPrompt() {
           title={offlineReady ? "Offline Ready" : "Update Available"}
           closeOnClickOutside={false}
           closeOnEscape={false}
+          closeButtonProps={{ "aria-label": "Close modal" }}
           centered
         >
           <Text className={styles["modal-text"]}>
