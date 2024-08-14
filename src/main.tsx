@@ -1,26 +1,24 @@
-import "@fontsource-variable/overpass";
-import "@fontsource-variable/overpass/wght-italic.css";
-import "@glidejs/glide/dist/css/glide.core.min.css";
-import "@glidejs/glide/dist/css/glide.theme.min.css";
-import GlobalStyles from "@mui/joy/GlobalStyles";
-import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
+import "@mantine/carousel/styles.css";
+import "@mantine/core/styles.css";
+
+import { ColorSchemeScript, MantineProvider, createTheme } from "@mantine/core";
 import { StrictMode } from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import "src/index.css";
 import { NavWrapper } from "src/app/common/NavWrapper";
 import { PwaReloadPrompt } from "src/app/common/PwaReloadPrompt";
 import { ErrorElement } from "src/app/routes/ErrorElement";
 import { Routes } from "src/app/shared/constants";
 import { Doll } from "src/app/types/doll";
 
-const theme = extendTheme({
-  fontFamily: {
-    display:
-      '"Overpass Variable", "Inter", var(--joy-fontFamily-fallback, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol")',
-    body: '"Overpass Variable", "Inter", var(--joy-fontFamily-fallback, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol")',
-  },
+import "./index.css";
+
+const fontFamily =
+  "Overpass Variable, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji";
+const theme = createTheme({
+  fontFamily,
+  headings: { fontFamily },
 });
 const router = createBrowserRouter([
   {
@@ -31,16 +29,15 @@ const router = createBrowserRouter([
       {
         path: Routes.ROOT,
         lazy: async () => {
-          const { Home } = await import("src/app/routes/Home");
+          const { Home } = await import("src/app/routes/home/Home");
 
           return { Component: Home };
         },
-        errorElement: <ErrorElement />,
       },
       {
         path: Routes.COOP_REPORT,
         lazy: async () => {
-          const { CoopReport } = await import("src/app/routes/CoopReport");
+          const { CoopReport } = await import("src/app/routes/coop/CoopReport");
 
           return { Component: CoopReport };
         },
@@ -49,7 +46,7 @@ const router = createBrowserRouter([
         path: Routes.DOLL_DIRECTORY,
         lazy: async () => {
           const { DollDirectory } = await import(
-            "src/app/routes/DollDirectory"
+            "src/app/routes/doll/DollDirectory"
           );
 
           return { Component: DollDirectory };
@@ -58,7 +55,7 @@ const router = createBrowserRouter([
       {
         path: Routes.DOLL_INFO,
         lazy: async () => {
-          const { DollInfo } = await import("src/app/routes/DollInfo");
+          const { DollInfo } = await import("src/app/routes/doll/DollInfo");
 
           return { Component: DollInfo };
         },
@@ -71,22 +68,12 @@ const router = createBrowserRouter([
 ]);
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-ReactDOM.createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <CssVarsProvider defaultMode="system" theme={theme}>
-      <GlobalStyles
-        styles={{
-          ".react-icon": {
-            color: "var(--Icon-color)",
-            margin: "var(--Icon-margin)",
-            fontSize: "var(--Icon-fontSize, 20px)",
-            width: "0.75em",
-            height: "0.75em",
-          },
-        }}
-      />
+    <ColorSchemeScript defaultColorScheme="auto" />
+    <MantineProvider defaultColorScheme="auto" theme={theme}>
       <RouterProvider router={router} />
       <PwaReloadPrompt />
-    </CssVarsProvider>
+    </MantineProvider>
   </StrictMode>,
 );

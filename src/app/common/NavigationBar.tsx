@@ -1,63 +1,57 @@
-import Box from "@mui/joy/Box";
-import Link from "@mui/joy/Link";
-import Stack from "@mui/joy/Stack";
+import { Button, Group } from "@mantine/core";
+import {
+  IconClipboard,
+  IconHomeFilled,
+  IconUserFilled,
+} from "@tabler/icons-react";
 import { Suspense, lazy } from "react";
-import { IoClipboard, IoHome, IoPerson } from "react-icons/io5";
 import { Link as RouterLink } from "react-router-dom";
 
 import { Routes } from "src/app/shared/constants";
+
+import styles from "./styles/navigation-bar.module.css";
 
 const ColourModeToggle = lazy(() => import("src/app/common/ColourModeToggle"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 
 export function NavigationBar() {
-  const accessCode = sessionStorage.getItem("COOP_ROUTE_ACCESS_CODE");
-  const isAuthorised =
-    accessCode === import.meta.env.VITE_COOP_ROUTE_ACCESS_CODE;
+  // const accessCode = sessionStorage.getItem("COOP_ROUTE_ACCESS_CODE");
+  // const isAuthorised =
+  //   accessCode === import.meta.env.VITE_COOP_ROUTE_ACCESS_CODE;
 
   return (
-    <Box
-      minHeight="5rem"
-      maxHeight="5rem"
-      display="flex"
-      flexGrow={1}
-      justifyContent="space-between"
-      margin="0 1rem"
-    >
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={4}
-      >
-        <Link
-          startDecorator={<IoHome className="react-icon" />}
+    <Group className={styles["nav"]}>
+      <Group>
+        <Button
           component={RouterLink}
           to={Routes.ROOT}
+          leftSection={<IconHomeFilled />}
+          variant="subtle"
         >
           Home
-        </Link>
-        <Link
-          startDecorator={<IoPerson className="react-icon" />}
+        </Button>
+        <Button
           component={RouterLink}
           to={Routes.DOLL_DIRECTORY}
+          leftSection={<IconUserFilled />}
+          variant="subtle"
         >
           Doll Directory
-        </Link>
-        {isAuthorised && (
-          <Link
-            startDecorator={<IoClipboard />}
-            component={RouterLink}
-            to={Routes.COOP_REPORT}
-          >
-            Co-op Reports
-          </Link>
-        )}
-      </Stack>
+        </Button>
+        <Button
+          component={RouterLink}
+          to={Routes.COOP_REPORT}
+          leftSection={<IconClipboard />}
+          variant="subtle"
+        >
+          Co-op Reports
+        </Button>
+      </Group>
+
       <Suspense fallback={<Loading />}>
         <ColourModeToggle />
       </Suspense>
-    </Box>
+    </Group>
   );
 }
 

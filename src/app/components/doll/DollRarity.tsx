@@ -1,4 +1,4 @@
-import { IoStar, IoStarHalf } from "react-icons/io5";
+import { IconStarFilled, IconStarHalfFilled } from "@tabler/icons-react";
 
 interface DollRarityProps {
   readonly rarity: number;
@@ -11,9 +11,9 @@ export function DollRarity(props: DollRarityProps) {
   return (
     <div>
       {[...new Array(revisedRarity).keys()].map((count) => (
-        <IoStar key={count} className="react-icon" />
+        <IconStarFilled key={count} />
       ))}
-      {isHalfStar && <IoStarHalf className="react-icon" />}
+      {isHalfStar && <IconStarHalfFilled />}
     </div>
   );
 }

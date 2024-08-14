@@ -1,0 +1,26 @@
+.card-overlay {
+  width: 12rem;
+  height: 24rem;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0%) 82.5%,
+    rgb(0 0 0 / 100%)
+  );
+}
+
+.doll-name {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 0.125rem;
+  padding-left: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ccc;
+  white-space: nowrap;
+}
+
+.doll-name-container {
+  overflow: hidden;
+}

@@ -1,0 +1,8 @@
+.coop-report-container {
+  align-items: center;
+  margin: 2rem;
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    margin: 3rem;
+  }
+}

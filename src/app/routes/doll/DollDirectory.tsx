@@ -1,11 +1,12 @@
-import Box from "@mui/joy/Box";
+import { Group } from "@mantine/core";
 import { Suspense, lazy, useEffect, useState } from "react";
 
 import { Doll } from "src/app/types/doll";
 
+import styles from "./styles/doll-directory.module.css";
+
 const DollCard = lazy(() => import("src/app/components/doll/DollCard"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
-const Page = lazy(() => import("src/app/shared/components/Layout"));
 
 export function DollDirectory() {
   const [dolls, setDolls] = useState<Doll[]>([]);
@@ -28,20 +29,13 @@ export function DollDirectory() {
 
   return (
     <Suspense fallback={<Loading />}>
-      <Page>
-        <Box
-          display="flex"
-          flexWrap="wrap"
-          gap="2rem 1rem"
-          justifyContent="center"
-        >
-          {dolls.map((doll) => (
-            <Suspense key={doll.path} fallback={<Loading />}>
-              <DollCard doll={doll} />
-            </Suspense>
-          ))}
-        </Box>
-      </Page>
+      <Group className={styles["doll-directory-container"]}>
+        {dolls.map((doll) => (
+          <Suspense key={doll.path} fallback={<Loading />}>
+            <DollCard doll={doll} />
+          </Suspense>
+        ))}
+      </Group>
     </Suspense>
   );
 }

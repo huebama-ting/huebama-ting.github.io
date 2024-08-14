@@ -1,193 +1,158 @@
-import styled from "@emotion/styled";
-import Accordion from "@mui/joy/Accordion";
-import AccordionDetails from "@mui/joy/AccordionDetails";
-import AccordionGroup from "@mui/joy/AccordionGroup";
-import AccordionSummary from "@mui/joy/AccordionSummary";
-import Box from "@mui/joy/Box";
-import Card from "@mui/joy/Card";
-import Divider from "@mui/joy/Divider";
-import List from "@mui/joy/List";
-import ListItem from "@mui/joy/ListItem";
-import Stack from "@mui/joy/Stack";
-import { SxProps } from "@mui/joy/styles/types";
-import Tab from "@mui/joy/Tab";
-import TabList from "@mui/joy/TabList";
-import TabPanel from "@mui/joy/TabPanel";
-import Tabs from "@mui/joy/Tabs";
-import Typography from "@mui/joy/Typography";
+import {
+  Accordion,
+  Blockquote,
+  Divider,
+  List,
+  Paper,
+  Stack,
+  Tabs,
+  Text,
+  Title,
+} from "@mantine/core";
 
 import { CoopReportContent } from "src/app/types/coop-report";
 import { generateKey } from "src/app/utils/react-key-generator";
+
+import styles from "./styles/coop-report-content-view.module.css";
 
 interface CoopReportContentViewProps {
   readonly report: CoopReportContent | undefined;
 }
 
-const Quote = styled.blockquote`
-  padding: 1rem;
-  background-color: var(--joy-palette-background-level3);
-`;
-
-const dividerStyles: SxProps = {
-  marginBottom: "2rem",
-  marginTop: "2rem",
-};
-
 export function CoopReportContentView(props: CoopReportContentViewProps) {
+  const cardClassName = "card";
+  const contentClassName = "card-content";
+  const dividerClassName = "divider";
+  const titleClassName = "card-title";
+
   if (!props.report) {
     return null;
   }
 
   return (
-    <Stack
-      alignItems={"center"}
-      spacing={4}
-      textAlign="center"
-      width={{
-        xs: "15rem",
-        sm: "30rem",
-        md: "40rem",
-        lg: "45rem",
-        xl: "55rem",
-      }}
-    >
-      <Typography
-        fontSize={{ xs: "1rem", md: "2rem", lg: "3rem" }}
-        marginBottom="1rem"
-        marginTop="1rem"
-      >
-        {props.report.title}
-      </Typography>
-      <Typography level="h2">{props.report.term}</Typography>
+    <Stack>
+      <Title>{props.report.title}</Title>
+      <Title order={2} className={styles["term"]}>
+        {props.report.term}
+      </Title>
 
-      <Divider sx={dividerStyles}>Job Information</Divider>
-      <Card>
-        <Box>
-          <Typography level="title-lg" mb="0.5rem" mt="0.5rem">
-            {props.report.company.name}
-          </Typography>
-          <Typography level="title-sm">Company</Typography>
-          <Typography level="body-md" mb="0.5rem" mt="0.5rem">
-            {props.report.company.description}
-          </Typography>
-        </Box>
-      </Card>
-      <Card>
-        <Box>
-          <Typography level="title-lg" mb="0.5rem" mt="0.5rem">
-            {props.report.job.position}
-          </Typography>
-          <Typography level="title-sm">Job Description</Typography>
-          <List>
-            {props.report.job.tasks.map((t) => (
-              <ListItem key={generateKey(t)}>
-                <Typography level="body-md">{t}</Typography>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Card>
-      <Card>
-        <Box>
-          <Typography level="title-lg" mb="0.5rem" mt="0.5rem">
-            Unique Aspect of the Job
-          </Typography>
-          <Typography level="body-md" mb="0.5rem" mt="0.5rem">
-            {props.report.job.uniqueAspect}
-          </Typography>
-        </Box>
-      </Card>
+      <Divider label="Job Information" className={styles[dividerClassName]} />
 
-      <Divider sx={dividerStyles}>Skills</Divider>
-      <Box>
-        <AccordionGroup>
-          {props.report.workTermSkills.map((wts) => (
-            <Accordion key={generateKey(wts.skill)}>
-              <AccordionSummary sx={{ fontSize: "1.25rem" }}>
-                {wts.skill}
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography level="body-md">{wts.use}</Typography>
-                <br />
-                <Typography level="body-md">{wts.knowledgeSource}</Typography>
-              </AccordionDetails>
-            </Accordion>
+      <Paper withBorder className={styles[cardClassName]}>
+        <Text className={styles[titleClassName]}>
+          {props.report.company.name}
+        </Text>
+        <Text className={styles[contentClassName]}>Company</Text>
+        <Text className={styles[contentClassName]}>
+          {props.report.company.description}
+        </Text>
+      </Paper>
+
+      <Paper withBorder className={styles[cardClassName]}>
+        <Text className={styles[titleClassName]}>
+          {props.report.job.position}
+        </Text>
+        <Text className={styles[contentClassName]}>Job Description</Text>
+        <List>
+          {props.report.job.tasks.map((t) => (
+            <List.Item key={generateKey(t)}>{t}</List.Item>
           ))}
-        </AccordionGroup>
-      </Box>
+        </List>
+      </Paper>
 
-      <Divider sx={dividerStyles}>Goals</Divider>
-      <Box>
-        <Tabs>
-          <TabList>
-            {props.report.goal.mainGoals.map((g) => (
-              <Tab key={generateKey(g.name)}>
-                <Typography level="body-md">{g.name}</Typography>
-              </Tab>
-            ))}
-          </TabList>
-          {props.report.goal.mainGoals.map((g, index) => (
-            <TabPanel
-              key={generateKey(g.outcome, 0, g.outcome.length / 10)}
-              value={index}
-            >
-              <Typography level="body-md">{g.outcome}</Typography>
-            </TabPanel>
+      <Paper withBorder className={styles[cardClassName]}>
+        <Text className={styles[titleClassName]}>Unique Aspect of the Job</Text>
+        <Text className={styles[contentClassName]}>
+          {props.report.job.uniqueAspect}
+        </Text>
+      </Paper>
+
+      <Divider label="Skills" className={styles[dividerClassName]} />
+
+      <Accordion>
+        {props.report.workTermSkills.map((wts) => (
+          <Accordion.Item key={generateKey(wts.skill)} value={wts.skill}>
+            <Accordion.Control>{wts.skill}</Accordion.Control>
+            <Accordion.Panel>
+              <Text className={styles[contentClassName]}>{wts.use}</Text>
+              <br />
+              <Text className={styles[contentClassName]}>
+                {wts.knowledgeSource}
+              </Text>
+            </Accordion.Panel>
+          </Accordion.Item>
+        ))}
+      </Accordion>
+
+      <Divider label="Goals" className={styles[dividerClassName]} />
+
+      <Tabs>
+        <Tabs.List>
+          {props.report.goal.mainGoals.map((g) => (
+            <Tabs.Tab key={generateKey(g.name)} value={g.name}>
+              <Text className={styles["tab-title-text"]}>{g.name}</Text>
+            </Tabs.Tab>
           ))}
-        </Tabs>
-      </Box>
+        </Tabs.List>
+
+        {props.report.goal.mainGoals.map((g) => (
+          <Tabs.Panel
+            key={generateKey(g.outcome, 0, g.outcome.length / 10)}
+            value={g.name}
+          >
+            <Text className={styles["tab-content-text"]}>{g.outcome}</Text>
+          </Tabs.Panel>
+        ))}
+      </Tabs>
+
       {props.report.goal.miscGoals.map((m) => (
-        <Card key={generateKey(m.name, 0, 5)}>
-          <Box>
-            <Typography level="title-lg">{m.name}</Typography>
-            <br />
-            <Typography level="body-md">{m.outcome}</Typography>
-          </Box>
-        </Card>
+        <Paper
+          withBorder
+          key={generateKey(m.name, 0, 5)}
+          className={styles[cardClassName]}
+        >
+          <Text className={styles[titleClassName]}>{m.name}</Text>
+          <Text className={styles[contentClassName]}>{m.outcome}</Text>
+        </Paper>
       ))}
 
-      <Divider sx={dividerStyles}>Bonus</Divider>
+      <Divider label="Bonus" className={styles[dividerClassName]} />
+
       {props.report.bonus.quotes.map((q) => (
-        <Quote key={generateKey(q, 0, q.length / 10)}>
-          <Typography level="body-md">{q}</Typography>
-          <footer>—Anonymous</footer>
-        </Quote>
+        <Blockquote cite="Anonymous" key={generateKey(q, 0, q.length / 10)}>
+          {q}
+        </Blockquote>
       ))}
-      <Card>
-        <Box>
-          {props.report.bonus.explanations.map((e) => (
-            <Typography
-              level="body-md"
-              key={generateKey(e, 0, e.length / 10)}
-              padding="1rem 0"
-            >
-              {e}
-            </Typography>
-          ))}
-        </Box>
-      </Card>
 
-      <Divider sx={dividerStyles}>Conclusion and Acknowledgements</Divider>
-      <Typography level="body-md">
+      <Paper withBorder className={styles[cardClassName]}>
+        {props.report.bonus.explanations.map((e) => (
+          <Text
+            key={generateKey(e, 0, e.length / 10)}
+            className={styles[contentClassName]}
+          >
+            {e}
+          </Text>
+        ))}
+      </Paper>
+
+      <Divider
+        label="Conclusion and Acknowledgements"
+        className={styles[dividerClassName]}
+      />
+
+      <Text className={styles[contentClassName]}>
         {props.report.conclusion.endingNote}
-      </Typography>
-      <Card>
-        <Box>
-          <Typography level="title-lg" mb="0.5rem" mt="0.5rem">
-            Special Thanks
-          </Typography>
-          {props.report.conclusion.specialThanks.map((st) => (
-            <Typography
-              level="body-md"
-              key={generateKey(st)}
-              mb="0.5rem"
-              mt="0.5rem"
-            >
-              {st}
-            </Typography>
-          ))}
-        </Box>
-      </Card>
+      </Text>
+
+      <Paper withBorder className={styles[cardClassName]}>
+        <Text className={styles[titleClassName]}>Special Thanks</Text>
+
+        {props.report.conclusion.specialThanks.map((st) => (
+          <Text key={generateKey(st)} className={styles[contentClassName]}>
+            {st}
+          </Text>
+        ))}
+      </Paper>
     </Stack>
   );
 }

@@ -13,17 +13,12 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    cssMinify: "lightningcss",
     target: "es2022",
     rollupOptions: {
       output: {
         manualChunks(id: string) {
-          if (id.includes("@glide")) {
-            return "@glide";
-          }
-
-          if (id.includes("react-icons")) {
-            return "react-icons";
+          if (id.includes("@tabler")) {
+            return "@tabler";
           }
 
           if (id.includes("react-router-dom") || id.includes("react-router")) {
@@ -33,16 +28,11 @@ export default defineConfig({
       },
     },
   },
-  css: {
-    transformer: "lightningcss",
-  },
   plugins: [
-    eslintPlugin(),
+    eslintPlugin({ eslintOptions: { fix: true } }),
     qrcode(),
     react({
       devTarget: "es2022",
-      jsxImportSource: "@emotion/react",
-      plugins: [["@swc/plugin-emotion", {}]],
     }),
     reactClickToComponent(),
     stylelint({

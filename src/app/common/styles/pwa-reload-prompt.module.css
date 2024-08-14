@@ -1,0 +1,8 @@
+.button-container {
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.modal-text {
+  margin-block: 0.75rem;
+}

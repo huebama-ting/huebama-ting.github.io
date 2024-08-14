@@ -1,14 +1,14 @@
-import styled from "@emotion/styled";
-import Grid from "@mui/joy/Grid";
-import Typography from "@mui/joy/Typography";
+import { Carousel } from "@mantine/carousel";
+import { Center, Grid, Group, Image, Title } from "@mantine/core";
 import { Suspense, lazy } from "react";
 
 import {
   CDN_BASE_URL,
   DOLL_INFO_REPO_IMAGES_PATH,
-  MEDIA_QUERIES,
 } from "src/app/shared/constants";
 import { DollProps } from "src/app/types/doll";
+
+import styles from "./styles/doll-details.module.css";
 
 interface RarityTextProps {
   readonly skinStage: number;
@@ -20,62 +20,61 @@ interface DollSkinImageProps {
   readonly dollName: string;
 }
 
-const Carousel = lazy(() => import("src/app/shared/components/Carousel"));
+// const Carousel = lazy(() => import("src/app/shared/components/Carousel"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const DollRarity = lazy(() => import("src/app/components/doll/DollRarity"));
 
-const sizeStyles = `
-  width: 20rem;
-  height: 20rem;
+// const sizeStyles = `
+//   width: 20rem;
+//   height: 20rem;
 
-  ${MEDIA_QUERIES["md"]} {
-    width: 32rem;
-    height: 32rem;
-  }
+//   ${MEDIA_QUERIES["md"]} {
+//     width: 32rem;
+//     height: 32rem;
+//   }
 
-  ${MEDIA_QUERIES["lg"]} {
-    width: 40rem;
-    height: 40rem;
-  }
-`;
-const carouselStyles = `
-  margin: 0 1rem 1rem;
-  width: 20rem;
+//   ${MEDIA_QUERIES["lg"]} {
+//     width: 40rem;
+//     height: 40rem;
+//   }
+// `;
+// const carouselStyles = `
+//   margin: 0 1rem 1rem;
+//   width: 20rem;
 
-  ${MEDIA_QUERIES["md"]} {
-    width: 32rem;
-  }
+//   ${MEDIA_QUERIES["md"]} {
+//     width: 32rem;
+//   }
 
-  ${MEDIA_QUERIES["lg"]} {
-    width: 40rem;
-  }
-`;
+//   ${MEDIA_QUERIES["lg"]} {
+//     width: 40rem;
+//   }
+// `;
 
-const AfterRarityText = styled.span`
-  white-space: pre;
-`;
-const FlexContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0.25rem 0 0.5rem;
-`;
-const Image = styled.img`
-  ${sizeStyles}
-`;
-const ImageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// const FlexContainer = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   margin: 0.25rem 0 0.5rem;
+// `;
+// const Image = styled.img`
+//   ${sizeStyles}
+// `;
+// const ImageContainer = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
 
-  ${sizeStyles}
-`;
-const Source = styled.source`
-  ${sizeStyles}
-`;
+//   ${sizeStyles}
+// `;
+// const Source = styled.source`
+//   ${sizeStyles}
+// `;
 
 function RarityText(props: RarityTextProps) {
+  let RarityText: JSX.Element;
+
   if (props.skinStage === props.baseRarity) {
-    return (
+    RarityText = (
       <>
         <span>Base (</span>
         <DollRarity rarity={props.skinStage} />
@@ -83,20 +82,22 @@ function RarityText(props: RarityTextProps) {
       </>
     );
   } else {
-    return (
+    RarityText = (
       <>
         <DollRarity rarity={props.skinStage} />
-        <AfterRarityText> Art</AfterRarityText>
+        <span className={styles["after-rarity-text"]}> Art</span>
       </>
     );
   }
+
+  return RarityText;
 }
 
 function DollSkinImage(props: DollSkinImageProps) {
   return (
-    <ImageContainer>
+    <Center py="1rem">
       <picture>
-        <Source
+        <source
           type="image/webp"
           srcSet={`${props.imageUrl}.webp`}
           width={320}
@@ -108,9 +109,10 @@ function DollSkinImage(props: DollSkinImageProps) {
           height={320}
           alt={`Doll - ${props.dollName}`}
           loading="lazy"
+          className={styles["doll-image"]}
         />
       </picture>
-    </ImageContainer>
+    </Center>
   );
 }
 
@@ -134,48 +136,35 @@ export function DollDetails(props: DollProps) {
   };
 
   return (
-    <Grid
-      container
-      spacing={2}
-      flexGrow={1}
-      border={1}
-      borderColor="lightsteelblue"
-      borderRadius="0.5rem"
-    >
-      <Grid xs={12}>
-        <Typography level="title-lg" textAlign="center">
-          {props.doll.nameEn}
-        </Typography>
+    <Center className={styles["container"]}>
+      <Grid className={styles["intro-container"]}>
+        <Grid.Col span={12}>
+          <Title className={styles["doll-name"]}>{props.doll.nameEn}</Title>
+        </Grid.Col>
+        <Grid.Col span={12}>
+          <Suspense fallback={<Loading />}>
+            <Carousel loop>
+              {baseSkins.map((skinName) => (
+                <Carousel.Slide key={skinName}>
+                  <Group className={styles["rarity-container"]}>
+                    {rarityPresent && (
+                      <RarityText
+                        skinStage={skinRarity(skinName)}
+                        baseRarity={props.doll.baseRarity}
+                      />
+                    )}
+                  </Group>
+                  <DollSkinImage
+                    imageUrl={`${imageUrl}/${skinName}/${props.doll.path}`}
+                    dollName={props.doll.nameEn}
+                  />
+                </Carousel.Slide>
+              ))}
+            </Carousel>
+          </Suspense>
+        </Grid.Col>
       </Grid>
-      <Grid
-        xs={12}
-        container
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Suspense fallback={<Loading />}>
-          <Carousel styles={carouselStyles}>
-            {baseSkins.map((skinName) => (
-              <div key={skinName} className="glide__slide">
-                <FlexContainer>
-                  {rarityPresent && (
-                    <RarityText
-                      skinStage={skinRarity(skinName)}
-                      baseRarity={props.doll.baseRarity}
-                    />
-                  )}
-                </FlexContainer>
-                <DollSkinImage
-                  imageUrl={`${imageUrl}/${skinName}/${props.doll.path}`}
-                  dollName={props.doll.nameEn}
-                />
-              </div>
-            ))}
-          </Carousel>
-        </Suspense>
-      </Grid>
-    </Grid>
+    </Center>
   );
 }
 

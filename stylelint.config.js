@@ -2,13 +2,8 @@
 
 export default {
   extends: ["stylelint-config-standard", "stylelint-config-recess-order"],
-  customSyntax: "postcss-styled-syntax",
+  ignoreFiles: ["dist/**/*"],
   rules: {
-    "font-family-no-missing-generic-family-keyword": [
-      true,
-      {
-        ignoreFontFamilies: ["Overpass Variable"],
-      },
-    ],
+    "media-query-no-invalid": null,
   },
 };

@@ -1,24 +1,20 @@
-import IconButton from "@mui/joy/IconButton";
-import { useColorScheme } from "@mui/joy/styles";
-import { IoMoon, IoSunny } from "react-icons/io5";
+import { ActionIcon, useMantineColorScheme } from "@mantine/core";
+import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
 
 export function ColourModeToggle() {
-  const { mode, setMode } = useColorScheme();
+  const { colorScheme, setColorScheme } = useMantineColorScheme();
 
   return (
-    <IconButton
+    <ActionIcon
       aria-label="Theme toggle"
       onClick={() => {
-        setMode(mode === "light" ? "dark" : "light");
+        setColorScheme(colorScheme === "light" ? "dark" : "light");
       }}
-      variant="plain"
+      variant="subtle"
+      size="lg"
     >
-      {mode === "light" ? (
-        <IoMoon className="react-icon" />
-      ) : (
-        <IoSunny className="react-icon" />
-      )}
-    </IconButton>
+      {colorScheme === "light" ? <IconMoonFilled /> : <IconSunFilled />}
+    </ActionIcon>
   );
 }
 
