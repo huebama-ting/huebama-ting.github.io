@@ -10,22 +10,22 @@
   width: 16rem;
   height: 16rem;
 
-  @media (min-width: $mantine-breakpoint-xs) {
+  @mixin larger-than $mantine-breakpoint-xs {
     width: 24rem;
     height: 24rem;
   }
 
-  @media (min-width: $mantine-breakpoint-sm) {
+  @mixin larger-than $mantine-breakpoint-sm {
     width: 32rem;
     height: 32rem;
   }
 
-  @media (min-width: $mantine-breakpoint-md) {
+  @mixin larger-than $mantine-breakpoint-md {
     width: 40rem;
     height: 40rem;
   }
 
-  @media (min-width: $mantine-breakpoint-lg) {
+  @mixin larger-than $mantine-breakpoint-lg {
     width: 48rem;
     height: 48rem;
   }
@@ -42,19 +42,19 @@
   border: 1px solid;
   border-radius: 0.5rem;
 
-  @media (min-width: $mantine-breakpoint-xs) {
+  @mixin larger-than $mantine-breakpoint-xs {
     width: 28rem;
   }
 
-  @media (min-width: $mantine-breakpoint-sm) {
+  @mixin larger-than $mantine-breakpoint-sm {
     width: 36rem;
   }
 
-  @media (min-width: $mantine-breakpoint-md) {
+  @mixin larger-than $mantine-breakpoint-md {
     width: 48rem;
   }
 
-  @media (min-width: $mantine-breakpoint-lg) {
+  @mixin larger-than $mantine-breakpoint-lg {
     width: 56rem;
   }
 }
