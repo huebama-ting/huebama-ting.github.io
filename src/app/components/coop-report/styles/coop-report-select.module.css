@@ -7,15 +7,15 @@
     width: 70%;
   }
 
-  @mixin larger-than min-width: $mantine-breakpoint-sm {
+  @mixin larger-than $mantine-breakpoint-sm {
     width: 60%;
   }
 
-  @mixin larger-than min-width: $mantine-breakpoint-md {
+  @mixin larger-than $mantine-breakpoint-md {
     width: 50%;
   }
 
-  @mixin larger-than min-width: $mantine-breakpoint-lg {
+  @mixin larger-than $mantine-breakpoint-lg {
     width: 40%;
   }
 }
