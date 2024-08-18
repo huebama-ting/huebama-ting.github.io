@@ -4,6 +4,7 @@ import eslintPlugin from "@nabla/vite-plugin-eslint";
 import react from "@vitejs/plugin-react-swc";
 import TurboConsole from "unplugin-turbo-console/vite";
 import { defineConfig } from "vite";
+import pluginPurgeCss from "vite-plugin-purgecss-updated-v5";
 import { VitePWA } from "vite-plugin-pwa";
 import { qrcode } from "vite-plugin-qrcode";
 import { reactClickToComponent } from "vite-plugin-react-click-to-component";
@@ -30,6 +31,7 @@ export default defineConfig({
   },
   plugins: [
     eslintPlugin({ eslintOptions: { fix: true } }),
+    pluginPurgeCss(),
     qrcode(),
     react({
       devTarget: "es2022",
