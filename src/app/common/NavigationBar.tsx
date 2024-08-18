@@ -30,6 +30,7 @@ export function NavigationBar() {
       variant="subtle"
       className={styles[navButtonClass]}
       key="home"
+      onClick={close}
     >
       Home
     </Button>,
@@ -40,6 +41,7 @@ export function NavigationBar() {
       variant="subtle"
       className={styles[navButtonClass]}
       key="doll-directory"
+      onClick={close}
     >
       Doll Directory
     </Button>,
@@ -51,6 +53,7 @@ export function NavigationBar() {
       className={styles[navButtonClass]}
       display={isAuthorised ? "" : "none"}
       key="coop-report"
+      onClick={close}
     >
       Co-op Reports
     </Button>,
