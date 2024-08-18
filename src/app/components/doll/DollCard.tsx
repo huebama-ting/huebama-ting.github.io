@@ -37,8 +37,8 @@ export function DollCard(props: DollProps) {
 
   return (
     <Anchor component={Link} to={props.doll.path}>
-      <Card withBorder>
-        <Card.Section>
+      <Card withBorder className={styles["card"]}>
+        <Card.Section className={styles["card-section"]}>
           <AspectRatio ratio={192 / 384}>
             <Skeleton visible={loading}>
               <picture

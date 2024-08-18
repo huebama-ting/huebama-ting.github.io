@@ -1,11 +1,19 @@
-.card-overlay {
+.card {
   width: 12rem;
+  height: 24rem;
+}
+
+.card-overlay {
   height: 24rem;
   background: linear-gradient(
     to bottom,
     rgb(0 0 0 / 0%) 82.5%,
     rgb(0 0 0 / 100%)
   );
+}
+
+.card-section {
+  margin: -1rem;
 }
 
 .doll-name {
