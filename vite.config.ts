@@ -42,7 +42,7 @@ export default defineConfig({
       lintInWorker: true,
     }),
     tsconfigPaths(),
-    TurboConsole(),
+    TurboConsole({ specifiedEditor: "code" }),
     VitePWA({
       devOptions: {
         enabled: true,
