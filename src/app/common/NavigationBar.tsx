@@ -68,11 +68,20 @@ export function NavigationBar() {
   if (isMobile) {
     navBar = (
       <Group className={styles["nav"]}>
-        <Drawer opened={opened} onClose={close} size="xs">
+        <Drawer
+          opened={opened}
+          onClose={close}
+          size="xs"
+          closeButtonProps={{ "aria-label": "Close navigation drawer" }}
+        >
           <Stack>{buttons.map((button) => button)}</Stack>
         </Drawer>
 
-        <Burger opened={opened} onClick={open} aria-label="Toggle navigation" />
+        <Burger
+          opened={opened}
+          onClick={open}
+          aria-label="Toggle navigation drawer"
+        />
 
         {themeToggle}
       </Group>

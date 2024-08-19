@@ -6,7 +6,11 @@ export function ColourModeToggle() {
 
   return (
     <ActionIcon
-      aria-label="Theme toggle"
+      aria-label={
+        colorScheme === "light"
+          ? "Switch to dark theme"
+          : "Switch to light theme"
+      }
       onClick={() => {
         setColorScheme(colorScheme === "light" ? "dark" : "light");
       }}
