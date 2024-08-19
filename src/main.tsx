@@ -6,8 +6,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { NavWrapper } from "src/app/common/NavWrapper";
 import { PwaReloadPrompt } from "src/app/common/PwaReloadPrompt";
+import { Shell } from "src/app/common/Shell";
 import { ErrorElement } from "src/app/routes/ErrorElement";
 import { Routes } from "src/app/shared/constants";
 import { Doll } from "src/app/types/doll";
@@ -23,7 +23,7 @@ const theme = createTheme({
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NavWrapper />,
+    element: <Shell />,
     errorElement: <ErrorElement />,
     children: [
       {

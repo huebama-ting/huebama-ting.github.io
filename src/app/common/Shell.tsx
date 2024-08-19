@@ -2,12 +2,12 @@ import { Stack } from "@mantine/core";
 import { Suspense, lazy } from "react";
 import { Outlet } from "react-router-dom";
 
-import styles from "./styles/nav-wrapper.module.css";
+import styles from "./styles/shell.module.css";
 
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const NavigationBar = lazy(() => import("src/app/common/NavigationBar"));
 
-export function NavWrapper() {
+export function Shell() {
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -21,4 +21,4 @@ export function NavWrapper() {
   );
 }
 
-export default NavWrapper;
+export default Shell;
