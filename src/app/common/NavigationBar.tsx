@@ -51,7 +51,7 @@ export function NavigationBar() {
       leftSection={<IconClipboard />}
       variant="subtle"
       className={styles[navButtonClass]}
-      display={isAuthorised ? "" : "block"}
+      display={isAuthorised ? "" : "none"}
       key="coop-report"
       onClick={close}
     >
