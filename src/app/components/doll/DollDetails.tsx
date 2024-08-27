@@ -1,7 +1,6 @@
 import { Carousel } from "@mantine/carousel";
 import { Center, Grid, Group, Image, Title } from "@mantine/core";
-import { Suspense, lazy } from "react";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 
 import {
   CDN_BASE_URL,
