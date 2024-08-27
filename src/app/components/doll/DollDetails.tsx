@@ -1,6 +1,7 @@
 import { Carousel } from "@mantine/carousel";
 import { Center, Grid, Group, Image, Title } from "@mantine/core";
 import { Suspense, lazy } from "react";
+import React from "react";
 
 import {
   CDN_BASE_URL,
@@ -20,58 +21,11 @@ interface DollSkinImageProps {
   readonly dollName: string;
 }
 
-// const Carousel = lazy(() => import("src/app/shared/components/Carousel"));
 const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const DollRarity = lazy(() => import("src/app/components/doll/DollRarity"));
 
-// const sizeStyles = `
-//   width: 20rem;
-//   height: 20rem;
-
-//   ${MEDIA_QUERIES["md"]} {
-//     width: 32rem;
-//     height: 32rem;
-//   }
-
-//   ${MEDIA_QUERIES["lg"]} {
-//     width: 40rem;
-//     height: 40rem;
-//   }
-// `;
-// const carouselStyles = `
-//   margin: 0 1rem 1rem;
-//   width: 20rem;
-
-//   ${MEDIA_QUERIES["md"]} {
-//     width: 32rem;
-//   }
-
-//   ${MEDIA_QUERIES["lg"]} {
-//     width: 40rem;
-//   }
-// `;
-
-// const FlexContainer = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   margin: 0.25rem 0 0.5rem;
-// `;
-// const Image = styled.img`
-//   ${sizeStyles}
-// `;
-// const ImageContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-
-//   ${sizeStyles}
-// `;
-// const Source = styled.source`
-//   ${sizeStyles}
-// `;
-
 function RarityText(props: RarityTextProps) {
-  let RarityText: JSX.Element;
+  let RarityText: React.JSX.Element;
 
   if (props.skinStage === props.baseRarity) {
     RarityText = (

@@ -5,7 +5,7 @@ import {
   IconHomeFilled,
   IconUserFilled,
 } from "@tabler/icons-react";
-import { Suspense, lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
 import { Routes } from "src/app/shared/constants";
@@ -51,7 +51,7 @@ export function NavigationBar() {
       leftSection={<IconClipboard />}
       variant="subtle"
       className={styles[navButtonClass]}
-      display={isAuthorised ? "" : "none"}
+      display={isAuthorised ? "" : "block"}
       key="coop-report"
       onClick={close}
     >
@@ -63,7 +63,7 @@ export function NavigationBar() {
       <ColourModeToggle />
     </Suspense>
   );
-  let navBar: JSX.Element;
+  let navBar: React.JSX.Element;
 
   if (isMobile) {
     navBar = (
