@@ -17,12 +17,12 @@ import pluginPromise from "eslint-plugin-promise";
 import hooksPlugin from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import sonarjs from "eslint-plugin-sonarjs";
-import tseslint from "typescript-eslint";
+import { config, configs } from "typescript-eslint";
 
 const flatRecommended = "flat/recommended";
 
 export default [
-  ...tseslint.config(
+  ...config(
     {
       ignores: ["**/dev-dist/**", "**/dist/**"],
     },
@@ -50,10 +50,7 @@ export default [
     },
     {
       files: ["**/*.{ts,tsx}"],
-      extends: [
-        ...tseslint.configs.strictTypeChecked,
-        ...tseslint.configs.stylisticTypeChecked,
-      ],
+      extends: [...configs.strictTypeChecked, ...configs.stylisticTypeChecked],
       languageOptions: {
         parserOptions: {
           projectService: true,
@@ -120,9 +117,11 @@ export default [
     },
     pluginPromise.configs[flatRecommended],
     {
-      plugins: {
-        "import-x": importPlugin,
-      },
+      extends: [
+        importPlugin.flatConfigs.recommended,
+        importPlugin.flatConfigs.react,
+        importPlugin.flatConfigs.typescript,
+      ],
       settings: {
         "import-x/resolver": {
           typescript: true,
