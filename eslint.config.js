@@ -9,7 +9,7 @@ import eslintConfigPrettier from "eslint-config-prettier";
 import compat from "eslint-plugin-compat";
 import depend from "eslint-plugin-depend";
 import pluginESx from "eslint-plugin-es-x";
-import eslintImportX from "eslint-plugin-import-x";
+import importPlugin from "eslint-plugin-import-x";
 import eslintPluginJsonc from "eslint-plugin-jsonc";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import nodePlugin from "eslint-plugin-n";
@@ -42,8 +42,11 @@ export default [
       },
     },
     {
-      files: ["**/*.{ts,tsx}"],
-      ...react.configs["recommended-type-checked"],
+      files: ["**/*.{jsx,tsx}"],
+      extends: [react.configs["recommended-type-checked"]],
+      rules: {
+        "@eslint-react/prefer-read-only-props": "error",
+      },
     },
     {
       files: ["**/*.{ts,tsx}"],
@@ -74,7 +77,6 @@ export default [
             ignoreRestSiblings: true,
           },
         ],
-        "@eslint-react/prefer-read-only-props": "error",
         "@typescript-eslint/restrict-template-expressions": [
           "error",
           {
@@ -91,14 +93,20 @@ export default [
     compat.configs[flatRecommended],
     depend.configs[flatRecommended],
     eslintConfigPrettier,
-    ...eslintPluginJsonc.configs["flat/recommended-with-json"],
+    {
+      files: ["**/*.json"],
+      extends: [
+        ...eslintPluginJsonc.configs["flat/recommended-with-json"],
+        ...eslintPluginJsonc.configs["flat/prettier"],
+      ],
+    },
     jsxA11y.flatConfigs.recommended,
-    nodePlugin.configs[flatRecommended],
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
       ...sonarjs.configs.recommended,
     },
     {
+      extends: [nodePlugin.configs[flatRecommended]],
       rules: {
         "n/no-missing-import": "off",
         "n/no-unsupported-features/node-builtins": [
@@ -113,7 +121,7 @@ export default [
     pluginPromise.configs[flatRecommended],
     {
       plugins: {
-        "import-x": eslintImportX,
+        "import-x": importPlugin,
       },
       settings: {
         "import-x/resolver": {
