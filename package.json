@@ -52,7 +52,7 @@
     "eslint-plugin-react-refresh": "^0.4.11",
     "eslint-plugin-sonarjs": "^1.0.4",
     "husky": "^9.1.5",
-    "lint-staged": "^15.2.9",
+    "lint-staged": "^15.2.10",
     "postcss": "^8.4.41",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
