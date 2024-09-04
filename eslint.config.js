@@ -26,7 +26,6 @@ export default [
       ignores: ["**/dev-dist/**", "**/dist/**"],
     },
     {
-      extends: [eslint.configs.recommended],
       languageOptions: {
         parserOptions: {
           ecmaFeatures: {
@@ -40,6 +39,7 @@ export default [
         reportUnusedDisableDirectives: "error",
       },
     },
+    eslint.configs.recommended,
     {
       files: ["**/*.{jsx,tsx}"],
       extends: [react.configs["recommended-type-checked"]],
@@ -102,7 +102,7 @@ export default [
     jsxA11y.flatConfigs.recommended,
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
-      ...sonarJsConfig.recommended,
+      extends: [sonarJsConfig.recommended],
     },
     {
       extends: [nodePlugin.configs[flatRecommended]],
