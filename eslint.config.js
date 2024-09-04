@@ -16,7 +16,7 @@ import nodePlugin from "eslint-plugin-n";
 import pluginPromise from "eslint-plugin-promise";
 import reactRefresh from "eslint-plugin-react-refresh";
 import { configs as sonarJsConfig } from "eslint-plugin-sonarjs";
-import { config, configs } from "typescript-eslint";
+import { config, configs as tsConfigs } from "typescript-eslint";
 
 const flatRecommended = "flat/recommended";
 
@@ -43,21 +43,28 @@ export default [
     {
       files: ["**/*.{jsx,tsx}"],
       extends: [react.configs["recommended-type-checked"]],
+      plugins: {
+        "react-refresh": reactRefresh,
+      },
       rules: {
         "@eslint-react/prefer-read-only-props": "error",
+        "react-refresh/only-export-components": [
+          "error",
+          { allowConstantExport: true },
+        ],
       },
     },
     {
       files: ["**/*.{ts,tsx}"],
-      extends: [...configs.strictTypeChecked, ...configs.stylisticTypeChecked],
+      extends: [
+        ...tsConfigs.strictTypeChecked,
+        ...tsConfigs.stylisticTypeChecked,
+      ],
       languageOptions: {
         parserOptions: {
           projectService: true,
           tsconfigRootDir: dirname(fileURLToPath(import.meta.url)),
         },
-      },
-      plugins: {
-        "react-refresh": reactRefresh,
       },
       rules: {
         "@typescript-eslint/dot-notation": "off",
@@ -79,10 +86,6 @@ export default [
             allowBoolean: true,
             allowNumber: true,
           },
-        ],
-        "react-refresh/only-export-components": [
-          "error",
-          { allowConstantExport: true },
         ],
       },
     },
