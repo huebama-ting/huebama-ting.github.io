@@ -23,7 +23,7 @@ const flatRecommended = "flat/recommended";
 export default [
   ...config(
     {
-      ignores: ["**/dev-dist/**", "**/dist/**"],
+      ignores: ["**/*dist/**"],
     },
     {
       languageOptions: {
