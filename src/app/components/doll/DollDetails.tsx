@@ -1,6 +1,6 @@
 import { Carousel } from "@mantine/carousel";
 import { Center, Grid, Group, Image, Title } from "@mantine/core";
-import React, { Suspense, lazy } from "react";
+import { JSX, Suspense, lazy } from "react";
 
 import {
   CDN_BASE_URL,
@@ -24,7 +24,7 @@ const Loading = lazy(() => import("src/app/shared/components/Loading"));
 const DollRarity = lazy(() => import("src/app/components/doll/DollRarity"));
 
 function RarityText(props: RarityTextProps) {
-  let RarityText: React.JSX.Element;
+  let RarityText: JSX.Element;
 
   if (props.skinStage === props.baseRarity) {
     RarityText = (

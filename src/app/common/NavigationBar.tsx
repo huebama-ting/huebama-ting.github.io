@@ -5,7 +5,7 @@ import {
   IconHomeFilled,
   IconUserFilled,
 } from "@tabler/icons-react";
-import React, { Suspense, lazy } from "react";
+import { JSX, Suspense, lazy } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
 import { Routes } from "src/app/shared/constants";
@@ -63,7 +63,7 @@ export function NavigationBar() {
       <ColourModeToggle />
     </Suspense>
   );
-  let navBar: React.JSX.Element;
+  let navBar: JSX.Element;
 
   if (isMobile) {
     navBar = (

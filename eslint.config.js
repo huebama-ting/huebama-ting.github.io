@@ -16,7 +16,7 @@ import nodePlugin from "eslint-plugin-n";
 import pluginPromise from "eslint-plugin-promise";
 import hooksPlugin from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
-import sonarjs from "eslint-plugin-sonarjs";
+import { configs as sonarJsConfig } from "eslint-plugin-sonarjs";
 import { config, configs } from "typescript-eslint";
 
 const flatRecommended = "flat/recommended";
@@ -100,7 +100,7 @@ export default [
     jsxA11y.flatConfigs.recommended,
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
-      ...sonarjs.configs.recommended,
+      ...sonarJsConfig.recommended,
     },
     {
       extends: [nodePlugin.configs[flatRecommended]],
