@@ -16,7 +16,7 @@
     "preview": "vite preview --host"
   },
   "dependencies": {
-    "@fontsource-variable/overpass": "^5.0.20",
+    "@fontsource-variable/overpass": "^5.1.0",
     "@mantine/carousel": "^7.12.2",
     "@mantine/core": "^7.12.2",
     "@mantine/hooks": "^7.12.2",
