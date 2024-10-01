@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@fontsource-variable/overpass':
-        specifier: ^5.0.20
-        version: 5.0.20
+        specifier: ^5.1.0
+        version: 5.1.0
       '@mantine/carousel':
         specifier: ^7.12.2
         version: 7.12.2(@mantine/core@7.12.2(@mantine/hooks@7.12.2(react@18.3.1))(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.12.2(react@18.3.1))(embla-carousel-react@8.2.1(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1010,8 +1010,8 @@ packages:
   '@floating-ui/utils@0.2.7':
     resolution: {integrity: sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==}
 
-  '@fontsource-variable/overpass@5.0.20':
-    resolution: {integrity: sha512-tAB/0OxKKGsU9iRCAJVMhGXYSetvRSidfLxER6+LLDTCFoKNCed4TY0QXw+nY2Z+i/8pQSun8M9Q6gvkHT4OFg==}
+  '@fontsource-variable/overpass@5.1.0':
+    resolution: {integrity: sha512-Fz7+ZTNSW6YeoTGHvUvDsydiW6bXt0pAbhUaL23FCnRZaRv5qqH+JNkkQdtj4R5qqrTwi5iAZn9r3dCJm+sDfw==}
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -5216,7 +5216,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.7': {}
 
-  '@fontsource-variable/overpass@5.0.20': {}
+  '@fontsource-variable/overpass@5.1.0': {}
 
   '@humanwhocodes/module-importer@1.0.1': {}
 
