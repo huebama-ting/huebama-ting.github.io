@@ -37,7 +37,7 @@
     "@types/react-dom": "^18.3.0",
     "@vite-pwa/assets-generator": "^0.2.6",
     "@vitejs/plugin-react-swc": "^3.7.0",
-    "eslint": "^9.9.1",
+    "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-compat": "^6.0.0",
