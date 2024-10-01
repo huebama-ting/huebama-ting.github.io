@@ -61,7 +61,7 @@
     "stylelint-config-recess-order": "^5.1.0",
     "stylelint-config-standard": "^36.0.1",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.4.0",
+    "typescript-eslint": "^8.8.0",
     "typescript-plugin-css-modules": "^5.1.0",
     "unplugin-turbo-console": "^1.10.1",
     "vite": "^5.4.3",
